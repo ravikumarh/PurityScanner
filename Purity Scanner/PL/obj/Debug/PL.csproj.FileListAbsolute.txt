@@ -2,3 +2,7 @@ D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PL\bin\Debug\PL.dll
 D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PL\bin\Debug\PL.pdb
 D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PL\obj\Debug\PL.dll
 D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PL\obj\Debug\PL.pdb
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PL\bin\Debug\PL.dll
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PL\bin\Debug\PL.pdb
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PL\obj\Debug\PL.dll
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PL\obj\Debug\PL.pdb

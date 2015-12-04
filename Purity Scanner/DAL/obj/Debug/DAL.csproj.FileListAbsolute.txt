@@ -6,3 +6,11 @@ D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\DAL\bin\Debug\PL.pdb
 D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\DAL\obj\Debug\DAL.dll
 D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\DAL\obj\Debug\DAL.pdb
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\DAL\bin\Debug\DAL.dll.config
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\DAL\bin\Debug\DAL.dll
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\DAL\bin\Debug\DAL.pdb
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\DAL\bin\Debug\PL.dll
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\DAL\bin\Debug\PL.pdb
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\DAL\obj\Debug\DAL.dll
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\DAL\obj\Debug\DAL.pdb
