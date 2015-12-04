@@ -1,0 +1,5 @@
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PL\bin\Release\PL.dll
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PL\bin\Release\PL.pdb
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PL\obj\Release\PL.csprojResolveAssemblyReference.cache
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PL\obj\Release\PL.dll
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PL\obj\Release\PL.pdb

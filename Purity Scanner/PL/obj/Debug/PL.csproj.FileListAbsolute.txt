@@ -1,0 +1,4 @@
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PL\bin\Debug\PL.dll
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PL\bin\Debug\PL.pdb
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PL\obj\Debug\PL.dll
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PL\obj\Debug\PL.pdb
