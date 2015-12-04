@@ -1,0 +1,8 @@
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\DAL\bin\Debug\DAL.dll.config
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\DAL\bin\Debug\DAL.dll
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\DAL\bin\Debug\DAL.pdb
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\DAL\bin\Debug\PL.dll
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\DAL\bin\Debug\PL.pdb
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\DAL\obj\Debug\DAL.dll
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\DAL\obj\Debug\DAL.pdb
