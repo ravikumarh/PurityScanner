@@ -1,0 +1,17 @@
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PurityScannerService\bin\PurityScannerService.dll.config
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PurityScannerService\bin\PurityScannerService.dll
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PurityScannerService\bin\PurityScannerService.pdb
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PurityScannerService\bin\BAL.dll
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PurityScannerService\bin\Microsoft.Http.dll
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PurityScannerService\bin\Microsoft.Http.Extensions.dll
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PurityScannerService\bin\Microsoft.ServiceModel.Web.dll
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PurityScannerService\bin\Newtonsoft.Json.dll
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PurityScannerService\bin\PL.dll
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PurityScannerService\bin\DAL.dll
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PurityScannerService\bin\BAL.pdb
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PurityScannerService\bin\PL.pdb
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PurityScannerService\bin\Newtonsoft.Json.xml
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PurityScannerService\bin\DAL.pdb
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PurityScannerService\obj\Debug\PurityScannerService.csprojResolveAssemblyReference.cache
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PurityScannerService\obj\Debug\PurityScannerService.dll
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PurityScannerService\obj\Debug\PurityScannerService.pdb
