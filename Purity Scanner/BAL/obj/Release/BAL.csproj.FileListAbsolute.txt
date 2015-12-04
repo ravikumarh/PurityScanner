@@ -1,0 +1,9 @@
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\BAL\bin\Release\BAL.dll
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\BAL\bin\Release\BAL.pdb
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\BAL\bin\Release\DAL.dll
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\BAL\bin\Release\PL.dll
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\BAL\bin\Release\DAL.pdb
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\BAL\bin\Release\PL.pdb
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\BAL\obj\Release\BAL.csprojResolveAssemblyReference.cache
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\BAL\obj\Release\BAL.dll
+D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\BAL\obj\Release\BAL.pdb
