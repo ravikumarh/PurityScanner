@@ -336,11 +336,11 @@ namespace DAL
                string strcmd = "";
                if (countryID > 0)
                {
-                   strcmd = "select country_id as CountryID,country_name as CountryName,country_default_language_id as CountryLanguageID from [dbo].[CountryMaster] where country_id=" + countryID + "";
+                   strcmd = "select country_id as CountryID,country_name as CountryName,country_default_language_id as CountryLanguageID,country_secondary_language_id as CountrySecondaryLanguageID from [dbo].[CountryMaster] where country_id=" + countryID + "";
                }
                else
                {
-                   strcmd = "select country_id as CountryID,country_name as CountryName,country_default_language_id as CountryLanguageID from [dbo].[CountryMaster]";
+                   strcmd = "select country_id as CountryID,country_name as CountryName,country_default_language_id as CountryLanguageID,country_secondary_language_id as CountrySecondaryLanguageID from [dbo].[CountryMaster]";
                }
                SqlCommand cmd = new SqlCommand(strcmd, con);
                SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -364,6 +364,7 @@ namespace DAL
                    tmpObj.CountryId= Convert.ToInt32(dtCountryMaster.Rows[i]["CountryID"]);
                    tmpObj.CountryName= Convert.ToString(dtCountryMaster.Rows[i]["CountryName"]);
                    tmpObj.CountryDefaultLanguageId = Convert.ToInt32(dtCountryMaster.Rows[i]["CountryLanguageID"]);
+                   tmpObj.CountrySecondaryLanguageID = Convert.ToInt32(dtCountryMaster.Rows[i]["CountrySecondaryLanguageID"]);
                    lstCountryMasterDetails.Add(tmpObj);
                }
            }

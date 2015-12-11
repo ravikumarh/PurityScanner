@@ -6,3 +6,11 @@ D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\DAL\bin\Release\PL.p
 D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
 D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\DAL\obj\Release\DAL.dll
 D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\DAL\obj\Release\DAL.pdb
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\DAL\bin\Release\DAL.dll.config
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\DAL\bin\Release\DAL.dll
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\DAL\bin\Release\DAL.pdb
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\DAL\bin\Release\PL.dll
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\DAL\bin\Release\PL.pdb
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\DAL\obj\Release\DAL.dll
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\DAL\obj\Release\DAL.pdb

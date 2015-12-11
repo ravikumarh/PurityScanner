@@ -11,6 +11,7 @@ namespace PL
         int country_id = 0;
         string country_name = "";
         int country_default_language_id = 0;
+       int country_secondary_language_id =0; 
         bool is_active = true;
         public bool IsActive
         {
@@ -31,6 +32,12 @@ namespace PL
         {
             get { return country_default_language_id; }
             set { country_default_language_id = value; }
+        }
+
+        public int CountrySecondaryLanguageID
+        {
+            get { return country_secondary_language_id; }
+            set { country_secondary_language_id = value; }
         }
     }
 }

@@ -15,3 +15,17 @@ D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PurityScannerService
 D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PurityScannerService\obj\Release\PurityScannerService.csprojResolveAssemblyReference.cache
 D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PurityScannerService\obj\Release\PurityScannerService.dll
 D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\PurityScannerService\obj\Release\PurityScannerService.pdb
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PurityScannerService\bin\PurityScannerService.dll.config
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PurityScannerService\bin\PurityScannerService.dll
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PurityScannerService\bin\PurityScannerService.pdb
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PurityScannerService\bin\BAL.dll
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PurityScannerService\bin\Newtonsoft.Json.dll
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PurityScannerService\bin\PL.dll
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PurityScannerService\bin\DAL.dll
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PurityScannerService\bin\BAL.pdb
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PurityScannerService\bin\PL.pdb
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PurityScannerService\bin\Newtonsoft.Json.xml
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PurityScannerService\bin\DAL.pdb
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PurityScannerService\obj\Release\PurityScannerService.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PurityScannerService\obj\Release\PurityScannerService.dll
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PurityScannerService\obj\Release\PurityScannerService.pdb

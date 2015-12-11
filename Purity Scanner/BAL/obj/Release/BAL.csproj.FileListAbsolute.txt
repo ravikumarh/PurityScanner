@@ -7,3 +7,12 @@ D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\BAL\bin\Release\PL.p
 D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\BAL\obj\Release\BAL.csprojResolveAssemblyReference.cache
 D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\BAL\obj\Release\BAL.dll
 D:\Ravikumar\WCF Service\PurityScanner\PurityScannerService\BAL\obj\Release\BAL.pdb
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\BAL\bin\Release\BAL.dll
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\BAL\bin\Release\BAL.pdb
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\BAL\bin\Release\DAL.dll
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\BAL\bin\Release\PL.dll
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\BAL\bin\Release\DAL.pdb
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\BAL\bin\Release\PL.pdb
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\BAL\obj\Release\BAL.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\BAL\obj\Release\BAL.dll
+C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\BAL\obj\Release\BAL.pdb

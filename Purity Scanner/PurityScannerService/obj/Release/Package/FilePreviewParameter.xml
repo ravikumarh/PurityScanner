@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="IIS Web Application Name" description="" value="Purity" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\Ravikumar\\WCF\ Service\\PurityScanner\\PurityScannerService\\PurityScannerService\\obj\\Release\\Package\\PackageTmp$" />
-    <parameterEntry kind="ProviderPath" scope="setAcl" match="^D:\\Ravikumar\\WCF\ Service\\PurityScanner\\PurityScannerService\\PurityScannerService\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\admin\\Documents\\GitHub\\PurityScanner\\Purity\ Scanner\\PurityScannerService\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\admin\\Documents\\GitHub\\PurityScanner\\Purity\ Scanner\\PurityScannerService\\obj\\Release\\Package\\PackageTmp$" />
   </parameter>
   <parameter name="PurityServicesConnection-Web.config Connection String" description="" value="server=ADMIN-TNEX-PC\SQLEXPRESS;Initial Catalog=PurityScanner;uid=sa;Password=tnex;" tags="">
-    <parameterEntry kind="XmlFile" scope="D:\\Ravikumar\\WCF\ Service\\PurityScanner\\PurityScannerService\\PurityScannerService\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='PurityServicesConnection']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\admin\\Documents\\GitHub\\PurityScanner\\Purity\ Scanner\\PurityScannerService\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='PurityServicesConnection']/@connectionString" />
   </parameter>
 </parameters>
