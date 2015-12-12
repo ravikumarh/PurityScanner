@@ -75,6 +75,22 @@ namespace PurityScannerService
 
         }
 
+
+        public Stream getAllProductsMetaData(ManifestoRequest manifestoData)
+        {
+            MemoryStream ms;
+            if (manifestoData != null)
+            {
+              
+                AllProductMetaDataResponce allProductDetails = obj.getAllProductsMetaData(manifestoData.CountryCode);
+                string str = JsonConvert.SerializeObject(allProductDetails);
+                WebOperationContext.Current.OutgoingResponse.ContentType = "application/json; charset=utf-8";
+                ms = new MemoryStream(Encoding.UTF8.GetBytes(str));
+                return ms;
+            }
+            return ms = new MemoryStream(Encoding.UTF8.GetBytes("Bad Request...."));
+        }
+
         public Stream getProductDetailsByImageKey(ProductDetailsResquest productDetailsRequestData)
         {
             //System.IO.StreamWriter file = new System.IO.StreamWriter("D:\\test.txt", true);

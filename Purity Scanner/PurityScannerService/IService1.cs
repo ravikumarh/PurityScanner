@@ -29,9 +29,17 @@ namespace PurityScannerService
         [WebInvoke(UriTemplate = "getAppMetadata", Method = "POST", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
         Stream getAppMetadata(GetSecurityKey SecurityKey);
 
+
+
+
         [OperationContract]
         [WebInvoke(UriTemplate = "getAllProductsByIDs", Method = "POST", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
         Stream getAllProductsByIDs(ProductsByIDsRequest productRequestData);
+
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "getAllProductsMetaData", Method = "POST", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+        Stream getAllProductsMetaData(ManifestoRequest manifestoData);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "getProductDetailsByImageKey", Method = "POST", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]

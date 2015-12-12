@@ -11,7 +11,7 @@ namespace PL
         int country_id = 0;
         string country_name = "";
         int country_default_language_id = 0;
-       int country_secondary_language_id =0; 
+        List<SecondaryLanguagesOfCountry> lstSecondaryLanguage;
         bool is_active = true;
         public bool IsActive
         {
@@ -34,10 +34,10 @@ namespace PL
             set { country_default_language_id = value; }
         }
 
-        public int CountrySecondaryLanguageID
+        public List<SecondaryLanguagesOfCountry> LstSecondaryLanguage
         {
-            get { return country_secondary_language_id; }
-            set { country_secondary_language_id = value; }
+            get { return lstSecondaryLanguage; }
+            set { lstSecondaryLanguage = value; }
         }
     }
 }

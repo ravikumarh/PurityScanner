@@ -59,6 +59,16 @@ namespace DAL
        
        }
 
+
+        public AllProductMetaDataResponce getAllProductsMetaData(int CountryID)
+        {
+            AllProductMetaDataResponce obj = new AllProductMetaDataResponce();
+            obj.ResponseCode = "101";
+            obj.ResponseMessage = "Success";
+            obj.ResponseStatus = 1;
+            obj.LstAllProductMetaData = populateAllProductMetaData(GetAllProductDetails(CountryID));
+            return obj;
+        }
         public ProductDetailsResponce getProductDetailsByImageKey(ProductDetailsResquest productDetailsRequestData)
         {
             ProductDetailsResponce obj = new ProductDetailsResponce();
@@ -227,6 +237,49 @@ namespace DAL
            return tb;
        }
 
+        DataTable GetAllProductDetails(int CountryID)
+        {
+            DataTable tb = new DataTable();
+            try
+            {
+                string strcmd = "";
+                strcmd = "Select pm.product_id as ProductID,pm.product_name as ProductName,ip.image_url as ImageUrl,'' as productDetails from ProductMaster pm INNER JOIN ProductImages ip ON ip.product_id=pm.product_id and ip.country_id=" + CountryID + "";
+                SqlCommand cmd = new SqlCommand(strcmd, con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(tb);
+            }
+            catch (Exception ee)
+            {
+
+            }
+            return tb;
+        }
+
+        List<AllProductMetaData> populateAllProductMetaData(DataTable dtlstAllproductMetaData)
+        {
+            List<AllProductMetaData> lstProductDetails = new List<AllProductMetaData>();
+            
+            try
+            {
+                AllProductMetaData tmpObj;
+                for (int i = 0; i < dtlstAllproductMetaData.Rows.Count; i++)
+                {
+                    tmpObj = new AllProductMetaData();
+                    tmpObj.ProductID = Convert.ToInt32(dtlstAllproductMetaData.Rows[i]["ProductID"]);
+                    tmpObj.ProductName = Convert.ToString(dtlstAllproductMetaData.Rows[i]["ProductName"]);
+                    tmpObj.ProductImageUrl = Convert.ToString(dtlstAllproductMetaData.Rows[i]["ImageUrl"]);
+                    tmpObj.ProductDetails = Convert.ToString(dtlstAllproductMetaData.Rows[i]["productDetails"]);
+                    lstProductDetails.Add(tmpObj);
+                }
+            }
+            catch (Exception ee)
+            {
+
+            }
+
+            return lstProductDetails;
+        }
+
         List<AttributeManifesto> populateAttributeManifestoList(DataTable dtlstAttributeManifesto)
        {
            List<AttributeManifesto> lstAttributeValue = new List<AttributeManifesto>();
@@ -352,6 +405,32 @@ namespace DAL
            }
            return tb;
        }
+
+        DataTable getSecondaryLanguagesByID(int countryID)
+        {
+
+            DataTable tb = new DataTable();
+            try
+            {
+                string strcmd = "";
+                if (countryID > 0)
+                {
+                    strcmd = "select sl.language_id as LanguageID,LanguageMaster.language_name as LanguageName From SecondaryCountryLanguageMapping sl INNER JOIN LanguageMaster ON LanguageMaster.language_id=sl.language_id where sl.country_id=" + countryID + "";
+                }
+                else
+                {
+                    strcmd = "select sl.language_id as LanguageID,LanguageMaster.language_name as LanguageName From SecondaryCountryLanguageMapping sl INNER JOIN LanguageMaster ON LanguageMaster.language_id=sl.language_id";
+                }
+                SqlCommand cmd = new SqlCommand(strcmd, con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(tb);
+            }
+            catch (Exception ee)
+            {
+
+            }
+            return tb;
+        }
         List<CountryMaster> populateCountryMasterList(DataTable dtCountryMaster)
        {
            List<CountryMaster> lstCountryMasterDetails = new List<CountryMaster>();
@@ -364,8 +443,20 @@ namespace DAL
                    tmpObj.CountryId= Convert.ToInt32(dtCountryMaster.Rows[i]["CountryID"]);
                    tmpObj.CountryName= Convert.ToString(dtCountryMaster.Rows[i]["CountryName"]);
                    tmpObj.CountryDefaultLanguageId = Convert.ToInt32(dtCountryMaster.Rows[i]["CountryLanguageID"]);
-                   tmpObj.CountrySecondaryLanguageID = Convert.ToInt32(dtCountryMaster.Rows[i]["CountrySecondaryLanguageID"]);
-                   lstCountryMasterDetails.Add(tmpObj);
+                  // tmpObj.CountrySecondaryLanguageID = Convert.ToInt32(dtCountryMaster.Rows[i]["CountrySecondaryLanguageID"]);
+                   DataTable langugaeTable = getSecondaryLanguagesByID(tmpObj.CountryId);
+                   List<SecondaryLanguagesOfCountry> lstSecLanguage = new List<SecondaryLanguagesOfCountry>();
+                   SecondaryLanguagesOfCountry tmpLanguage;
+                   for (int j = 0; j < langugaeTable.Rows.Count; j++)
+                   {
+                       tmpLanguage = new SecondaryLanguagesOfCountry();
+                       tmpLanguage.SecondaryLanguageId = Convert.ToInt32(langugaeTable.Rows[j]["LanguageID"]);
+                       tmpLanguage.SecondaryLanguageName = Convert.ToString(langugaeTable.Rows[j]["LanguageName"]);
+                       lstSecLanguage.Add(tmpLanguage);
+                   }
+                   tmpObj.LstSecondaryLanguage = lstSecLanguage;
+
+                       lstCountryMasterDetails.Add(tmpObj);
                }
            }
            catch (Exception ee)
