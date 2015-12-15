@@ -8,7 +8,7 @@ namespace PL
 {
    public class ProductDetailsResquest
     {
-     int countryCode;
+     string countryCode;
      int languageID;
      string securityKey;
      List<ImageKeys> imageKeys;
@@ -16,7 +16,7 @@ namespace PL
      string userLattitude;
      string userLongitude;
 
-     public int CountryCode
+     public string CountryCode
      {
          get { return countryCode; }
          set { countryCode = value; }

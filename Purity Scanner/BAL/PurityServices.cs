@@ -21,9 +21,9 @@ namespace BAL
            return obj.getAllProductsByIDs(productRequestData);
        }
 
-       public AllProductMetaDataResponce getAllProductsMetaData(int CountryID)
+       public AllProductMetaDataResponce getAllProductsMetaData(ManifestoRequest manifestoData)
        {
-           return obj.getAllProductsMetaData(CountryID);
+           return obj.getAllProductsMetaData(manifestoData);
        }
 
 

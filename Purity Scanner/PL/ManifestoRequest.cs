@@ -8,10 +8,10 @@ namespace PL
 {
    public class ManifestoRequest
     {
-       int countryCode;
+       string countryCode;
        int languageID;
 
-       public int CountryCode
+       public string CountryCode
        {
            get { return countryCode; }
            set { countryCode = value; }

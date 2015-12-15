@@ -9,7 +9,7 @@ namespace PL
   public  class Product
     {
         string productName;
-        string imageUrl;
+        string productImageUrl;
         List<AttributeValue> attributeValues;
        // List<AttributeManifesto> attributeManifestos;
 
@@ -19,10 +19,10 @@ namespace PL
             set { productName = value; }
         }
 
-        public string ImageUrl
+        public string ProductImageUrl
         {
-            get { return imageUrl; }
-            set { imageUrl = value; }
+            get { return productImageUrl; }
+            set { productImageUrl = value; }
         }
         //public List<AttributeManifesto> AttributeManifestoData
         //{

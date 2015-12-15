@@ -82,7 +82,7 @@ namespace PurityScannerService
             if (manifestoData != null)
             {
               
-                AllProductMetaDataResponce allProductDetails = obj.getAllProductsMetaData(manifestoData.CountryCode);
+                AllProductMetaDataResponce allProductDetails = obj.getAllProductsMetaData(manifestoData);
                 string str = JsonConvert.SerializeObject(allProductDetails);
                 WebOperationContext.Current.OutgoingResponse.ContentType = "application/json; charset=utf-8";
                 ms = new MemoryStream(Encoding.UTF8.GetBytes(str));
