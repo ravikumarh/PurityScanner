@@ -11,7 +11,7 @@ namespace PL
         string countryCode;
         int languageID;
         string securityKey;
-        List<ProductIDs> productIDs=new List<ProductIDs>();
+        int productId;
         int comparingWithProductID;
         string userLattitude;
         string userLongitude;
@@ -50,20 +50,20 @@ namespace PL
             get { return userLongitude; }
             set { userLongitude = value; }
         }
-        public List<ProductIDs> ProductIDs
+        public int ProductID
         {
-            get { return productIDs; }
-            set { productIDs = value; }
+            get { return productId; }
+            set { productId = value; }
         }
     }
 
- public  class ProductIDs
-   {
-       int productID;
-       public int ProductID
-       {
-           get { return productID; }
-           set { productID = value; }
-       }
-   }
+ //public  class ProductIDs
+ //  {
+ //      int productID;
+ //      public int ProductID
+ //      {
+ //          get { return productID; }
+ //          set { productID = value; }
+ //      }
+ //  }
 }

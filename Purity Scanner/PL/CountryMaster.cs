@@ -8,7 +8,7 @@ namespace PL
 {
    public class CountryMaster
     {
-        int country_id = 0;
+        string country_code;
         string country_name = "";
         int country_default_language_id = 0;
         List<SecondaryLanguagesOfCountry> lstSecondaryLanguage;
@@ -23,10 +23,10 @@ namespace PL
             get { return country_name; }
             set { country_name = value; }
         }
-       public int CountryId
+       public string CountryCode
         {
-            get { return country_id; }
-            set { country_id = value; }
+            get { return country_code; }
+            set { country_code = value; }
         }
         public int CountryDefaultLanguageId
         {

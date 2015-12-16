@@ -10,6 +10,8 @@ namespace PL
     {
         string title;
         string manifestoInformation;
+        string short_description;
+        string attribute_image_url;
 
        public string Title
         {
@@ -17,6 +19,17 @@ namespace PL
             set { title = value; }
         }
 
+       public string ShortDescription
+       {
+           get { return short_description; }
+           set { short_description = value; }
+       }
+
+       public string AttributeImageUrl
+       {
+           get { return attribute_image_url; }
+           set { attribute_image_url = value; }
+       }
        public string ManifestoInformation
         {
             get { return manifestoInformation; }

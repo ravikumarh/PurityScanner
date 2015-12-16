@@ -11,7 +11,9 @@ namespace PL
      int responseStatus;
      string responseCode;
      string responseMessage;
+     bool multipleproduct;
      List<Product> lstProducts;
+ 
 
      public int ResponseStatus
      {
@@ -28,11 +30,18 @@ namespace PL
          get { return responseMessage; }
          set { responseMessage = value; }
      }
+     public bool MultipleProduct
+     {
+         get { return multipleproduct; }
+         set { multipleproduct = value; }
+     }
 
      public List<Product> LstProducts
      {
          get { return lstProducts; }
          set { lstProducts = value; }
      }
+
+  
     }
 }

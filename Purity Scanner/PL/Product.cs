@@ -8,16 +8,26 @@ namespace PL
 {
   public  class Product
     {
+        int productId;
         string productName;
         string productImageUrl;
         List<AttributeValue> attributeValues;
        // List<AttributeManifesto> attributeManifestos;
+
+
+        public int ProductID
+        {
+            get { return productId; }
+            set { productId = value; }
+        }
 
         public string ProductName
         {
             get { return productName; }
             set { productName = value; }
         }
+
+
 
         public string ProductImageUrl
         {

@@ -41,12 +41,23 @@ namespace DAL
                    for (int i = 0; i < productData.Rows.Count; i++)
                    {
                        Product projectObj = new Product();
+                       projectObj.ProductID = Convert.ToInt32(productData.Rows[i]["ProductID"]);
                        projectObj.ProductName = Convert.ToString(productData.Rows[i]["ProductName"]);
                        projectObj.ProductImageUrl = Convert.ToString(productData.Rows[i]["ImageUrl"]);
                        projectObj.AttributeValueData = populateAttributeValueList(getAttribute(Convert.ToInt32(productData.Rows[i]["ProductID"]),productRequestData.LanguageID));
                       // projectObj.AttributeManifestoData = populateAttributeManifestoList(getAttributeManifesto(Convert.ToInt32(productData.Rows[i]["ProductID"])));
                        lstProduct.Add(projectObj);
                    }
+                   if (productData.Rows.Count > 2)
+                   {
+                       obj.MultipleProduct = true;
+                   }
+                   else
+                   {
+                       obj.MultipleProduct = false;
+                   }
+
+
                    obj.LstProducts = lstProduct;
                }
                catch (Exception ee)
@@ -58,8 +69,7 @@ namespace DAL
                return obj;
        
        }
-
-
+       
         public AllProductMetaDataResponce getAllProductsMetaData(ManifestoRequest manifestoData)
         {
             AllProductMetaDataResponce obj = new AllProductMetaDataResponce();
@@ -82,11 +92,20 @@ namespace DAL
                 for (int i = 0; i < productData.Rows.Count; i++)
                 {
                     Product projectObj = new Product();
+                    projectObj.ProductID = Convert.ToInt32(productData.Rows[i]["ProductID"]);
                     projectObj.ProductName = Convert.ToString(productData.Rows[i]["ProductName"]);
                     projectObj.ProductImageUrl = Convert.ToString(productData.Rows[i]["ImageUrl"]);
                     projectObj.AttributeValueData = populateAttributeValueList(getAttribute(Convert.ToInt32(productData.Rows[i]["ProductID"]), productDetailsRequestData.LanguageID));
                  //   projectObj.AttributeManifestoData = populateAttributeManifestoList(getAttributeManifesto(Convert.ToInt32(productData.Rows[i]["ProductID"])));
                     lstProduct.Add(projectObj);
+                }
+                if (productData.Rows.Count > 2)
+                {
+                    obj.MultipleProduct = true;
+                }
+                else
+                {
+                    obj.MultipleProduct = false;
                 }
                 obj.LstProducts = lstProduct;
             }
@@ -144,7 +163,8 @@ namespace DAL
 
             try
             {
-                strCmd = "select AttributeTitles.attribute_title as AttributeTitle, ProductAttributeValues.manifesto_information as ManifestoInformation from ProductAttributeCountryMapping INNER JOIN CountryCodeMapping ON CountryCodeMapping.country_code='" + objManifestoRequest.CountryCode + "' INNER JOIN CountryMaster ON CountryMaster.country_id=CountryCodeMapping.country_id AND is_active=1 INNER JOIN AttributeTitles on AttributeTitles.attribute_id=ProductAttributeCountryMapping.attribute_id AND ProductAttributeCountryMapping.country_id=CountryMaster.country_id and AttributeTitles.language_id=" + objManifestoRequest.LanguageID + " inner join ProductAttributeValues ON ProductAttributeValues.attribute_id=ProductAttributeCountryMapping.attribute_id AND  ProductAttributeValues.language_id=" + objManifestoRequest.LanguageID + "";
+              //  strCmd = "select DISTINCT AttributeTitles.attribute_title as AttributeTitle, ProductAttributeValues.manifesto_information as ManifestoInformation  from ProductAttributeCountryMapping   INNER JOIN CountryMaster ON CountryMaster.country_code='" + objManifestoRequest.CountryCode + "' AND is_active=1   INNER JOIN AttributeTitles on AttributeTitles.attribute_id=ProductAttributeCountryMapping.attribute_id   AND ProductAttributeCountryMapping.country_code=CountryMaster.country_code and  AttributeTitles.language_id=" + objManifestoRequest.LanguageID + "  inner join ProductAttributeValues ON ProductAttributeValues.attribute_id=ProductAttributeCountryMapping.attribute_id AND ProductAttributeValues.language_id=" + objManifestoRequest.LanguageID + "";
+                strCmd = "select DISTINCT AttributeTitles.attribute_title as AttributeTitle, ProductAttributeValues.manifesto_information as  ManifestoInformation  from ProductAttributeCountryMapping  INNER JOIN CountryMaster ON CountryMaster.country_code='" + objManifestoRequest.CountryCode + "' AND is_active=1  AND CountryMaster.country_default_language_id=" + objManifestoRequest.LanguageID + "  INNER JOIN AttributeTitles on AttributeTitles.attribute_id=ProductAttributeCountryMapping.attribute_id  AND ProductAttributeCountryMapping.country_code=CountryMaster.country_code and  AttributeTitles.language_id=CountryMaster.country_default_language_id inner join ProductAttributeValues ON ProductAttributeValues.attribute_id=ProductAttributeCountryMapping.attribute_id  AND ProductAttributeValues.language_id=CountryMaster.country_default_language_id UNION  select DISTINCT AttributeTitles.attribute_title as AttributeTitle, ProductAttributeValues.manifesto_information as  ManifestoInformation  from ProductAttributeCountryMapping  INNER JOIN CountryMaster ON CountryMaster.country_code='" + objManifestoRequest.CountryCode + "' AND is_active=1  INNER JOIN SecondaryCountryLanguageMapping SL ON SL.country_code=CountryMaster.country_code AND SL.language_id=" + objManifestoRequest.LanguageID + "  INNER JOIN AttributeTitles on AttributeTitles.attribute_id=ProductAttributeCountryMapping.attribute_id  AND ProductAttributeCountryMapping.country_code=CountryMaster.country_code and   AttributeTitles.language_id=SL.language_id inner join ProductAttributeValues ON ProductAttributeValues.attribute_id=ProductAttributeCountryMapping.attribute_id  AND ProductAttributeValues.language_id=SL.language_id";
                 SqlCommand cmd = new SqlCommand(strCmd, con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
@@ -185,28 +205,35 @@ namespace DAL
         {
             string strCmd = "";
             DataTable dt = new DataTable();
-            string ids = "";
+           // string ids = "";
 
             try
             {
 
-                for (int i = 0; i <productDetailsRequestData.lstimageKeys.Count; i++)
-                {
-                    ids = ids + "'" + productDetailsRequestData.lstimageKeys[i].ImageKeysInfo + "'";
-                    if (i != (productDetailsRequestData.lstimageKeys.Count - 1))
-                    {
-                        ids = ids + ",";
-                    }
-                }
+                //for (int i = 0; i <productDetailsRequestData.lstimageKeys.Count; i++)
+                //{
+                //    ids = ids + "'" + productDetailsRequestData.lstimageKeys[i].ImageKeysInfo + "'";
+                //    if (i != (productDetailsRequestData.lstimageKeys.Count - 1))
+                //    {
+                //        ids = ids + ",";
+                //    }
+                //}
 
-                if (productDetailsRequestData.lstimageKeys.Count > 0)
+              //  if (productDetailsRequestData.lstimageKeys.Count > 0)
+              //  {
+                strCmd = "select ProductMaster.product_id as ProductID,ProductMaster.product_name As ProductName,ProductImages.image_url as ImageUrl 	From CountryMaster   INNER JOIN ProductImages ON ProductImages.country_code=CountryMaster.country_code INNER JOIN ProductMaster ON ProductMaster.product_id=ProductImages.product_id AND ProductMaster.is_active=1 WHERE CountryMaster.country_code='" + productDetailsRequestData.CountryCode + "'AND CountryMaster.is_active=1 AND ProductImages.moodstock_image_key='" + productDetailsRequestData.ImageKey.Trim() + "'";
+               // strCmd = strCmd + " UNION Select ProductMaster.product_id as ProductID,ProductMaster.product_name As ProductName,ProductImages.image_url as ImageUrl  from  CountryMaster INNER JOIN ProductImages ON ProductImages.country_code=CountryMaster.country_code   INNER JOIN ProductMaster ON ProductMaster.product_id=ProductImages.product_id   Where CountryMaster.country_code='" + productDetailsRequestData.CountryCode + "' AND ProductMaster.product_id=" + productDetailsRequestData.ComparingWithProductID + "";
+                strCmd = strCmd + " UNION Select ProductMaster.product_id as ProductID,ProductMaster.product_name As ProductName,ProductImages.image_url as ImageUrl  from  CountryMaster INNER JOIN ProductImages ON ProductImages.country_code=CountryMaster.country_code   INNER JOIN ProductMaster ON ProductMaster.product_id=ProductImages.product_id   Where CountryMaster.country_code='" + productDetailsRequestData.CountryCode + "' AND ProductMaster.product_id IN (";
+                if (productDetailsRequestData.ComparingWithProductID > 0)
                 {
-                    strCmd = "select ProductMaster.product_id as ProductID,ProductMaster.product_name As ProductName,ProductImages.image_url as ImageUrl From CountryCodeMapping INNER JOIN CountryMaster ON CountryCodeMapping.country_id=CountryMaster.country_id  AND CountryMaster.is_active=1 INNER JOIN ProductImages ON ProductImages.country_id=CountryMaster.country_id INNER JOIN ProductMaster ON ProductMaster.product_id=ProductImages.product_id AND ProductMaster.is_active=1 WHERE CountryCodeMapping.country_code='"+productDetailsRequestData.CountryCode+"' AND ProductImages.moodstock_image_key IN (" + ids + ")";
+                    strCmd = strCmd+""+productDetailsRequestData.ComparingWithProductID + ",";
                 }
-                else
-                {
-                    strCmd = "select ProductMaster.product_id as ProductID,ProductMaster.product_name As ProductName,ProductImages.image_url as ImageUrl From CountryCodeMapping INNER JOIN CountryMaster ON CountryCodeMapping.country_id=CountryMaster.country_id  AND CountryMaster.is_active=1 INNER JOIN ProductImages ON ProductImages.country_id=CountryMaster.country_id INNER JOIN ProductMaster ON ProductMaster.product_id=ProductImages.product_id AND ProductMaster.is_active=1 WHERE CountryCodeMapping.country_code='" + productDetailsRequestData.CountryCode + "'";
-                }
+                strCmd = strCmd + "3)";
+              //  }
+              //  else
+              //  {
+              //      strCmd = "select ProductMaster.product_id as ProductID,ProductMaster.product_name As ProductName,ProductImages.image_url as ImageUrl 	From CountryMaster INNER JOIN ProductImages ON ProductImages.country_code=CountryMaster.country_code INNER JOIN ProductMaster ON ProductMaster.product_id=ProductImages.product_id AND ProductMaster.is_active=1	 WHERE 	CountryMaster.is_active=1 AND CountryMaster.country_code='" + productDetailsRequestData.CountryCode + "'";
+              //  }
                 SqlCommand cmd = new SqlCommand(strCmd, con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
@@ -243,7 +270,8 @@ namespace DAL
             try
             {
                 string strcmd = "";
-                strcmd = "Select pm.product_id as ProductID,pm.product_name as ProductName,ip.image_url as ImageUrl,ProductAttributeValues.product_attribute_value as productDetails from ProductMaster pm INNER JOIN CountryCodeMapping ON CountryCodeMapping.country_code='" + manifestoData.CountryCode + "' INNER JOIN CountryMaster ON CountryMaster.country_id=CountryCodeMapping.country_id AND CountryMaster.is_active=1 INNER JOIN ProductImages ip ON ip.product_id=pm.product_id AND ip.country_id=CountryMaster.country_id INNER JOIN ProductAttributeValues ON ProductAttributeValues.product_id=pm.product_id AND ProductAttributeValues.language_id=" + manifestoData.LanguageID + " AND ProductAttributeValues.attribute_id=9";
+               // strcmd = "Select pm.product_id as ProductID,pm.product_name as ProductName,ip.image_url as ImageUrl, ProductAttributeValues.product_attribute_value as productDetails from ProductMaster pm  INNER JOIN CountryMaster ON CountryMaster.country_code='" + manifestoData.CountryCode + "' AND CountryMaster.is_active=1  INNER JOIN ProductImages ip ON ip.product_id=pm.product_id AND ip.country_code=CountryMaster.country_code  INNER JOIN ProductAttributeValues ON ProductAttributeValues.product_id=pm.product_id AND ProductAttributeValues.language_id=" + manifestoData.LanguageID + " AND ProductAttributeValues.attribute_id=9";
+                strcmd = "Select pm.product_id as ProductID,pm.product_name as ProductName,ip.image_url as ImageUrl, ProductAttributeValues.product_attribute_value as productDetails from ProductMaster pm  INNER JOIN CountryMaster ON CountryMaster.country_code='" + manifestoData.CountryCode + "' AND CountryMaster.is_active=1 AND CountryMaster.country_default_language_id=" + manifestoData.LanguageID + " INNER JOIN ProductImages ip ON ip.product_id=pm.product_id AND ip.country_code=CountryMaster.country_code  INNER JOIN ProductAttributeValues ON ProductAttributeValues.product_id=pm.product_id AND  ProductAttributeValues.language_id=CountryMaster.country_default_language_id AND ProductAttributeValues.attribute_id=9  UNION  Select pm.product_id as ProductID,pm.product_name as ProductName,ip.image_url as ImageUrl, ProductAttributeValues.product_attribute_value as productDetails from ProductMaster pm INNER JOIN CountryMaster ON CountryMaster.country_code='" + manifestoData.CountryCode + "' AND CountryMaster.is_active=1 INNER JOIN SecondaryCountryLanguageMapping SL ON SL.country_code=CountryMaster.country_code AND SL.language_id=" + manifestoData.LanguageID + "   INNER JOIN ProductImages ip ON ip.product_id=pm.product_id AND ip.country_code=CountryMaster.country_code  INNER JOIN ProductAttributeValues ON ProductAttributeValues.product_id=pm.product_id AND  ProductAttributeValues.language_id=SL.language_id  AND ProductAttributeValues.attribute_id=9";
                 SqlCommand cmd = new SqlCommand(strcmd, con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(tb);
@@ -348,28 +376,37 @@ namespace DAL
 
            try
            {
-               if (productRequestData.ProductIDs == null)
-               {
-                   productRequestData.ProductIDs = new List<ProductIDs>();
-               }
+               //if (productRequestData.ProductIDs == null)
+               //{
+               //    productRequestData.ProductIDs = new List<ProductIDs>();
+               //}
 
-               for (int i = 0; i < productRequestData.ProductIDs.Count; i++)
-               {
-                   ids = ids + "" + productRequestData.ProductIDs[i].ProductID + "";
-                   if (i != (productRequestData.ProductIDs.Count - 1))
-                   {
-                       ids = ids + ",";
-                   }
-               }
+               //for (int i = 0; i < productRequestData.ProductIDs.Count; i++)
+               //{
+               //    ids = ids + "" + productRequestData.ProductIDs[i].ProductID + "";
+               //    if (i != (productRequestData.ProductIDs.Count - 1))
+               //    {
+               //        ids = ids + ",";
+               //    }
+               //}
 
-               if (productRequestData.ProductIDs.Count > 0)
-                   {
-                       strCmd = "Select ProductMaster.product_id as ProductID,ProductMaster.product_name As ProductName,ProductImages.image_url as ImageUrl from CountryCodeMapping INNER JOIN CountryMaster ON CountryCodeMapping.country_id=CountryMaster.country_id INNER JOIN ProductImages ON ProductImages.country_id=CountryMaster.country_id INNER JOIN ProductMaster ON ProductMaster.product_id=ProductImages.product_id Where CountryCodeMapping.country_code='" + productRequestData.CountryCode + "' AND ProductMaster.product_id IN (" + ids + ")";
-                   }
-                   else
-                   {
-                       strCmd = "Select ProductMaster.product_id as ProductID,ProductMaster.product_name As ProductName,ProductImages.image_url as ImageUrl from CountryCodeMapping INNER JOIN CountryMaster ON CountryCodeMapping.country_id=CountryMaster.country_id INNER JOIN ProductImages ON ProductImages.country_id=CountryMaster.country_id INNER JOIN ProductMaster ON ProductMaster.product_id=ProductImages.product_id Where CountryCodeMapping.country_code='" + productRequestData.CountryCode + "'";
-                   }
+             //  if (productRequestData.ProductIDs.Count > 0)
+                 //  {
+
+               strCmd = "Select ProductMaster.product_id as ProductID,ProductMaster.product_name As ProductName,ProductImages.image_url as ImageUrl  from  CountryMaster INNER JOIN ProductImages ON ProductImages.country_code=CountryMaster.country_code   INNER JOIN ProductMaster ON ProductMaster.product_id=ProductImages.product_id   Where CountryMaster.country_code='" + productRequestData.CountryCode + "' AND ProductMaster.product_id=" + productRequestData.ProductID + "";
+               //strCmd = strCmd + "UNION Select ProductMaster.product_id as ProductID,ProductMaster.product_name As ProductName,ProductImages.image_url as ImageUrl  from  CountryMaster INNER JOIN ProductImages ON ProductImages.country_code=CountryMaster.country_code   INNER JOIN ProductMaster ON ProductMaster.product_id=ProductImages.product_id   Where CountryMaster.country_code='" + productRequestData.CountryCode + "' AND ProductMaster.product_id=" + productRequestData.ComparingWithProductID + "";
+               strCmd = strCmd + "UNION Select ProductMaster.product_id as ProductID,ProductMaster.product_name As ProductName,ProductImages.image_url as ImageUrl  from  CountryMaster INNER JOIN ProductImages ON ProductImages.country_code=CountryMaster.country_code   INNER JOIN ProductMaster ON ProductMaster.product_id=ProductImages.product_id   Where CountryMaster.country_code='" + productRequestData.CountryCode + "' AND ProductMaster.product_id IN (";
+               if (productRequestData.ComparingWithProductID > 0)
+               {
+                 strCmd=strCmd+"" + productRequestData.ComparingWithProductID + ",";
+               }
+               strCmd = strCmd + "3)";
+
+                //   }
+                //   else
+                //   {
+                 //      strCmd = "Select ProductMaster.product_id as ProductID,ProductMaster.product_name As ProductName,ProductImages.image_url as ImageUrl from  CountryMaster  INNER JOIN ProductImages ON ProductImages.country_code=CountryMaster.country_code  INNER JOIN ProductMaster ON ProductMaster.product_id=ProductImages.product_id Where CountryMaster.country_code='" + productRequestData.CountryCode + "'";
+                 //  }
                SqlCommand cmd = new SqlCommand(strCmd, con);
                SqlDataAdapter da = new SqlDataAdapter(cmd);
                da.Fill(dt);
@@ -381,19 +418,19 @@ namespace DAL
            return dt;
        }
      
-        DataTable getCountryMasterDetails(int countryID=0)
+        DataTable getCountryMasterDetails(string countryCode="")
        {
            DataTable tb = new DataTable();
            try
            {
                string strcmd = "";
-               if (countryID > 0)
+               if (!string.IsNullOrEmpty(countryCode))
                {
-                   strcmd = "select country_id as CountryID,country_name as CountryName,country_default_language_id as CountryLanguageID,country_secondary_language_id as CountrySecondaryLanguageID from [dbo].[CountryMaster] where country_id=" + countryID + "";
+                   strcmd = "select country_code as CountryCode,country_name as CountryName,country_default_language_id as CountryLanguageID,country_secondary_language_id as CountrySecondaryLanguageID from [dbo].[CountryMaster] where country_code='" + countryCode + "'";
                }
                else
                {
-                   strcmd = "select country_id as CountryID,country_name as CountryName,country_default_language_id as CountryLanguageID,country_secondary_language_id as CountrySecondaryLanguageID from [dbo].[CountryMaster]";
+                   strcmd = "select country_code as CountryCode,country_name as CountryName,country_default_language_id as CountryLanguageID,country_secondary_language_id as CountrySecondaryLanguageID from [dbo].[CountryMaster]";
                }
                SqlCommand cmd = new SqlCommand(strcmd, con);
                SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -406,16 +443,16 @@ namespace DAL
            return tb;
        }
 
-        DataTable getSecondaryLanguagesByID(int countryID)
+        DataTable getSecondaryLanguagesByID(string countrycode)
         {
 
             DataTable tb = new DataTable();
             try
             {
                 string strcmd = "";
-                if (countryID > 0)
+                if (!string.IsNullOrEmpty(countrycode))
                 {
-                    strcmd = "select sl.language_id as LanguageID,LanguageMaster.language_name as LanguageName From SecondaryCountryLanguageMapping sl INNER JOIN LanguageMaster ON LanguageMaster.language_id=sl.language_id where sl.country_id=" + countryID + "";
+                    strcmd = "select sl.language_id as LanguageID,LanguageMaster.language_name as LanguageName From SecondaryCountryLanguageMapping sl INNER JOIN LanguageMaster ON LanguageMaster.language_id=sl.language_id where sl.country_code='" + countrycode + "'";
                 }
                 else
                 {
@@ -440,11 +477,11 @@ namespace DAL
                for (int i = 0; i < dtCountryMaster.Rows.Count; i++)
                {
                    tmpObj = new CountryMaster();
-                   tmpObj.CountryId= Convert.ToInt32(dtCountryMaster.Rows[i]["CountryID"]);
+                   tmpObj.CountryCode = Convert.ToString(dtCountryMaster.Rows[i]["CountryCode"]);
                    tmpObj.CountryName= Convert.ToString(dtCountryMaster.Rows[i]["CountryName"]);
                    tmpObj.CountryDefaultLanguageId = Convert.ToInt32(dtCountryMaster.Rows[i]["CountryLanguageID"]);
                   // tmpObj.CountrySecondaryLanguageID = Convert.ToInt32(dtCountryMaster.Rows[i]["CountrySecondaryLanguageID"]);
-                   DataTable langugaeTable = getSecondaryLanguagesByID(tmpObj.CountryId);
+                   DataTable langugaeTable = getSecondaryLanguagesByID(tmpObj.CountryCode);
                    List<SecondaryLanguagesOfCountry> lstSecLanguage = new List<SecondaryLanguagesOfCountry>();
                    SecondaryLanguagesOfCountry tmpLanguage;
                    for (int j = 0; j < langugaeTable.Rows.Count; j++)

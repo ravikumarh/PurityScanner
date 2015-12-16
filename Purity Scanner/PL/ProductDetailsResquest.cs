@@ -11,7 +11,7 @@ namespace PL
      string countryCode;
      int languageID;
      string securityKey;
-     List<ImageKeys> imageKeys;
+     string imageKeys;
      int comparingWithProductID;
      string userLattitude;
      string userLongitude;
@@ -50,7 +50,7 @@ namespace PL
          get { return userLongitude; }
          set { userLongitude = value; }
      }
-     public List<ImageKeys> lstimageKeys
+     public string ImageKey
      {
          get { return imageKeys; }
          set { imageKeys = value; }
