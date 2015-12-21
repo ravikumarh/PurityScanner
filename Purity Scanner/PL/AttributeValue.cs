@@ -10,6 +10,7 @@ namespace PL
     {
         string title = "";
         string values = "";
+        string indicator = "";
 
         public string Title
         {
@@ -21,6 +22,12 @@ namespace PL
         {
             get { return values; }
             set { values = value; }
+        }
+
+        public string Indicator
+        {
+            get { return indicator; }
+            set { indicator = value; }
         }
     }
 }

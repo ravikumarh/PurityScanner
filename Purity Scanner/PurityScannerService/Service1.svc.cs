@@ -57,15 +57,22 @@ namespace PurityScannerService
             //System.IO.StreamWriter file = new System.IO.StreamWriter("D:\\test.txt", true);
             //file.WriteLine("getAllProductsByIDs Language ID :-" + productRequestData.LanguageID + "");
             MemoryStream ms;
+            string str;
             if (productRequestData != null)
             {
 
               //  file.WriteLine("getAllProductsByIDs: -Language ID : " + productRequestData.LanguageID + " Country ID :" + productRequestData.CountryCode + ", SecurityKey :- " + productRequestData.SecurityKey + ", ProductIds Count :- " + productRequestData.ProductIDs.Count + " ComparingWithProductID :- " + productRequestData.ComparingWithProductID + ", UserLattitude :-" + productRequestData.UserLattitude + ", UserLongitude:-" + productRequestData.UserLongitude + "");
               //  file.Close();
-                ProductDetailsResponce objResponce = obj.getAllProductsByIDs(productRequestData);
-
-                string str = JsonConvert.SerializeObject(objResponce);
-
+                if (obj.checkSubProductsById(productRequestData.ProductID))
+                {
+                    ProductSubProductResponse response=obj.getProductSubProductDetailsByID(productRequestData);
+                    str = JsonConvert.SerializeObject(response);
+                }
+                else
+                {
+                    ProductDetailsResponce objResponce = obj.getAllProductsByIDs(productRequestData);
+                    str = JsonConvert.SerializeObject(objResponce);
+                }
                 WebOperationContext.Current.OutgoingResponse.ContentType = "application/json; charset=utf-8";
                 ms = new MemoryStream(Encoding.UTF8.GetBytes(str));
                 return ms;
@@ -96,8 +103,17 @@ namespace PurityScannerService
             //System.IO.StreamWriter file = new System.IO.StreamWriter("D:\\test.txt", true);
             //file.WriteLine("getProductDetailsByImageKey: -Language ID : " + productDetailsRequestData.LanguageID + " Country ID :" + productDetailsRequestData.CountryCode + " ");
             //file.Close();
-            ProductDetailsResponce objResponce = obj.getProductDetailsByImageKey(productDetailsRequestData);
-            string str = JsonConvert.SerializeObject(objResponce);
+            string str;
+            if (obj.checkSubProductsByImageKey(productDetailsRequestData.ImageKey))
+            {
+                ProductSubProductResponse response = obj.getProductSubProductDetailsByImageKey(productDetailsRequestData);
+                str = JsonConvert.SerializeObject(response);
+            }
+            else
+            {
+                ProductDetailsResponce objResponce = obj.getProductDetailsByImageKey(productDetailsRequestData);
+                str = JsonConvert.SerializeObject(objResponce);
+            }
             WebOperationContext.Current.OutgoingResponse.ContentType = "application/json; charset=utf-8";
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(str));
             return ms;
