@@ -12,7 +12,7 @@ namespace PL
         int languageID;
         string securityKey;
         int productId;
-        int comparingWithProductID;
+        //int comparingWithProductID;
         string userLattitude;
         string userLongitude;
 
@@ -33,11 +33,11 @@ namespace PL
             set { securityKey = value; }
         }
 
-        public int ComparingWithProductID
-        {
-            get { return comparingWithProductID; }
-            set { comparingWithProductID = value; }
-        }
+        //public int ComparingWithProductID
+        //{
+        //    get { return comparingWithProductID; }
+        //    set { comparingWithProductID = value; }
+        //}
 
         public string UserLattitude
         {

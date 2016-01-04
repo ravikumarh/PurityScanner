@@ -18,7 +18,7 @@ namespace BAL
 
         public bool checkSubProductsById(int ProductId)
         {
-            if (obj.getSubProductDetialsByProductID(ProductId).Rows.Count > 0)
+            if (obj.getSubProductDetialsByProductID(ProductId).Rows.Count > 1)
             {
                 return true;
             }
@@ -30,7 +30,7 @@ namespace BAL
 
         public bool checkSubProductsByImageKey(string ImageKey)
         {
-            if (obj.getSubProductDetialsByImageKey(ImageKey).Rows.Count > 0)
+            if (obj.getSubProductDetialsByImageKey(ImageKey).Rows.Count > 1)
             {
                 return true;
             }
