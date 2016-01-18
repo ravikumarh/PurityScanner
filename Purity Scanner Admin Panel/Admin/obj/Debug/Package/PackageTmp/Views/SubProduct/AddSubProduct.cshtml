@@ -1,0 +1,105 @@
+﻿@model Admin.Models.clsSubProduct
+@{
+    
+    HtmlHelper.ClientValidationEnabled = false;
+}
+@using (Html.BeginForm("SubProductAdd", "SubProduct", FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+    
+        @*@Html.ValidationSummary(true)*@
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductName, new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.DropDownListFor(model => model.ProductID, new SelectList(Model.ListProduct, "ProductID", "ProductName"), "Select Product", new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.ProductID)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SubProductName, new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.DropDownListFor(model => model.SubProductID, new SelectList(Model.ListSubProduct, "SubProductID", "SubProductName"), "Select Sub Product", new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.SubProductID)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-8 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" onclick="return addvalidData();" />
+                <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+}
+
+
+<script type="text/javascript">
+
+    $('#SubProductID').change(function ()
+    {
+        addvalidData();
+    })
+
+    $('#ProductID').change(function () {
+        addvalidData();
+    })
+    function addvalidData() {
+
+        var prodID = $('#ProductID').val();
+        var subProdID = $('#SubProductID').val();
+       // alert(prodID + " " + subProdID);
+        if (prodID && subProdID) {
+            $('#SubProductID').css('border-color', '');
+            $('#ProductID').css('border-color', '');
+            return true;
+        }
+        else if (prodID && !subProdID)
+        {
+            $('#SubProductID').css('border-color', 'red');
+            $('#ProductID').css('border-color', '');
+        }
+        else if (!prodID && subProdID)
+        {
+            $('#ProductID').css('border-color', 'red');
+            $('#SubProductID').css('border-color', '');
+        }
+        else {
+            $('#ProductID').css('border-color', 'red');
+            $('#SubProductID').css('border-color', 'red');
+            return false;
+        }
+        return false;
+    }
+</script>
+
+@*<script type="text/javascript">
+    function validDataAddProduct()
+    {
+        if ($('#ProductID').val() <= 0 && $('#SubProductID').val() <= 0)
+        {
+            alert('Please select Product and Sub Product');
+            return false;
+        }
+        else if ($('#ProductID').val() >0 && $('#SubProductID').val() <= 0)
+        {
+            alert('Please select Sub Product');
+            return false;
+        }
+        else if ($('#ProductID').val() <= 0 && $('#SubProductID').val() > 0) {
+            alert('Please select Product');
+            return false;
+        }
+        else {
+            return true;
+        }
+
+    }
+
+</script>*@

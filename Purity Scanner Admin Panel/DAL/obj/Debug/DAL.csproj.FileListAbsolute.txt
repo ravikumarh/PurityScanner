@@ -1,0 +1,4 @@
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\DAL\bin\Debug\DAL.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\DAL\bin\Debug\DAL.pdb
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\DAL\obj\Debug\DAL.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\DAL\obj\Debug\DAL.pdb

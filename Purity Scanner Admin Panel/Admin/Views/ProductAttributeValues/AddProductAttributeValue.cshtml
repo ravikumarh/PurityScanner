@@ -1,0 +1,176 @@
+﻿@model Admin.Models.clsProductAttributeValue
+@{
+
+    HtmlHelper.ClientValidationEnabled = false;
+}
+@using (Html.BeginForm("ProductAttributeValueAdd", "ProductAttributeValues", FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    
+   
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.FilterProductID)
+        @Html.HiddenFor(model => model.FilterSubProductID)
+        @Html.HiddenFor(model => model.FilterAttributeID)
+        @Html.HiddenFor(model => model.FilterLanguageID)
+  
+        <div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ProductID, new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.DropDownListFor(model => model.ProductID, new SelectList(Model.ListProduct, "ProductID", "ProductName"), "Select Product", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ProductID)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SubProductID, new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.DropDownListFor(model => model.SubProductID, new SelectList(Model.ListSubProduct, "SubProductID", "SubProductName"), "Select Sub Product", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.SubProductID)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.AttributeID, new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.DropDownListFor(model => model.AttributeID, new SelectList(Model.ListAttribute, "AttributeID", "AttributeName"), "Select Attribute", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.AttributeID)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LanguageID, new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.DropDownListFor(model => model.LanguageID, new SelectList(Model.ListLanguage, "LanguageID", "LanguageName"), "Select Language", new { @class = "form-control"})
+                    @Html.ValidationMessageFor(model => model.LanguageID)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ProductAttributeValues, new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.TextBoxFor(model => model.ProductAttributeValues, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ProductAttributeValues)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ShortDescription, new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.TextBoxFor(model => model.ShortDescription, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ShortDescription)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ManifestoInformation, new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @*@Html.TextAreaFor(model => model.ManifestoInformation, new { @class = "form-control",id="addManifestoArea" })
+                    @Html.ValidationMessageFor(model => model.ManifestoInformation)*@
+                </div>
+            </div>
+
+            <div class="form-group">
+               
+                <div class="col-md-12">
+                    @Html.TextAreaFor(model => model.ManifestoInformation, new { @class = "form-control", id = "addManifestoArea" })
+                    @Html.ValidationMessageFor(model => model.ManifestoInformation)
+                </div>
+            </div>
+        </div>
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.LastModifiedDateTime, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastModifiedDateTime)
+                @Html.ValidationMessageFor(model => model.LastModifiedDateTime)
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-8 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" onclick="return addvalidData();" />
+                <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+            </div>
+        </div>
+    </div>
+}
+<script type="text/jscript">
+    $('#SubProductID').change(function () {
+        addvalidData();
+    })
+
+    $('#ProductID').change(function () {
+        addvalidData();
+    })
+    $('#AttributeID').change(function () {
+        addvalidData();
+    })
+
+    $('#LanguageID').change(function () {
+        addvalidData();
+    })
+
+    $('#ProductAttributeValues').focusout(function () {
+        addvalidData();
+    })
+
+
+    function addvalidData() {
+
+        var prodID = $('#ProductID').val();
+        var subProdID = $('#SubProductID').val();
+        var attriID = $('#AttributeID').val();
+        var langID = $('#LanguageID').val();
+        var attriValue = $('#ProductAttributeValues').val().trim();;
+
+
+        if (prodID) {
+            $('#ProductID').css('border-color', '');
+        }
+        else
+        {
+            $('#ProductID').css('border-color', 'red');
+        }
+
+        if (subProdID) {
+            $('#SubProductID').css('border-color', '');
+        }
+        else
+        {
+            $('#SubProductID').css('border-color', 'red');
+        }
+
+        if (attriID) {
+            $('#AttributeID').css('border-color', '');
+        }
+        else {
+            $('#AttributeID').css('border-color', 'red');
+        }
+
+        if (langID) {
+            $('#LanguageID').css('border-color', '');
+        }
+        else {
+            $('#LanguageID').css('border-color', 'red');
+        }
+
+        if (attriValue) {
+            $('#ProductAttributeValues').css('border-color', '');
+        }
+        else {
+            $('#ProductAttributeValues').css('border-color', 'red');
+        }
+        
+        if (prodID && subProdID && attriID && langID && attriValue) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+       return false;
+    }
+</script>

@@ -16,3 +16,12 @@ C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\BAL\bin\Release\PL.
 C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\BAL\obj\Release\BAL.csprojResolveAssemblyReference.cache
 C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\BAL\obj\Release\BAL.dll
 C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\BAL\obj\Release\BAL.pdb
+C:\Service\Purity Scanner\BAL\bin\Release\BAL.dll
+C:\Service\Purity Scanner\BAL\bin\Release\BAL.pdb
+C:\Service\Purity Scanner\BAL\bin\Release\DAL.dll
+C:\Service\Purity Scanner\BAL\bin\Release\PL.dll
+C:\Service\Purity Scanner\BAL\bin\Release\DAL.pdb
+C:\Service\Purity Scanner\BAL\bin\Release\PL.pdb
+C:\Service\Purity Scanner\BAL\obj\Release\BAL.csprojResolveAssemblyReference.cache
+C:\Service\Purity Scanner\BAL\obj\Release\BAL.dll
+C:\Service\Purity Scanner\BAL\obj\Release\BAL.pdb

@@ -1,0 +1,48 @@
+﻿@model Admin.Models.clsProductAttributeValue
+@using (Html.BeginForm("getAllProdValuesByFilterIDs", "ProductAttributeValues", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true)
+
+
+    <div class="form box">
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductName, new { @class = "control-label col-md-1" })
+            <div class="col-md-2">
+                @Html.DropDownListFor(model => model.FilterProductID, new SelectList(Model.ListProduct, "ProductID", "ProductName"), "Select Product", new { @class = "form-control", onchange = "this.form.action='getAllProdValuesByFilterIDs';this.form.submit();" })
+                @*@Html.ValidationMessageFor(model => model.ProductName)*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SubProductName, new { @class = "control-label col-md-1" })
+            <div class="col-md-2">
+                @Html.DropDownListFor(model => model.FilterSubProductID, new SelectList(Model.ListSubProduct, "SubProductID", "SubProductName"), "Select Sub Product", new { @class = "form-control", onchange = "this.form.action='getAllProdValuesByFilterIDs';this.form.submit();" })
+                @*@Html.ValidationMessageFor(model => model.CountryName)*@
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AttributeName, new { @class = "control-label col-md-1" })
+            <div class="col-md-2">
+                @Html.DropDownListFor(model => model.FilterAttributeID, new SelectList(Model.ListAttribute, "AttributeID", "AttributeName"), "Select Attribute", new { @class = "form-control", onchange = "this.form.action='getAllProdValuesByFilterIDs';this.form.submit();" })
+                @*@Html.ValidationMessageFor(model => model.ProductName)*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LanguageName, new { @class = "control-label col-md-1" })
+            <div class="col-md-2">
+                @Html.DropDownListFor(model => model.FilterLanguageID, new SelectList(Model.ListLanguage, "LanguageID", "LanguageName"), "Select Language", new { @class = "form-control", onchange = "this.form.action='getAllProdValuesByFilterIDs';this.form.submit();" })
+                @*@Html.ValidationMessageFor(model => model.CountryName)*@
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+}

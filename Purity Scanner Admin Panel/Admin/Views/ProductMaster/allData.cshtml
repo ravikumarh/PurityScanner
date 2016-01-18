@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Admin.Models.clsProductMaster>
+
+
+
+<div class="box col-md-12">
+    <div class="box-inner">
+
+        <div class="box-content">
+           
+            <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
+
+                <thead class="alert alert-info">
+                    <tr>
+                        @*<th>
+                    @Html.DisplayNameFor(model => model.productId)
+                </th>*@
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProductName)
+                        </th>
+                        @*<th>
+                    @Html.DisplayNameFor(model => model.LastModified)
+                </th>*@
+                        @*<th>
+                    @Html.DisplayNameFor(model => model.IsActive)
+                </th>*@
+                        <th><a data-toggle="modal" href="#addProductModal" class="btn btn-primary btn-small">Add New</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => item.productId)
+                                </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProductName)
+                            </td>
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.LastModified)
+                            </td>*@
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => item.IsActive)
+                                </td>*@
+                            <td class="center">
+                                <a class="btn btn-success" name="@Url.Action("viewProduct", "ProductMaster", new { id = item.productId })" href="#">
+                                    <i class="glyphicon glyphicon-zoom-in icon-white"></i>
+                                    View
+                                </a>
+                                <a class="btn btn-info" name="@Url.Action("EditProduct", "ProductMaster", new { id = item.productId })" href="#">
+                                    <i class="glyphicon glyphicon-edit icon-white"></i>
+                                    Edit
+                                </a>
+                                <a class="btn btn-danger" name="@Url.Action("DeleteProduct", "ProductMaster", new { id = item.productId })" href="#">
+                                    <i class="glyphicon glyphicon-trash icon-white"></i>
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>

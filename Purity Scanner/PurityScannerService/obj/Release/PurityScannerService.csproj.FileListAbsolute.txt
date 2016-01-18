@@ -29,3 +29,17 @@ C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PurityScannerServic
 C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PurityScannerService\obj\Release\PurityScannerService.csprojResolveAssemblyReference.cache
 C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PurityScannerService\obj\Release\PurityScannerService.dll
 C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PurityScannerService\obj\Release\PurityScannerService.pdb
+C:\Service\Purity Scanner\PurityScannerService\bin\PurityScannerService.dll.config
+C:\Service\Purity Scanner\PurityScannerService\bin\PurityScannerService.dll
+C:\Service\Purity Scanner\PurityScannerService\bin\PurityScannerService.pdb
+C:\Service\Purity Scanner\PurityScannerService\bin\BAL.dll
+C:\Service\Purity Scanner\PurityScannerService\bin\Newtonsoft.Json.dll
+C:\Service\Purity Scanner\PurityScannerService\bin\PL.dll
+C:\Service\Purity Scanner\PurityScannerService\bin\DAL.dll
+C:\Service\Purity Scanner\PurityScannerService\bin\BAL.pdb
+C:\Service\Purity Scanner\PurityScannerService\bin\PL.pdb
+C:\Service\Purity Scanner\PurityScannerService\bin\Newtonsoft.Json.xml
+C:\Service\Purity Scanner\PurityScannerService\bin\DAL.pdb
+C:\Service\Purity Scanner\PurityScannerService\obj\Release\PurityScannerService.csprojResolveAssemblyReference.cache
+C:\Service\Purity Scanner\PurityScannerService\obj\Release\PurityScannerService.dll
+C:\Service\Purity Scanner\PurityScannerService\obj\Release\PurityScannerService.pdb

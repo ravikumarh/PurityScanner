@@ -8,3 +8,8 @@ C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PL\bin\Release\PL.p
 C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PL\obj\Release\PL.csprojResolveAssemblyReference.cache
 C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PL\obj\Release\PL.dll
 C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\PL\obj\Release\PL.pdb
+C:\Service\Purity Scanner\PL\bin\Release\PL.dll
+C:\Service\Purity Scanner\PL\bin\Release\PL.pdb
+C:\Service\Purity Scanner\PL\obj\Release\PL.csprojResolveAssemblyReference.cache
+C:\Service\Purity Scanner\PL\obj\Release\PL.dll
+C:\Service\Purity Scanner\PL\obj\Release\PL.pdb

@@ -1,0 +1,69 @@
+﻿@model Admin.Models.clsCompanyMissionInfo
+@{
+
+    HtmlHelper.ClientValidationEnabled = false;
+}
+@using (Html.BeginForm("EditCompanyMission", "CompanyMissionInfo", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.CompanyMissionInfoID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LanguageName, new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.DropDownListFor(model => model.LanguageID, new SelectList(Model.ListLanguage, "LanguageID", "LanguageName"), "Select Language", new { @class = "form-control", id = "editLanguageID", @onchange = " editvalidData()" })
+                @Html.ValidationMessageFor(model => model.LanguageID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MissionStatement, new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.TextAreaFor(model => model.MissionStatement, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MissionStatement)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VideoUrl, new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.TextBoxFor(model => model.VideoUrl, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.VideoUrl)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-8 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" onclick="return editvalidData();" />
+                <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+            </div>
+        </div>
+    </div>
+}
+
+
+<script type="text/jscript">
+
+    function editvalidData() {
+
+        var langID = $('#editLanguageID').val();
+        if (langID) {
+            $('#editLanguageID').css('border-color', '');
+        }
+        else {
+            $('#editLanguageID').css('border-color', 'red');
+        }
+
+        if (langID) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+        return false;
+    }
+</script>

@@ -1,0 +1,215 @@
+﻿@model Admin.Models.clsProductImage
+@{
+
+    HtmlHelper.ClientValidationEnabled = false;
+}
+@using (Html.BeginForm("ProductImageEdit", "ProductImage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.ProductImageID)
+        @Html.HiddenFor(model => model.FilterProductID)
+    @Html.HiddenFor(model => model.FilterCountryCode)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductName, new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.DropDownListFor(model => model.ProductID, new SelectList(ViewBag.lstProduct, "Value", "Text"), "Select Product", new { @class = "form-control", id = "editProductID", @onchange = "editvalidData()" })
+                @Html.ValidationMessageFor(model => model.ProductName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CountryName, new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+             
+                @Html.DropDownListFor(model => model.CountryCode, new SelectList(ViewBag.lstCountry, "Value", "Text"), "Select Country", new { @class = "form-control", id = "editCountryCode", @onchange = "editvalidData()" })
+                @Html.ValidationMessageFor(model => model.CountryName)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.MoodstockImageKey, new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.TextBoxFor(model => model.MoodstockImageKey, new { @class = "form-control", id = "editMoodstockImageKey", @onfocusout = "editvalidData()" })
+                @Html.ValidationMessageFor(model => model.MoodstockImageKey)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductImageUrl, new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                <img id="editimg" src=@Model.ProductImageUrl alt="Select Image" width="100px" class="img-rounded" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-8">
+                <input type="file" name="edituploadFile" id="editfile" onchange="readURLEdit(this)" class="form-control" />
+            </div>
+        </div>
+
+      
+
+        <div class="form-group">
+            <div class="col-md-offset-8 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" onclick="return editvalidData();" />
+                <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/jscript">
+
+    function readURLEdit(input) {
+ 
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#editimg').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+        else {
+            $('#editimg').removeAttr('src');
+        }
+
+        editvalidData();
+    }
+
+    function editvalidData() {
+
+        var prodID = $('#editProductID').val();
+        var contryCode = $('#editCountryCode').val();
+        var moodImageKey = $('#editMoodstockImageKey').val();
+        var fileData = $('#editfile').val();
+       
+
+        if (prodID && contryCode && moodImageKey && fileData) {
+            $('#editCountryCode').css('border-color', '');
+            $('#editProductID').css('border-color', '');
+            $('#editMoodstockImageKey').css('border-color', '');
+            $('#editfile').css('border-color', '');
+            return true;
+        }
+        else if (prodID && !contryCode && !moodImageKey && !fileData) {
+            $('#editMoodstockImageKey').css('border-color', 'red');
+            $('#editCountryCode').css('border-color', 'red');
+            $('#editProductID').css('border-color', '');
+            $('#editfile').css('border-color', 'red');
+            return false;
+        }
+        else if (!prodID && contryCode && !moodImageKey && !fileData) {
+            $('#editMoodstockImageKey').css('border-color', 'red');
+            $('#editProductID').css('border-color', 'red');
+            $('#editCountryCode').css('border-color', '');
+            $('#editfile').css('border-color', 'red');
+            return false;
+        }
+        else if (prodID && !contryCode && !moodImageKey && !fileData) {
+            $('#editMoodstockImageKey').css('border-color', 'red');
+            $('#editProductID').css('border-color', '');
+            $('#editCountryCode').css('border-color', 'red');
+            $('#editfile').css('border-color', 'red');
+            return false;
+        }
+        else if (!prodID && contryCode && !moodImageKey && fileData) {
+            $('#editMoodstockImageKey').css('border-color', 'red');
+            $('#editProductID').css('border-color', 'red');
+            $('#editCountryCode').css('border-color', '');
+            $('#editfile').css('border-color', '');
+            return false;
+        }
+        else if (!prodID && !contryCode && moodImageKey && !fileData) {
+            $('#editMoodstockImageKey').css('border-color', '');
+            $('#editProductID').css('border-color', 'red');
+            $('#editCountryCode').css('border-color', 'red');
+            $('#editfile').css('border-color', 'red');
+            return false;
+        }
+        else if (!prodID && !contryCode && !moodImageKey && fileData) {
+            $('#editMoodstockImageKey').css('border-color', 'red');
+            $('#editProductID').css('border-color', 'red');
+            $('#editCountryCode').css('border-color', 'red');
+            $('#editfile').css('border-color', '');
+            return false;
+        }
+        else if (!prodID && !contryCode && moodImageKey && fileData) {
+            $('#editMoodstockImageKey').css('border-color', '');
+            $('#editProductID').css('border-color', 'red');
+            $('#editCountryCode').css('border-color', 'red');
+            $('#editfile').css('border-color', '');
+            return false;
+        }
+        else if (!prodID && contryCode && moodImageKey && !fileData) {
+            $('#editMoodstockImageKey').css('border-color', '');
+            $('#editProductID').css('border-color', 'red');
+            $('#editCountryCode').css('border-color', '');
+            $('#editfile').css('border-color', 'red');
+            return false;
+        }
+        else if (!prodID && contryCode && moodImageKey && fileData) {
+            $('#editMoodstockImageKey').css('border-color', '');
+            $('#editProductID').css('border-color', 'red');
+            $('#editCountryCode').css('border-color', '');
+            $('#editfile').css('border-color', '');
+            return false;
+        }
+        else if (prodID && !contryCode && moodImageKey && !fileData) {
+            $('#editMoodstockImageKey').css('border-color', '');
+            $('#editProductID').css('border-color', '');
+            $('#editCountryCode').css('border-color', 'red');
+            $('#editfile').css('border-color', 'red');
+            return false;
+        }
+        else if (prodID && !contryCode && moodImageKey && fileData) {
+            $('#editMoodstockImageKey').css('border-color', '');
+            $('#editProductID').css('border-color', '');
+            $('#editCountryCode').css('border-color', 'red');
+            $('#editfile').css('border-color', '');
+            return false;
+        }
+        else if (prodID && contryCode && !moodImageKey && !fileData) {
+            $('#editMoodstockImageKey').css('border-color', 'red');
+            $('#editProductID').css('border-color', '');
+            $('#editCountryCode').css('border-color', '');
+            $('#editfile').css('border-color', 'red');
+            return false;
+        }
+        else if (prodID && !contryCode && !moodImageKey && fileData) {
+            $('#editMoodstockImageKey').css('border-color', 'red');
+            $('#editProductID').css('border-color', '');
+            $('#editCountryCode').css('border-color', 'red');
+            $('#editfile').css('border-color', '');
+            return false;
+        }
+        else if (prodID && contryCode && moodImageKey && !fileData) {
+            $('#editMoodstockImageKey').css('border-color', '');
+            $('#editProductID').css('border-color', '');
+            $('#editCountryCode').css('border-color', '');
+            $('#editfile').css('border-color', 'red');
+            return false;
+        }
+        else if (prodID && contryCode && !moodImageKey && fileData) {
+            $('#editMoodstockImageKey').css('border-color', 'red');
+            $('#editProductID').css('border-color', '');
+            $('#editCountryCode').css('border-color', '');
+            $('#editfile').css('border-color', '');
+            return false;
+        }
+        else {
+            $('#editProductID').css('border-color', 'red');
+            $('#editCountryCode').css('border-color', 'red');
+            $('#editMoodstockImageKey').css('border-color', 'red');
+            $('#editfile').css('border-color', 'red');
+            return false;
+        }
+        return false;
+    }
+</script>

@@ -1,0 +1,244 @@
+﻿.header-box-test {
+padding-top:0px;
+}
+body {
+font-family:Calibri;
+font-size:15px;
+}
+.breadcrumb {
+font-size:15px;
+margin-bottom:5px;
+}
+.header-box-test .head-name{
+    font-size:15px;
+    color:#443266;
+    font-weight:bold;
+    padding:4px 5px;
+}
+.back-round {
+    background-color:rgba(194, 195, 195, 0.28);
+}
+.que-section {
+    padding:0px 7% 0px 7%;     
+   
+}
+.menu-section .col-md-12 {
+padding:0px;
+
+}
+    .que-section .breadcrumb {
+    
+    padding:0px;
+    }
+.que-body {
+     border:1px solid #888;
+     width:100%;
+     height:auto;
+     float:left;
+     margin-bottom:50px;
+}
+.que-head-box {
+   
+    height:auto;
+    padding-top:10px;
+    margin-bottom:50px;   
+    float:left;
+    width:100%;
+}
+.que-type {
+display:inline-block;
+display:block;
+}
+.que-type li.selected {
+    background-color:#443266;
+color:#fff;
+}
+.que-type li {
+display:inline-block;
+padding:4px;
+background-color:#779B9C;
+cursor:pointer;
+color:#333;
+font-size:13px;
+}
+.que-type li.selected a {
+color:#FFF;
+font-size:15px;
+}
+.que-type li a {
+color:#333;
+font-size:15px;
+padding:2px 10px;
+}
+.que-box {
+width:100%;
+height:auto;
+float:left;
+padding:0px 40px 20px;
+}
+.control-label .brod-label{
+font-weight:bold;
+color:#3d3d3d;
+font-size:15px;
+line-height:5.5;
+}
+.control-label .small-label{
+font-weight:normal;
+color:#3d3d3d;
+font-size:14px;
+}
+.que-body .form-horizontal .form-group {
+margin-bottom:5px;
+}
+
+.que-body .control-label {
+padding:0px;
+}
+.que-head .head-name{
+    font-size:18px;
+    color:#443266;
+    font-weight:bold;
+    padding-right:5px;
+}
+.que-head .hed-label-txt a {
+    font-family:Calibri;
+    font-size:16px;   
+    text-decoration:none; 
+}
+.hed-label-txt {
+
+padding-right:20px;
+}
+.add-que a {
+font-size:16px;
+}
+.editor-box .btn {
+padding:3px 6px;
+font-size:12px;
+}
+#menuBarDiv .dropdown-toggle {
+font-size:12px;
+}
+.tab-content > .active {
+    border:1px solid #DDD;
+    border-top:none;
+}
+.tab-pane {
+padding:10px 5px;
+}
+.test-home {
+padding:5px 0px;
+}
+.assign {
+width:10%;
+}
+.assign a {
+width:100%;
+text-align:center;
+color:green;
+cursor:pointer;
+}
+.assign:hover a {
+    color:darkgreen;
+}
+.test-board {
+padding:10px 5px;
+}
+    .test-board .head-name {
+    font-size:18px;
+    }
+.que-list {
+padding:10px 5px;
+}
+.que-list .head-name {
+font-size:20px;
+}
+.que-list .head1-name {
+font-size:18px;
+font-weight:normal;
+}
+.cke_editable p{
+    margin:0px !important;
+}
+.cke_contents {
+ height:80px !important;
+}
+.cke_bottom {
+ display:none !important;
+}
+.cke_top {
+padding:4px 4px 0px !important;
+}
+.cke_editable {
+margin:5px !important;
+}
+.test-table-td {
+line-height:3 !important;
+}
+.test-name a{
+    font-size:15px;
+    color:#4E4343;
+    font-weight:bold;
+    padding-bottom:2px;
+}
+.test-name a:hover {
+    font-size:15px;
+    color:#4E4343;
+}
+.test-link {
+     font-size:12px;
+     color:#7D767D;
+}
+.test-link a{
+     font-size:12px;
+     color:#7D767D;
+     font-weight:normal;
+     padding-bottom:0px;
+}
+.test-link a:hover{
+     font-size:12px;
+     color:#7D767D;
+}
+.test-home .table {
+    font-family:Calibri;
+}
+.field-validation-error {
+font-size:12px !important;
+font-family:Arial, Helvetica, sans-serif;
+}
+.control-label-self {
+    text-align:right;
+    font-size:15px;
+    padding-top:20px;
+}
+.form-control1 {
+width:100%;
+}
+.display-name {
+    font-size:12px;
+    color:#797373;
+}
+.test-settings {
+padding:20px 0px;
+font-family:Arial, Helvetica, sans-serif;
+}
+.test-settings .txtbox {
+    height:32px;
+    padding:0px 6px !important;
+    font-size:13px;
+    color:#000;
+}
+.test-settings .txtarea {
+    height:60px;
+     font-size:13px;
+      padding:0px 6px;
+       color:#000;
+}
+    .test-settings .time-div {
+    padding:0px;
+    }
+sup {
+font-size:16px;
+    top: -.2em;
+    color:red;
+}

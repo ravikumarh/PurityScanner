@@ -1,0 +1,249 @@
+﻿@model IEnumerable<Admin.Models.clsLanguageMaster>
+
+@{
+    ViewBag.Title = "Language";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Admin.Models.clsLanguageMaster obj = new Admin.Models.clsLanguageMaster();
+}
+
+
+<link href="@Url.Content("~/Content/themes/base/minified/jquery-ui.min.css")" rel="stylesheet" type="text/css" />
+
+
+<div class="row">
+    <div class="box col-md-12">
+        <div class="box-inner">
+
+            <div class="box-content" id="mainView">
+                  <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
+                    <thead class="alert alert-info">
+                        <tr>
+
+                            @*<th>
+
+                </th>*@
+                            <th>
+                                @Html.DisplayNameFor(model => model.LanguageName)
+                            </th>
+                            @*<th>
+                    @Html.DisplayNameFor(model => model.IsActive)
+                </th>*@
+                            <th><a data-toggle="modal" href="#pop" class="btn btn-primary btn-small">Add New</a></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                @*<td class="center">
+                                        @Html.HiddenFor(modelItem => item.LanguageId)
+                                    </td>*@
+                                <td class="center col-md-6">
+                                    @Html.DisplayFor(modelItem => item.LanguageName)
+                                </td>
+                                @*<td>
+                                        @Html.DisplayFor(modelItem => item.IsActive)
+                                    </td>*@
+                                <td class="center col-md-6">
+                                    <a class="btn btn-success" name="@Url.Action("viewLanguageDetails", "Language", new { id = item.LanguageId })" href="#">
+                                        <i class="glyphicon glyphicon-zoom-in icon-white"></i>
+                                        View
+                                    </a>
+                                    <a class="btn btn-info" name="@Url.Action("EditLanguage", "Language", new { id = item.LanguageId })" href="#">
+                                        <i class="glyphicon glyphicon-edit icon-white"></i>
+                                        Edit
+                                    </a>
+                                    <a class="btn btn-danger" name="@Url.Action("DeleteLanguage", "Language", new { id = item.LanguageId })" href="#">
+                                        <i class="glyphicon glyphicon-trash icon-white"></i>
+                                        Delete
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var msg = '@ViewData["Message"]';
+        if (msg) {
+            // alert(msg);
+            $('#messageModal').modal('show');
+        }
+    });
+</script>
+
+<div id="messageModal" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Message</h4>
+            </div>
+            <div id="messageContent" class="modal-body">
+
+
+
+                @Html.Partial("Message")
+
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div id="pop" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Add New</h4>
+            </div>
+            <div id="dialogContent" class="modal-body">
+
+
+
+                @Html.Partial("AddLanguage", obj)
+
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+<div id="editLang" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Edit</h4>
+            </div>
+            <div id="editLangContent" class="modal-body">
+                @Html.Partial("EditLanguage", obj)
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+<div id="viewLang" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Details</h4>
+            </div>
+            <div id="viewLangContent" class="modal-body">
+                @Html.Partial("viewLanguageDetails", obj)
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+<div id="confirm" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Delete</h4>
+            </div>
+            <div id="deleteLanguageContent" class="modal-body">
+                @Html.Partial("DeleteLanguage", obj)
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" value="12" data-dismiss="modal" class="btn btn-primary" id="delete">Delete</button>
+                    <button type="button" data-dismiss="modal" class="btn">Cancel</button>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+
+<div id="modal-container" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-content">
+
+    </div>
+</div>
+
+<script type="text/jscript">
+
+
+    $('.btn-danger').click(function () {
+        // alert('Hiii');
+        var url = $(this).attr('name');
+        //  alert(url);
+        var valdata = url.replace("/Language/DeleteLanguage/", '');
+        //  alert(valdata);
+        $.post('/Language/DeleteLanguage/', { id: valdata }, function (data) {
+            $('#deleteLanguageContent').html(data);
+            $('#confirm').modal('show');
+        });
+
+    });
+
+
+    $('.btn-info').click(function () {
+        // alert("hiiii");
+        var url = $(this).attr('name');
+        //alert(url);
+        var valdata = url.replace("/Language/EditLanguage/", '');
+        //alert(valdata);
+        $.post('/Language/EditLanguage/', { id: valdata }, function (data) {
+            $('#editLangContent').html(data);
+            $('#editLang').modal('show');
+        });
+
+
+    })
+
+    $('.btn-success').click(function () {
+        //  alert("hiiii");
+        var url = $(this).attr('name');
+        //alert(url);
+        var valdata = url.replace("/Language/viewLanguageDetails/", '');
+        //alert(valdata);
+        $.post('/Language/viewLanguageDetails/', { id: valdata }, function (data) {
+            $('#viewLangContent').html(data);
+            $('#viewLang').modal('show');
+        });
+
+
+
+    })
+
+
+
+
+
+    //$('#delete').click(function () {
+    //    var valdata = $(this).attr('value');
+    //    alert(valdata);
+    //    $.post('/Language/DeleteLanguage/', { id: valdata }, function (data) {
+    //       // $('#mainView').html(data);
+    //    });
+
+
+    //});
+
+
+
+</script>

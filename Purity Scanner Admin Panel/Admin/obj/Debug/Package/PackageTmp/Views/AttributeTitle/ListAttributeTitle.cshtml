@@ -1,0 +1,249 @@
+﻿@model IEnumerable<Admin.Models.clsAttributeTitle>
+
+@{
+    ViewBag.Title = "Attribute Title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Admin.Models.clsAttributeTitle obj = (Admin.Models.clsAttributeTitle)ViewBag.attributeTitleObj;
+}
+<div class="box col-md-12">
+    <div class="box-inner">
+        <div class="box-content">
+            <div style="margin-bottom:70px;">
+
+                @Html.Partial("FilterAttributeTitle", obj)
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="box col-md-12">
+    <div class="box-inner">
+
+        <div class="box-content">
+            @foreach (var tmpitem in Model)
+            {
+                @Html.HiddenFor(model => tmpitem.FilterAttributeID)
+                @Html.HiddenFor(model => tmpitem.FilterAttributeLanguageID)
+                break;
+            }
+            <div>
+
+            </div>
+            <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
+                <thead class="alert alert-info">
+                <th>
+                    @Html.DisplayNameFor(model => model.AttributeName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AttributeTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LanguageName)
+                </th>
+                <th><a data-toggle="modal" href="#addNewAttributeTitle" class="btn btn-primary btn-small">Add New</a></th>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => item.AttributeID)
+                                </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AttributeName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AttributeTitle)
+                            </td>
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => item.LanguageID)
+                                </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LanguageName)
+                            </td>
+                            @*<td>
+                                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                                </td>*@
+
+                            <td class="center">
+                                <a class="btn btn-success" name="@Url.Action("ViewAttributeTitle", "AttributeTitle", new { id = item.AttributeTitleID })" href="#">
+                                    <i class="glyphicon glyphicon-zoom-in icon-white"></i>
+                                    View
+                                </a>
+                                <a class="btn btn-info" name="@Url.Action("EditAttributeTitle", "AttributeTitle", new { id = item.AttributeTitleID })" href="#">
+                                    <i class="glyphicon glyphicon-edit icon-white"></i>
+                                    Edit
+                                </a>
+                                <a class="btn btn-danger" name="@Url.Action("DeleteAttributeTitle", "AttributeTitle", new { id = item.AttributeTitleID })" href="#">
+                                    <i class="glyphicon glyphicon-trash icon-white"></i>
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var msg = '@ViewData["Message"]';
+        if (msg) {
+            // alert(msg);
+            $('#messageModal').modal('show');
+        }
+    });
+</script>
+
+<div id="messageModal" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Message</h4>
+            </div>
+            <div id="messageContent" class="modal-body">
+
+
+
+                @Html.Partial("Message")
+
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div id="addNewAttributeTitle" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Add New</h4>
+            </div>
+            <div id="addAttributeTitleContent" class="modal-body">
+
+                @Html.Partial("AddAttributeTitle", obj)
+
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+<div id="editAttributeTitleModal" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Edit</h4>
+            </div>
+            <div id="editAttributeTitleContent" class="modal-body">
+                @Html.Partial("EditAttributeTitle", obj)
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+<div id="viewAttributeTitleModal" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Details</h4>
+            </div>
+            <div id="viewAttributeTitleContent" class="modal-body">
+                @Html.Partial("ViewAttributeTitle", obj)
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div id="confirmAttributeTitle" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Delete</h4>
+            </div>
+            <div id="deleteAttributeTitleContent" class="modal-body">
+                @Html.Partial("DeleteAttributeTitle", obj)
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" value="12" data-dismiss="modal" class="btn btn-primary" id="delete">Delete</button>
+                    <button type="button" data-dismiss="modal" class="btn">Cancel</button>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+
+<script type="text/jscript">
+
+
+
+
+    $('.btn-danger').click(function () {
+        // alert('Hiii');
+        var url = $(this).attr('name');
+        var attriId = $('#FilterAttributeID').val();
+        var langId = $('#FilterAttributeLanguageID').val();
+        //  alert(url);
+        var valdata = url.replace("/AttributeTitle/DeleteAttributeTitle/", '');
+        //  alert(valdata);
+        $.post('/AttributeTitle/DeleteAttributeTitle/', { id: valdata, filterAttributeId: attriId, filterLanguageId: langId }, function (data) {
+            $('#deleteAttributeTitleContent').html(data);
+            $('#confirmAttributeTitle').modal('show');
+        });
+
+    });
+
+
+    $('.btn-info').click(function () {
+        //alert("hiiii");
+        var url = $(this).attr('name');
+        var attriId = $('#FilterAttributeID').val();
+        var langId = $('#FilterAttributeLanguageID').val();
+        //alert(url);
+        var valdata = url.replace("/AttributeTitle/EditAttributeTitle/", '');
+        //alert(valdata);
+        $.post('/AttributeTitle/EditAttributeTitle/', { id: valdata, filterAttributeId: attriId, filterLanguageId: langId }, function (data) {
+            $('#editAttributeTitleContent').html(data);
+            $('#editAttributeTitleModal').modal('show');
+        });
+
+
+    })
+
+    $('.btn-success').click(function () {
+        // alert("hiiii");
+        var url = $(this).attr('name');
+        var attriId = $('#FilterAttributeID').val();
+        var langId = $('#FilterAttributeLanguageID').val();
+        //alert(url);
+        var valdata = url.replace("/AttributeTitle/ViewAttributeTitle/", '');
+        //alert(valdata);
+        $.post('/AttributeTitle/ViewAttributeTitle/', { id: valdata, filterAttributeId: attriId, filterLanguageId: langId }, function (data) {
+            $('#viewAttributeTitleContent').html(data);
+            $('#viewAttributeTitleModal').modal('show');
+        });
+
+
+    })
+
+</script>

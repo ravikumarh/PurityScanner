@@ -1,0 +1,286 @@
+﻿@model IEnumerable<Admin.Models.clsProductAttributeValue>
+
+@{
+    ViewBag.Title = "Product Attribute Values";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Admin.Models.clsProductAttributeValue obj = (Admin.Models.clsProductAttributeValue)ViewBag.prodAttributeValueObj;
+}
+
+<div class="box col-md-12">
+    <div class="box-inner">
+        <div class="box-content">
+            <div style="margin-bottom:70px;">
+
+                @Html.Partial("FilterProductAttributeValue", obj)
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="box col-md-12">
+    <div class="box-inner">
+        <div class="box-content">
+            @foreach (var tmpitem in Model)
+            {
+                @Html.HiddenFor(model => tmpitem.FilterProductID)
+                @Html.HiddenFor(model => tmpitem.FilterSubProductID)
+                @Html.HiddenFor(model => tmpitem.FilterAttributeID)
+                @Html.HiddenFor(model => tmpitem.FilterLanguageID)
+                break;
+            }
+            @*<div class="alert alert-info box">
+                   Product Attribute Value
+                </div>*@
+        
+            <div class="box">
+
+
+
+            </div>
+            <div class="box">
+                <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
+                    <thead class="alert alert-info">
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SubProductName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AttributeName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LanguageName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductAttributeValues)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ShortDescription)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ManifestoInformation)
+                    </th>
+                    <th>
+
+                        <a data-toggle="modal" href="#addNewProductAttributeValue" class="btn btn-primary btn-small">Add New</a>
+                    </th>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ProductName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SubProductName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AttributeName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LanguageName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ProductAttributeValues)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ShortDescription)
+                                </td>
+                                <td>
+                                    @*@Html.DisplayFor(modelItem => item.ManifestoInformation)*@
+                                    @{IHtmlString str = new HtmlString(item.ManifestoInformation);}
+                                    @Html.Raw(str)
+                                </td>
+
+                                <td class="center">
+                                    <a class="btn btn-success" name="@Url.Action("ViewProductAttributeValue", "ProductAttributeValues", new { id = item.ProductAttributeValuesID })" href="#">
+                                        <i class="glyphicon glyphicon-zoom-in icon-white"></i>
+                                        View
+                                    </a>
+                                    <a class="btn btn-info" name="@Url.Action("EditProductAttributeValue", "ProductAttributeValues", new { id = item.ProductAttributeValuesID })" href="#">
+                                        <i class="glyphicon glyphicon-edit icon-white"></i>
+                                        Edit
+                                    </a>
+                                    <a class="btn btn-danger" name="@Url.Action("DeleteProductAttributeValue", "ProductAttributeValues", new { id = item.ProductAttributeValuesID })" href="#">
+                                        <i class="glyphicon glyphicon-trash icon-white"></i>
+                                        Delete
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var msg = '@ViewData["Message"]';
+        if (msg) {
+            // alert(msg);
+            $('#messageModal').modal('show');
+        }
+    });
+</script>
+
+<div id="messageModal" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Message</h4>
+            </div>
+            <div id="messageContent" class="modal-body">
+
+
+
+                @Html.Partial("Message")
+
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+
+<div id="editProductAttributeValueModal" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Edit</h4>
+            </div>
+            <div id="editProductAttributeValueContent" class="modal-body">
+                @Html.Partial("EditProductAttributeValue", obj)
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div id="addNewProductAttributeValue" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Add New</h4>
+            </div>
+            <div id="addProductAttributeValueContent" class="modal-body">
+
+                @Html.Partial("AddProductAttributeValue", obj)
+
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div id="viewProductAttributeValueModal" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Details</h4>
+            </div>
+            <div id="viewProductAttributeValueContent" class="modal-body">
+                @Html.Partial("ViewProductAttributeValue", obj)
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div id="confirmProductAttributeValue" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Delete</h4>
+            </div>
+            <div id="deleteProductAttributeValueContent" class="modal-body">
+                @Html.Partial("DeleteProductAttributeValue", obj)
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" value="12" data-dismiss="modal" class="btn btn-primary" id="delete">Delete</button>
+                    <button type="button" data-dismiss="modal" class="btn">Cancel</button>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    CKEDITOR.replace('addManifestoArea');
+
+</script>
+<script type="text/jscript">
+
+
+
+
+    $('.btn-danger').click(function () {
+        var url = $(this).attr('name');
+        var prodID = $('#FilterProductID').val();
+        var subproductID = $('#FilterSubProductID').val();
+        var attributeID = $('#FilterAttributeID').val();
+        var languageID = $('#FilterLanguageID').val();
+        //  alert(url);
+        var valdata = url.replace("/ProductAttributeValues/DeleteProductAttributeValue/", '');
+        //  alert(valdata);
+        $.post('/ProductAttributeValues/DeleteProductAttributeValue/', { id: valdata, FilterProduct: prodID, FilterSubProduct: subproductID, FilterAttribute: attributeID, FilterLanguage: languageID }, function (data) {
+            $('#deleteProductAttributeValueContent').html(data);
+            $('#confirmProductAttributeValue').modal('show');
+        });
+
+    });
+
+
+    $('.btn-info').click(function () {
+        //alert("hiiii");
+        var url = $(this).attr('name');
+        var prodID = $('#FilterProductID').val();
+        var subproductID = $('#FilterSubProductID').val();
+        var attributeID = $('#FilterAttributeID').val();
+        var languageID = $('#FilterLanguageID').val();
+        //alert(url);
+        var valdata = url.replace("/ProductAttributeValues/EditProductAttributeValue/", '');
+        // alert(valdata);
+        $.post('/ProductAttributeValues/EditProductAttributeValue/', { id: valdata, FilterProduct: prodID, FilterSubProduct: subproductID, FilterAttribute: attributeID, FilterLanguage: languageID }, function (data) {
+            $('#editProductAttributeValueContent').html(data);
+            $('#editProductAttributeValueModal').modal('show');
+        });
+
+
+    })
+
+    $('.btn-success').click(function () {
+        // alert("hiiii");
+        var url = $(this).attr('name');
+        var prodID = $('#FilterProductID').val();
+        var subproductID = $('#FilterSubProductID').val();
+        var attributeID = $('#FilterAttributeID').val();
+        var languageID = $('#FilterLanguageID').val();
+        //alert(url);
+        var valdata = url.replace("/ProductAttributeValues/ViewProductAttributeValue/", '');
+        //alert(valdata);
+        $.post('/ProductAttributeValues/ViewProductAttributeValue/', { id: valdata, FilterProduct: prodID, FilterSubProduct: subproductID, FilterAttribute: attributeID, FilterLanguage: languageID }, function (data) {
+            $('#viewProductAttributeValueContent').html(data);
+            $('#viewProductAttributeValueModal').modal('show');
+        });
+
+
+    })
+
+</script>

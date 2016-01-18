@@ -1,0 +1,102 @@
+﻿@model Admin.Models.clsAttributeTitle
+@{
+
+    HtmlHelper.ClientValidationEnabled = false;
+}
+@using (Html.BeginForm("AttributeTitleAdd", "AttributeTitle", FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.FilterAttributeID)
+        @Html.HiddenFor(model => model.FilterAttributeLanguageID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AttributeName, new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.DropDownListFor(model => model.AttributeID, new SelectList(ViewBag.lstAttribute, "Value", "Text"), "Select Attribute", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.AttributeName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LanguageName, new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.DropDownListFor(model => model.LanguageID, new SelectList(ViewBag.lngList, "Value", "Text"), "Select Language", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.LanguageName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AttributeTitle, new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.TextBoxFor(model => model.AttributeTitle, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.AttributeTitle)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-8 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" onclick="return addvalidData();" />
+                <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+            </div>
+        </div>
+    </div>
+}
+
+
+<script type="text/jscript">
+
+    $('#AttributeID').change(function () {
+        addvalidData();
+    })
+
+    $('#LanguageID').change(function () {
+        addvalidData();
+    })
+
+    $('#AttributeTitle').focusout(function () {
+        addvalidData();
+    })
+
+
+    function addvalidData() {
+        var attriID = $('#AttributeID').val();
+        var langID = $('#LanguageID').val();
+        var attriTitle = $('#AttributeTitle').val().trim();;
+
+
+  
+        if (attriID) {
+            $('#AttributeID').css('border-color', '');
+        }
+        else {
+            $('#AttributeID').css('border-color', 'red');
+        }
+
+        if (langID) {
+            $('#LanguageID').css('border-color', '');
+        }
+        else {
+            $('#LanguageID').css('border-color', 'red');
+        }
+
+        if (attriTitle) {
+            $('#AttributeTitle').css('border-color', '');
+        }
+        else {
+            $('#AttributeTitle').css('border-color', 'red');
+        }
+
+        if (attriID && langID && attriTitle) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+        return false;
+    }
+</script>

@@ -49,6 +49,13 @@ namespace PurityScannerService
         [WebInvoke(UriTemplate = "GetManifesto", Method = "POST", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
         Stream GetManifesto(ManifestoRequest manifestoData);
 
+
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "uploadImage", Method = "POST", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+        Stream uploadImage(ImageUpload imgData);
+
+
     }
 
     [DataContract]

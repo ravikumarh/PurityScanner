@@ -1,0 +1,219 @@
+﻿@model IEnumerable<Admin.Models.clsSubProduct>
+
+@{
+    ViewBag.Title = "Sub Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Admin.Models.clsSubProduct obj = (Admin.Models.clsSubProduct)ViewBag.objSubProduct;
+}
+
+
+<div class="box col-md-12">
+    <div class="box-inner">
+
+        <div class="box-content">
+ 
+            <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
+                <thead class="alert alert-info">
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SubProductName)
+                </th>
+                <th><a data-toggle="modal" href="#addSubProduct" class="btn btn-primary btn-small">Add New</a></th>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProductName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SubProductName)
+                            </td>
+                            <td class="center">
+                                <a class="btn btn-success" name="@Url.Action("ViewSubProduct", "SubProduct", new { id =item.ID})" href="#">
+                                    <i class="glyphicon glyphicon-zoom-in icon-white"></i>
+                                    View
+                                </a>
+                                <a class="btn btn-info" name="@Url.Action("EditSubProduct", "SubProduct", new { id = item.ID })" href="#">
+                                    <i class="glyphicon glyphicon-edit icon-white"></i>
+                                    Edit
+                                </a>
+                                <a class="btn btn-danger" name="@Url.Action("DeleteSubProduct", "SubProduct", new { id = item.ID })" href="#">
+                                    <i class="glyphicon glyphicon-trash icon-white"></i>
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var msg = '@ViewData["Message"]';
+        if (msg) {
+            // alert(msg);
+            $('#messageModal').modal('show');
+        }
+    });
+</script>
+
+<div id="messageModal" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Message</h4>
+            </div>
+            <div id="messageContent" class="modal-body">
+
+
+
+                @Html.Partial("Message")
+
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div id="addSubProduct" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Add New</h4>
+            </div>
+            <div id="addSubProductContent" class="modal-body">
+
+
+
+                @Html.Partial("AddSubProduct", obj)
+
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+<div id="editSubProductModal" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Edit</h4>
+            </div>
+            <div id="editSubProductContent" class="modal-body">
+                @Html.Partial("EditSubProduct", obj)
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+<div id="viewSubProductModal" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Details</h4>
+            </div>
+            <div id="viewSubProductContent" class="modal-body">
+                @Html.Partial("ViewSubProduct", obj)
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div id="confirmSubProduct" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Delete</h4>
+            </div>
+            <div id="deleteSubProductContent" class="modal-body">
+                @Html.Partial("DeleteSubProduct", obj)
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" value="12" data-dismiss="modal" class="btn btn-primary" id="delete">Delete</button>
+                    <button type="button" data-dismiss="modal" class="btn">Cancel</button>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+
+<script type="text/jscript">
+
+
+
+
+    $('.btn-danger').click(function () {
+        // alert('Hiii');
+        var url = $(this).attr('name');
+        //  alert(url);
+        var valdata = url.replace("/SubProduct/DeleteSubProduct/", '');
+        //  alert(valdata);
+        $.post('/SubProduct/DeleteSubProduct/', { id: valdata }, function (data) {
+            $('#deleteSubProductContent').html(data);
+            $('#confirmSubProduct').modal('show');
+        });
+
+    });
+
+
+    $('.btn-info').click(function () {
+        //alert("hiiii");
+        var url = $(this).attr('name');
+        //alert(url);
+        var valdata = url.replace("/SubProduct/EditSubProduct/", '');
+        //alert(valdata);
+        $.post('/SubProduct/EditSubProduct/', { id: valdata }, function (data) {
+            $('#editSubProductContent').html(data);
+           // $.validator.unobtrusive.parse($("#editSubProductContent"));
+            $('#editSubProductModal').modal('show');
+        });
+      
+        //$('#editSubProductContent').load(url, function () {
+        //    $.validator.unobtrusive.parse($("#editSubProductContent form"));
+        //    $("#editSubProductModal").modal('show');
+        //});
+
+
+    })
+
+    $('.btn-success').click(function () {
+        // alert("hiiii");
+        var url = $(this).attr('name');
+        //alert(url);
+        var valdata = url.replace("/SubProduct/ViewSubProduct/", '');
+        //alert(valdata);
+        $.post('/SubProduct/ViewSubProduct/', { id: valdata }, function (data) {
+            $('#viewSubProductContent').html(data);
+            $('#viewSubProductModal').modal('show');
+        });
+
+
+    })
+
+</script>

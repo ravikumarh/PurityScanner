@@ -46,6 +46,8 @@
     <Compile Include="AttributeManifesto.cs" />
     <Compile Include="AttributeValue.cs" />
     <Compile Include="CountryMaster.cs" />
+    <Compile Include="ImageUpload.cs" />
+    <Compile Include="ImageUploadRespponse.cs" />
     <Compile Include="LanguageMaster.cs" />
     <Compile Include="Manifesto.cs" />
     <Compile Include="ManifestoRequest.cs" />

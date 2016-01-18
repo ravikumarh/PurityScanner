@@ -1,0 +1,40 @@
+﻿@model Admin.Models.clsAttributeTitle
+
+<div class="form-horizontal">
+    @Html.HiddenFor(model => model.FilterAttributeID)
+    @Html.HiddenFor(model => model.FilterAttributeLanguageID)
+    <div class="form-group">
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.AttributeName)
+        </div>
+
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.AttributeName)
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.AttributeTitle)
+        </div>
+
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.AttributeTitle)
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.LanguageName)
+        </div>
+
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.LanguageName)
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-8 col-md-10">
+            <input type="button" value="Ok" data-dismiss="modal" class="btn btn-default" />
+            <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+        </div>
+    </div>
+</div>
+

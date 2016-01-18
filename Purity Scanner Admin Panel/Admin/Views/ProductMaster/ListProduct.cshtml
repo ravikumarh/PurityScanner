@@ -1,0 +1,164 @@
+﻿@model IEnumerable<Admin.Models.clsProductMaster>
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Admin.Models.clsProductMaster obj = new Admin.Models.clsProductMaster();
+}
+<link href="@Url.Content("~/Content/themes/base/minified/jquery-ui.min.css")" rel="stylesheet" type="text/css" />
+
+@Html.Partial("allData", Model)
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var msg = '@ViewData["Message"]';
+        if (msg) {
+            // alert(msg);
+            $('#messageModal').modal('show');
+        }
+    });
+</script>
+
+<div id="messageModal" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Message</h4>
+            </div>
+            <div id="messageContent" class="modal-body">
+
+
+
+                @Html.Partial("Message")
+
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+<div id="addProductModal" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Add New</h4>
+            </div>
+            <div id="addProductContent" class="modal-body">
+
+
+
+                @Html.Partial("AddProduct", obj)
+
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+<div id="editProductModal" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Edit</h4>
+            </div>
+            <div id="editProductContent" class="modal-body">
+                @Html.Partial("EditProduct", obj)
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+<div id="viewProductModal" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Details</h4>
+            </div>
+            <div id="viewProductContent" class="modal-body">
+                @Html.Partial("viewProduct", obj)
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+<div id="confirmProduct" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Delete</h4>
+            </div>
+            <div id="deleteProductContent" class="modal-body">
+                @Html.Partial("DeleteProduct", obj)
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" value="12" data-dismiss="modal" class="btn btn-primary" id="delete">Delete</button>
+                    <button type="button" data-dismiss="modal" class="btn">Cancel</button>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+<script type="text/jscript">
+
+    $('.btn-info').click(function () {
+        //alert("hiiii");
+        var url = $(this).attr('name');
+        //alert(url);
+        var valdata = url.replace("/ProductMaster/EditProduct/", '');
+        //alert(valdata);
+        $.post('/ProductMaster/EditProduct/', { id: valdata }, function (data) {
+            $('#editProductContent').html(data);
+            $('#editProductModal').modal('show');
+        });
+
+
+    })
+
+    $('.btn-success').click(function () {
+        //  alert("hiiii");
+        var url = $(this).attr('name');
+        //alert(url);
+        var valdata = url.replace("/ProductMaster/viewProduct/", '');
+        //alert(valdata);
+        $.post('/ProductMaster/viewProduct/', { id: valdata }, function (data) {
+            $('#viewProductContent').html(data);
+            $('#viewProductModal').modal('show');
+        });
+
+
+    })
+
+
+    $('.btn-danger').click(function () {
+        // alert('Hiii');
+        var url = $(this).attr('name');
+        //  alert(url);
+        var valdata = url.replace("/ProductMaster/DeleteProduct/", '');
+        //  alert(valdata);
+        $.post('/ProductMaster/DeleteProduct/', { id: valdata }, function (data) {
+            $('#deleteProductContent').html(data);
+            $('#confirmProduct').modal('show');
+        });
+
+    });
+
+</script>

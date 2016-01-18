@@ -1,0 +1,166 @@
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Admin.dll.config
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Admin.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Admin.pdb
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Antlr3.Runtime.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\EntityFramework.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\EntityFramework.SqlServer.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.Owin.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.Owin.Security.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.Owin.Security.Google.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.Web.Infrastructure.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Newtonsoft.Json.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Owin.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\System.Web.Helpers.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\System.Web.Mvc.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\System.Web.Optimization.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\System.Web.Razor.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\System.Web.WebPages.Deployment.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\System.Web.WebPages.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\System.Web.WebPages.Razor.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\WebGrease.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\System.Web.Helpers.xml
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\System.Web.Mvc.xml
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\System.Web.Optimization.xml
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\System.Web.Razor.xml
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\System.Web.WebPages.xml
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\System.Web.WebPages.Deployment.xml
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\System.Web.WebPages.Razor.xml
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Newtonsoft.Json.xml
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Antlr3.Runtime.pdb
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\EntityFramework.xml
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\EntityFramework.SqlServer.xml
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.Owin.xml
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.Owin.Security.xml
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.Owin.Security.Google.xml
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Rajesh\PurityScanner Admin\Admin\Admin\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Rajesh\PurityScanner Admin\Admin\Admin\obj\Debug\Admin.csprojResolveAssemblyReference.cache
+C:\Rajesh\PurityScanner Admin\Admin\Admin\obj\Debug\Admin.dll
+C:\Rajesh\PurityScanner Admin\Admin\Admin\obj\Debug\Admin.pdb
+C:\Rajesh\AdminFirst\Current\Admin\bin\Antlr3.Runtime.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\EntityFramework.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\EntityFramework.SqlServer.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.Owin.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.Owin.Security.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.Owin.Security.Google.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.Web.Infrastructure.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\Newtonsoft.Json.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\Owin.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\System.Web.Helpers.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\System.Web.Mvc.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\System.Web.Optimization.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\System.Web.Razor.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\System.Web.WebPages.Deployment.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\System.Web.WebPages.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\System.Web.WebPages.Razor.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\WebGrease.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\System.Web.Helpers.xml
+C:\Rajesh\AdminFirst\Current\Admin\bin\System.Web.Mvc.xml
+C:\Rajesh\AdminFirst\Current\Admin\bin\System.Web.Optimization.xml
+C:\Rajesh\AdminFirst\Current\Admin\bin\System.Web.Razor.xml
+C:\Rajesh\AdminFirst\Current\Admin\bin\System.Web.WebPages.xml
+C:\Rajesh\AdminFirst\Current\Admin\bin\System.Web.WebPages.Deployment.xml
+C:\Rajesh\AdminFirst\Current\Admin\bin\System.Web.WebPages.Razor.xml
+C:\Rajesh\AdminFirst\Current\Admin\bin\Newtonsoft.Json.xml
+C:\Rajesh\AdminFirst\Current\Admin\bin\Antlr3.Runtime.pdb
+C:\Rajesh\AdminFirst\Current\Admin\bin\EntityFramework.xml
+C:\Rajesh\AdminFirst\Current\Admin\bin\EntityFramework.SqlServer.xml
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.Owin.xml
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.Owin.Security.xml
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.Owin.Security.Google.xml
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Rajesh\AdminFirst\Current\Admin\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Rajesh\AdminFirst\Current\Admin\obj\Debug\Admin.dll
+C:\Rajesh\AdminFirst\Current\Admin\obj\Debug\Admin.pdb
+C:\Rajesh\AdminFirst\Current\Admin\bin\Admin.dll.config
+C:\Rajesh\AdminFirst\Current\Admin\bin\Admin.dll
+C:\Rajesh\AdminFirst\Current\Admin\bin\Admin.pdb
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Admin.dll.config
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Admin.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Admin.pdb
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Antlr3.Runtime.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\EntityFramework.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\EntityFramework.SqlServer.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.Owin.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Google.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.Web.Infrastructure.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Newtonsoft.Json.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Owin.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\System.Web.Helpers.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\System.Web.Mvc.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\System.Web.Optimization.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\System.Web.Razor.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\System.Web.WebPages.Deployment.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\System.Web.WebPages.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\System.Web.WebPages.Razor.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\WebGrease.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\System.Web.Helpers.xml
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\System.Web.Mvc.xml
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\System.Web.Optimization.xml
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\System.Web.Razor.xml
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\System.Web.WebPages.xml
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\System.Web.WebPages.Deployment.xml
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\System.Web.WebPages.Razor.xml
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Newtonsoft.Json.xml
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Antlr3.Runtime.pdb
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\EntityFramework.xml
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\EntityFramework.SqlServer.xml
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.Owin.xml
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.xml
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Google.xml
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\obj\Debug\Admin.csprojResolveAssemblyReference.cache
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\obj\Debug\Admin.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\obj\Debug\Admin.pdb
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\DAL.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\DAL.pdb

@@ -14,3 +14,11 @@ C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\DAL\bin\Release\PL.
 C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
 C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\DAL\obj\Release\DAL.dll
 C:\Users\admin\Documents\GitHub\PurityScanner\Purity Scanner\DAL\obj\Release\DAL.pdb
+C:\Service\Purity Scanner\DAL\bin\Release\DAL.dll.config
+C:\Service\Purity Scanner\DAL\bin\Release\DAL.dll
+C:\Service\Purity Scanner\DAL\bin\Release\DAL.pdb
+C:\Service\Purity Scanner\DAL\bin\Release\PL.dll
+C:\Service\Purity Scanner\DAL\bin\Release\PL.pdb
+C:\Service\Purity Scanner\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+C:\Service\Purity Scanner\DAL\obj\Release\DAL.dll
+C:\Service\Purity Scanner\DAL\obj\Release\DAL.pdb

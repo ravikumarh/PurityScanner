@@ -1,0 +1,30 @@
+﻿@model Admin.Models.clsAttributeTitle
+
+@using (Html.BeginForm("getAllAttributeTitleByAttriIDLangID", "AttributeTitle", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form">
+        @Html.ValidationSummary(true)
+
+        <div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.AttributeName, new { @class = "control-label col-md-1" })
+                <div class="col-md-3">
+                    @Html.DropDownListFor(model => model.FilterAttributeID, new SelectList(Model.ListAttribute, "AttributeId", "AttributeName"), "Select Attribute", new { @class = "form-control", onchange = "this.form.action='getAllAttributeTitleByAttriIDLangID';this.form.submit();" })
+                    @*@Html.ValidationMessageFor(model => model.CountryName)*@
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.LanguageName, new { @class = "control-label col-md-1" })
+                <div class="col-md-3">
+                    @Html.DropDownListFor(model => model.FilterAttributeLanguageID, new SelectList(Model.ListLanguage, "LanguageId", "LanguageName"), "Select Language", new { @class = "form-control", onchange = "this.form.action='getAllAttributeTitleByAttriIDLangID';this.form.submit();" })
+                    @*@Html.ValidationMessageFor(model => model.ProductName)*@
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+}
