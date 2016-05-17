@@ -13,6 +13,7 @@ namespace Admin.Controllers
         clsAttributeTitle obj = new clsAttributeTitle();
         clsAttributeTitle objControl;
 
+         [Authorize]
         public ActionResult ListAttributeTitle()
         {
             try
@@ -61,6 +62,7 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public string DeleteAttributeTitle(string id, string filterAttributeId, string filterLanguageId)
         {
             try
@@ -88,6 +90,7 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public string EditAttributeTitle(string id, string filterAttributeId, string filterLanguageId)
         {
             try
@@ -124,6 +127,7 @@ namespace Admin.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public string ViewAttributeTitle(string id, string filterAttributeId, string filterLanguageId)
         {
             try
@@ -154,6 +158,7 @@ namespace Admin.Controllers
             }
         }
         [HttpPost]
+        [Authorize]
         public ActionResult getAllAttributeTitleByAttriIDLangID(clsAttributeTitle objtmp)
         {
             try
@@ -173,6 +178,7 @@ namespace Admin.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public ActionResult AttributeTitleDelete(clsAttributeTitle objtmp)
         {
             try
@@ -202,6 +208,7 @@ namespace Admin.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public ActionResult AttributeTitleEdit(clsAttributeTitle objtmp)
         {
             try
@@ -237,6 +244,7 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult AttributeTitleAdd(clsAttributeTitle objtmp)
         {
             try
@@ -273,7 +281,7 @@ namespace Admin.Controllers
 
 
 
-
+         [Authorize]
         public string RenderRazorViewToString(string viewName, object model)
         {
             ViewData.Model = model;

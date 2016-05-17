@@ -13,7 +13,6 @@ namespace DAL
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionstring"].ConnectionString);
 
-
         public  DataTable SelectData(string str)
         {
             DataTable dt = new DataTable();
@@ -27,10 +26,8 @@ namespace DAL
             catch (Exception ee)
             {
                 return dt;
-            }
-               
+            }              
         }
-
         public int IUD_Data(string str)
         {
             int result = 0;
@@ -47,8 +44,5 @@ namespace DAL
                 return result;
             }
         }
-
-
-
     }
 }

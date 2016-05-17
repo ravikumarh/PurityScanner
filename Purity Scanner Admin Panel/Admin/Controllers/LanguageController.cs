@@ -15,6 +15,7 @@ namespace Admin.Controllers
         //
         // GET: /Tmp/
         clsLanguageMaster objOperation = new clsLanguageMaster();
+         [Authorize]
         public ActionResult LanguageMaster()
         {
             try
@@ -38,6 +39,7 @@ namespace Admin.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public ActionResult AddLanguage(clsLanguageMaster obj)
         {
             try
@@ -70,6 +72,7 @@ namespace Admin.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public ActionResult updateLanguage(clsLanguageMaster obj)
         {
             try
@@ -101,6 +104,7 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
 
         public ActionResult LanguageDelete(clsLanguageMaster obj)
         {
@@ -125,6 +129,7 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public string EditLanguage(string id)
         {
             try
@@ -146,6 +151,7 @@ namespace Admin.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public string DeleteLanguage(string id)
         {
             try
@@ -161,6 +167,7 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public string viewLanguageDetails(string id)
         {
             try
@@ -180,7 +187,7 @@ namespace Admin.Controllers
             }
         }
 
-
+         [Authorize]
         public string RenderRazorViewToString(string viewName, object model)
         {
             ViewData.Model = model;

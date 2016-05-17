@@ -1,0 +1,209 @@
+﻿@model IEnumerable<Admin.Models.clsProductAttributeMappingByCountry>
+
+@{
+    ViewBag.Title = "Produst Attribute Country Mapping";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //Admin.Models.clsProductAttributeMappingByCountry obj = new Admin.Models.clsProductAttributeMappingByCountry();
+    Admin.Models.clsProductAttributeMappingByCountry obj = (Admin.Models.clsProductAttributeMappingByCountry)ViewBag.classObj;
+    
+}
+
+
+
+<div class="box col-md-12">
+    <div class="box-inner">
+        <div class="box-content">
+            <div style="margin-bottom:70px;">
+
+              @Html.Partial("ListFilterData", obj)
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="ListDetailsContent">
+    @Html.Partial("ListDetails", Model)
+</div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var msg = '@ViewData["Message"]';
+        if (msg) {
+            // alert(msg);
+            $('#messageModal').modal('show');
+        }
+    });
+</script>
+
+<div id="messageModal" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" style="color:white;">
+                    Message
+                </h4>
+            </div>
+            <div id="messageContent" class="modal-body">
+                @Html.Partial("Message")
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div id="addNewProdAttriCountryMappingModal" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" style="color:white;">Add New</h4>
+            </div>
+            <div id="addProdAttriCountryMappingContent" class="modal-body">
+
+              @Html.Partial("AddProdAttriCountryMapping", obj)
+
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+<div id="editProdAttriCountryMappingModal" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" style="color:white;">Edit</h4>
+            </div>
+            <div id="editProdAttriCountryMappingContent" class="modal-body">
+                @Html.Partial("EditProdAttriCountryMapping", obj)
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+<div id="viewProdAttriCountryMappingModal" class="modal fade ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" style="color:white;">Details</h4>
+            </div>
+            <div id="viewProdAttriCountryMappingContent" class="modal-body">
+                @Html.Partial("ViewProdAttriCountryMapping", obj)
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div id="confirmProdAttriCountryMapping" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" style="color:white;">Delete</h4>
+            </div>
+            <div id="deleteProdAttriCountryMappingContent" class="modal-body">
+                @Html.Partial("DeleteProdAttriCountryMapping", obj)
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" value="12" data-dismiss="modal" class="btn btn-primary" id="delete">Delete</button>
+                    <button type="button" data-dismiss="modal" class="btn">Cancel</button>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+
+<script type="text/jscript">
+
+
+    //$('#ProductID').change(function () {
+    //    alert($(this).val());
+    //    var productVal = $(this).val();
+    //    var countryVal = $('#CountryCode').val();
+    //    $.post('/ProductAttributeMappingByCountry/getAllProdAttriMappingByCountryIDProductID/', { productID: productVal, countryCode: countryVal }, function (data) {
+    //        $('#ListDetailsContent').html(data);
+           
+    //    });
+
+    //});
+    ////getAllProdAttriMappingByCountryIDProductID
+    
+    //$('#CountryCode').change(function () {
+    //    var productVal = $('#ProductID').val();
+    //    var countryVal = $(this).val();
+    //    $.post('/ProductAttributeMappingByCountry/getAllProdAttriMappingByCountryIDProductID/', { productID: productVal, countryCode: countryVal }, function (data) {
+    //        $('#ListDetailsContent').html(data);
+           
+    //    });
+    //});
+
+    $('.btn-danger').click(function () {
+        // alert('Hiii');
+        var url = $(this).attr('name');
+        //  alert(url);
+        //var prodID = $('#FilterProductID').val();
+        var attriID = $('#FilterAttributeID').val();
+        var contryCode = $('#FilterCountryCode').val();
+        var valdata = url.replace("/AttributeMappingByCountry/DeleteProdAttriCountryMapping/", '');
+        //  alert(valdata);
+        $.post('/AttributeMappingByCountry/DeleteProdAttriCountryMapping/', { id: valdata, FilterAttribute: attriID, FilterCountry: contryCode }, function (data) {
+            $('#deleteProdAttriCountryMappingContent').html(data);
+            $('#confirmProdAttriCountryMapping').modal('show');
+        });
+
+    });
+
+
+    $('.btn-info').click(function () {
+        //alert("hiiii");
+        var url = $(this).attr('name');
+        //var prodID=$('#FilterProductID').val();
+        var attriID=$('#FilterAttributeID').val();
+        var contryCode=$('#FilterCountryCode').val();
+        //alert(url);
+        var valdata = url.replace("/AttributeMappingByCountry/EditProdAttriCountryMapping/", '');
+        //alert(valdata);
+        $.post('/AttributeMappingByCountry/EditProdAttriCountryMapping/', { id: valdata, FilterAttribute: attriID, FilterCountry: contryCode }, function (data) {
+            $('#editProdAttriCountryMappingContent').html(data);
+            $('#editProdAttriCountryMappingModal').modal('show');
+        });
+
+
+    })
+
+    $('.btn-success').click(function () {
+        // alert("hiiii");
+        var url = $(this).attr('name');
+        //alert(url);
+        //var prodID = $('#FilterProductID').val();
+        var attriID = $('#FilterAttributeID').val();
+        var contryCode = $('#FilterCountryCode').val();
+        var valdata = url.replace("/AttributeMappingByCountry/ViewProdAttriCountryMapping/", '');
+        //alert(valdata);
+        $.post('/AttributeMappingByCountry/ViewProdAttriCountryMapping/', { id: valdata, FilterAttribute: attriID, FilterCountry: contryCode }, function (data) {
+            $('#viewProdAttriCountryMappingContent').html(data);
+            $('#viewProdAttriCountryMappingModal').modal('show');
+        });
+
+
+    })
+
+</script>

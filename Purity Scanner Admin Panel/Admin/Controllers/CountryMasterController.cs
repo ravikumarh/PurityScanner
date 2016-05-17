@@ -14,14 +14,14 @@ namespace Admin.Controllers
         // GET: /CountryMaster/
         clsCountryMaster obj = new clsCountryMaster();
 
+         [Authorize]
         public ActionResult AddCountry()
         {
-
             clsCountryMaster c = new clsCountryMaster();
             ViewBag.lngList = new SelectList(obj.addCountryDefaultData().ListLanguage, "LanguageId", "LanguageName");
             return View();
         }
-
+         [Authorize]
         public ActionResult ListCountry()
         {
             try
@@ -42,8 +42,8 @@ namespace Admin.Controllers
                 return View(new List<clsCountryMaster>());
             }
         }
-
         [HttpPost]
+        [Authorize]
         public string EditCountry(string id)
         {
             try
@@ -64,8 +64,8 @@ namespace Admin.Controllers
                 return RenderRazorViewToString("EditCountry", new clsCountryMaster());
             }
         }
-
         [HttpPost]
+        [Authorize]
         public string DeleteCountry(string id)
         {
             try
@@ -78,8 +78,8 @@ namespace Admin.Controllers
                 return RenderRazorViewToString("EditCountry", new clsCountryMaster());
             }
         }
-
         [HttpPost]
+        [Authorize]
         public string ViewCountry(string id)
         {
             try
@@ -97,11 +97,8 @@ namespace Admin.Controllers
                 return RenderRazorViewToString("EditCountry", new clsCountryMaster());
             }
         }
-
-
-
-
         [HttpPost]
+        [Authorize]
         public ActionResult updateCountry(clsCountryMaster objtmp)
         {
             try
@@ -131,8 +128,8 @@ namespace Admin.Controllers
                 return Redirect("ListCountry");
             }
         }
-
         [HttpPost]
+        [Authorize]
         public ActionResult CountryDelete(clsCountryMaster objtmp)
         {
             try
@@ -155,9 +152,8 @@ namespace Admin.Controllers
                 return Redirect("ListCountry");
             }
         }
-
-
         [HttpPost]
+        [Authorize]
         public ActionResult AddCountry(clsCountryMaster objtmp)
         {
             try
@@ -187,7 +183,7 @@ namespace Admin.Controllers
                 return Redirect("ListCountry");
             }
         }
-
+         [Authorize]
         public string RenderRazorViewToString(string viewName, object model)
         {
             ViewData.Model = model;

@@ -5,7 +5,8 @@
         <div class="form-group">
             <div class="col-md-12">
                 <h3>Are you sure you want to delete this?</h3>
-                @Html.HiddenFor(model => model.ProductImageID)
+                @Html.HiddenFor(Model => Model.ProductImageID)
+                @*@Html.HiddenFor(model => model.ProductImageID)*@
                 @Html.HiddenFor(Model => Model.FilterProductID)
                 @Html.HiddenFor(Model => Model.FilterCountryCode)
             </div>

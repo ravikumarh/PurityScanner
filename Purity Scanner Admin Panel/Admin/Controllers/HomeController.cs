@@ -4,11 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Admin.Models;
+using System.Web.Security;
 
 namespace Admin.Controllers
 {
     public class HomeController : Controller
     {
+          [Authorize]
         public ActionResult Index()
         {
            // ViewData["Message"] = null;
@@ -33,6 +35,7 @@ namespace Admin.Controllers
                 int result = obj.loginUser(objLogin);
                 if (result > 0)
                 {
+                    FormsAuthentication.SetAuthCookie(objLogin.UserName, false);
                     TempData["msgLabel"] = "User login successfully.";
                     return RedirectToAction("Index", "Home");
                 }
@@ -49,7 +52,12 @@ namespace Admin.Controllers
             }
             
         }
-       
-    }
 
+        [Authorize]
+        public ActionResult LogOff()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login", "Home");
+        }
+    }
 }

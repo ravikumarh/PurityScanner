@@ -1,0 +1,88 @@
+﻿@model Admin.Models.clsProductAttributeMappingByCountry
+@{
+
+    HtmlHelper.ClientValidationEnabled = false;
+}
+@using (Html.BeginForm("ProdAttriCountryMappingEdit", "AttributeMappingByCountry", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(Model => Model.ProductAttributeCountryMappingID)
+        @Html.HiddenFor(Model => Model.FilterAttributeID)
+        @*@Html.HiddenFor(Model => Model.FilterProductID)*@
+        @Html.HiddenFor(Model => Model.FilterCountryCode)
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.ProductName, new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.DropDownListFor(model => model.ProductID, new SelectList(ViewBag.lstProduct, "Value", "Text"), "Select Product", new { @class = "form-control", id = "editProductID", @onchange = "editvalidData()" })
+                @Html.ValidationMessageFor(model => model.ProductName)
+            </div>
+        </div>*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.CountryName, new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.DropDownListFor(model => model.CountryCode, new SelectList(ViewBag.lstCountry, "Value", "Text"), "Select Country", new { @class = "form-control", id = "editCountryCode", @onchange = "editvalidData()" })
+                @Html.ValidationMessageFor(model => model.CountryName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AttributeName, new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.DropDownListFor(model => model.AttributeID, new SelectList(ViewBag.lstAttribute, "Value", "Text"), "Select Attribute", new { @class = "form-control", id = "editAttributeID", @onchange = "editvalidData()" })
+                @Html.ValidationMessageFor(model => model.AttributeName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-8 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+                <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/jscript">
+
+    function editvalidData() {
+
+        //var prodID = $('#editProductID').val();
+        var countryCode = $('#editCountryCode').val();
+        var attriID = $('#editAttributeID').val();
+       
+        //if (prodID) {
+        //    $('#editProductID').css('border-color', '');
+        //}
+        //else {
+        //    $('#editProductID').css('border-color', 'red');
+        //}
+
+        if (countryCode) {
+            $('#editCountryCode').css('border-color', '');
+        }
+        else {
+            $('#editCountryCode').css('border-color', 'red');
+        }
+
+        if (attriID) {
+            $('#editAttributeID').css('border-color', '');
+        }
+        else {
+            $('#editAttributeID').css('border-color', 'red');
+        }
+
+       
+
+        if (countryCode && attriID ) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+        return false;
+    }
+</script>

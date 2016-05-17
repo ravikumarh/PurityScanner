@@ -11,6 +11,7 @@ namespace PL
         string title = "";
         string values = "";
         string indicator = "";
+        string attribute_image_url="";
 
         public string Title
         {
@@ -22,6 +23,13 @@ namespace PL
         {
             get { return values; }
             set { values = value; }
+        }
+        public string Attribute_Image_Url
+        {
+            get {
+                return attribute_image_url;
+            }
+            set { attribute_image_url = value; }
         }
 
         public string Indicator

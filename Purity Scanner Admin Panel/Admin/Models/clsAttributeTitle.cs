@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Admin.Models
 {
@@ -22,6 +23,8 @@ namespace Admin.Models
         int filter_attribute_id;
         int filter_attri_language_id;
         int delete_attribute_title_id;
+        string short_description;
+        string manifesto_information;
 
 
         public int AttributeTitleID
@@ -87,6 +90,21 @@ namespace Admin.Models
             set { delete_attribute_title_id = value; }
         }
 
+
+
+         [Display(Name = "Short Info")]
+         public string ShortDescription
+         {
+             get { return short_description; }
+             set { short_description = value; }
+         }
+         [Display(Name = "Manifesto Info")]
+         [AllowHtml]
+         public string ManifestoInformation
+         {
+             get { return manifesto_information; }
+             set { manifesto_information = value; }
+         }
         
         public clsAttributeTitle addAttributeDefaultData()
         {
@@ -141,11 +159,11 @@ namespace Admin.Models
                 string str = "";
                 if (attributeTitleID > 0)
                 {
-                    str = "Select AttributesMaster.attribute_id,AttributesMaster.attribute_name,AttributeTitles.attribute_title_id,AttributeTitles.attribute_title, LanguageMaster.language_id,LanguageMaster.language_name from AttributesMaster INNER JOIN AttributeTitles ON AttributesMaster.attribute_id=AttributeTitles.attribute_id INNER JOIN LanguageMaster ON AttributeTitles.language_id=LanguageMaster.language_id WHERE AttributeTitles.attribute_title_id=" + attributeTitleID + " and AttributesMaster.isActive=1  and LanguageMaster.is_active=1 and AttributeTitles.is_active=1";
+                    str = "Select AttributesMaster.attribute_id,AttributesMaster.attribute_name,AttributeTitles.attribute_title_id,AttributeTitles.attribute_title, LanguageMaster.language_id,LanguageMaster.language_name,AttributeTitles.short_description,AttributeTitles.manifesto_information from AttributesMaster INNER JOIN AttributeTitles ON AttributesMaster.attribute_id=AttributeTitles.attribute_id INNER JOIN LanguageMaster ON AttributeTitles.language_id=LanguageMaster.language_id WHERE AttributeTitles.attribute_title_id=" + attributeTitleID + " and AttributesMaster.isActive=1  and LanguageMaster.is_active=1 and AttributeTitles.is_active=1";
                 }
                 else
                 {
-                    str = "Select AttributesMaster.attribute_id,AttributesMaster.attribute_name,AttributeTitles.attribute_title_id,AttributeTitles.attribute_title, LanguageMaster.language_id,LanguageMaster.language_name from AttributesMaster INNER JOIN AttributeTitles ON AttributesMaster.attribute_id=AttributeTitles.attribute_id INNER JOIN LanguageMaster ON AttributeTitles.language_id=LanguageMaster.language_id WHERE AttributesMaster.isActive=1  and LanguageMaster.is_active=1 and AttributeTitles.is_active=1";
+                    str = "Select AttributesMaster.attribute_id,AttributesMaster.attribute_name,AttributeTitles.attribute_title_id,AttributeTitles.attribute_title, LanguageMaster.language_id,LanguageMaster.language_name,AttributeTitles.short_description,AttributeTitles.manifesto_information from AttributesMaster INNER JOIN AttributeTitles ON AttributesMaster.attribute_id=AttributeTitles.attribute_id INNER JOIN LanguageMaster ON AttributeTitles.language_id=LanguageMaster.language_id WHERE AttributesMaster.isActive=1  and LanguageMaster.is_active=1 and AttributeTitles.is_active=1";
                 }
                 DataTable dtAttributeTitles = DBobject.SelectData(str);
                 if (dtAttributeTitles.Rows.Count > 0)
@@ -168,19 +186,19 @@ namespace Admin.Models
                 string str = "";
                 if (attriID > 0 && langId > 0)
                 {
-                    str = "Select AttributesMaster.attribute_id,AttributesMaster.attribute_name,AttributeTitles.attribute_title_id,AttributeTitles.attribute_title, LanguageMaster.language_id,LanguageMaster.language_name from AttributesMaster INNER JOIN AttributeTitles ON AttributesMaster.attribute_id=AttributeTitles.attribute_id INNER JOIN LanguageMaster ON AttributeTitles.language_id=LanguageMaster.language_id WHERE  AttributesMaster.isActive=1  and LanguageMaster.is_active=1 and AttributeTitles.is_active=1 and AttributesMaster.attribute_id=" + attriID + " and LanguageMaster.language_id=" + langId + " ";
+                    str = "Select AttributesMaster.attribute_id,AttributesMaster.attribute_name,AttributeTitles.attribute_title_id,AttributeTitles.attribute_title, LanguageMaster.language_id,LanguageMaster.language_name,AttributeTitles.short_description,AttributeTitles.manifesto_information from AttributesMaster INNER JOIN AttributeTitles ON AttributesMaster.attribute_id=AttributeTitles.attribute_id INNER JOIN LanguageMaster ON AttributeTitles.language_id=LanguageMaster.language_id WHERE  AttributesMaster.isActive=1  and LanguageMaster.is_active=1 and AttributeTitles.is_active=1 and AttributesMaster.attribute_id=" + attriID + " and LanguageMaster.language_id=" + langId + " ";
                 }
                 else if (attriID > 0 && langId <= 0)
                 {
-                    str = "Select AttributesMaster.attribute_id,AttributesMaster.attribute_name,AttributeTitles.attribute_title_id,AttributeTitles.attribute_title, LanguageMaster.language_id,LanguageMaster.language_name from AttributesMaster INNER JOIN AttributeTitles ON AttributesMaster.attribute_id=AttributeTitles.attribute_id INNER JOIN LanguageMaster ON AttributeTitles.language_id=LanguageMaster.language_id WHERE  AttributesMaster.isActive=1  and LanguageMaster.is_active=1 and AttributeTitles.is_active=1 and AttributesMaster.attribute_id=" + attriID + "";
+                    str = "Select AttributesMaster.attribute_id,AttributesMaster.attribute_name,AttributeTitles.attribute_title_id,AttributeTitles.attribute_title, LanguageMaster.language_id,LanguageMaster.language_name,AttributeTitles.short_description,AttributeTitles.manifesto_information from AttributesMaster INNER JOIN AttributeTitles ON AttributesMaster.attribute_id=AttributeTitles.attribute_id INNER JOIN LanguageMaster ON AttributeTitles.language_id=LanguageMaster.language_id WHERE  AttributesMaster.isActive=1  and LanguageMaster.is_active=1 and AttributeTitles.is_active=1 and AttributesMaster.attribute_id=" + attriID + "";
                 }
                 else if (attriID <= 0 && langId > 0)
                 {
-                    str = "Select AttributesMaster.attribute_id,AttributesMaster.attribute_name,AttributeTitles.attribute_title_id,AttributeTitles.attribute_title, LanguageMaster.language_id,LanguageMaster.language_name from AttributesMaster INNER JOIN AttributeTitles ON AttributesMaster.attribute_id=AttributeTitles.attribute_id INNER JOIN LanguageMaster ON AttributeTitles.language_id=LanguageMaster.language_id WHERE  AttributesMaster.isActive=1  and LanguageMaster.is_active=1 and AttributeTitles.is_active=1 and LanguageMaster.language_id=" + langId + " ";
+                    str = "Select AttributesMaster.attribute_id,AttributesMaster.attribute_name,AttributeTitles.attribute_title_id,AttributeTitles.attribute_title, LanguageMaster.language_id,LanguageMaster.language_name,AttributeTitles.short_description,AttributeTitles.manifesto_information from AttributesMaster INNER JOIN AttributeTitles ON AttributesMaster.attribute_id=AttributeTitles.attribute_id INNER JOIN LanguageMaster ON AttributeTitles.language_id=LanguageMaster.language_id WHERE  AttributesMaster.isActive=1  and LanguageMaster.is_active=1 and AttributeTitles.is_active=1 and LanguageMaster.language_id=" + langId + " ";
                 }
                 else
                 {
-                    str = "Select AttributesMaster.attribute_id,AttributesMaster.attribute_name,AttributeTitles.attribute_title_id,AttributeTitles.attribute_title, LanguageMaster.language_id,LanguageMaster.language_name from AttributesMaster INNER JOIN AttributeTitles ON AttributesMaster.attribute_id=AttributeTitles.attribute_id INNER JOIN LanguageMaster ON AttributeTitles.language_id=LanguageMaster.language_id WHERE AttributesMaster.isActive=1  and LanguageMaster.is_active=1 and AttributeTitles.is_active=1";
+                    str = "Select AttributesMaster.attribute_id,AttributesMaster.attribute_name,AttributeTitles.attribute_title_id,AttributeTitles.attribute_title, LanguageMaster.language_id,LanguageMaster.language_name,AttributeTitles.short_description,AttributeTitles.manifesto_information from AttributesMaster INNER JOIN AttributeTitles ON AttributesMaster.attribute_id=AttributeTitles.attribute_id INNER JOIN LanguageMaster ON AttributeTitles.language_id=LanguageMaster.language_id WHERE AttributesMaster.isActive=1  and LanguageMaster.is_active=1 and AttributeTitles.is_active=1";
                 }
                 DataTable dtAttributeTitles = DBobject.SelectData(str);
                 if (dtAttributeTitles.Rows.Count > 0)
@@ -211,6 +229,8 @@ namespace Admin.Models
                         tmpObj.AttributeTitle = Convert.ToString(dt.Rows[i]["attribute_title"]);
                         tmpObj.LanguageID = Convert.ToInt32(dt.Rows[i]["language_id"]);
                         tmpObj.LanguageName = Convert.ToString(dt.Rows[i]["language_name"]);
+                        tmpObj.ShortDescription = Convert.ToString(dt.Rows[i]["short_description"]);
+                        tmpObj.ManifestoInformation = Convert.ToString(dt.Rows[i]["manifesto_information"]);
                         lstAttributeTitle.Add(tmpObj);
                     }
                 }
@@ -243,7 +263,7 @@ namespace Admin.Models
                 //DataTable dtAttributeTitles = DBobject.SelectData(str);
                 //if (dtAttributeTitles.Rows.Count <= 0)
                 //{
-                string str = "update AttributeTitles set attribute_id=" + obj.attribute_id + ",attribute_title='" + obj.attribute_title + "',language_id=" + obj.language_id + " where attribute_title_id=" + obj.AttributeTitleID + "";
+                string str = "update AttributeTitles set attribute_id=" + obj.attribute_id + ",attribute_title='" + obj.attribute_title + "',language_id=" + obj.language_id + ",short_description='" + obj.ShortDescription + "',manifesto_information='"+obj.ManifestoInformation+"' where attribute_title_id=" + obj.AttributeTitleID + "";
                     return DBobject.IUD_Data(str);
                 //}
                 //else
@@ -266,7 +286,7 @@ namespace Admin.Models
                 if (dtAttributeTitles.Rows.Count <= 0)
                 {
 
-                    str = "insert into AttributeTitles(attribute_id,attribute_title,language_id,is_active)values(" + obj.attribute_id + ",'" + obj.attribute_title + "'," + obj.language_id + ",1)";
+                    str = "insert into AttributeTitles(attribute_id,attribute_title,language_id,is_active,short_description,manifesto_information)values(" + obj.attribute_id + ",'" + obj.attribute_title + "'," + obj.language_id + ",1,'"+obj.ShortDescription+"','"+obj.ManifestoInformation+"')";
                     return DBobject.IUD_Data(str);
 
                 }

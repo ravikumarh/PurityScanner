@@ -24,9 +24,9 @@ namespace Admin.Controllers
                 List<clsProductImage> lstProductImage;// = obj.getAllProductImageByID();
                 if (objControl != null)
                 {
-                    if (objControl.FilterAttributeID > 0 || objControl.FilterProductID > 0 || !string.IsNullOrEmpty(objControl.FilterCountryCode))
+                    if (objControl.FilterAttributeID > 0|| objControl.FilterSubProductId>0 || objControl.FilterProductID > 0 || !string.IsNullOrEmpty(objControl.FilterCountryCode) )
                     {
-                        lstProductImage = obj.getAllProductImageByCountryCodeProductID(objControl.FilterProductID, objControl.FilterCountryCode);
+                        lstProductImage = obj.getAllProductImageByCountryCodeProductID(objControl.FilterProductID, objControl.FilterSubProductId, objControl.FilterCountryCode);
                     }
                     else
                     {
@@ -37,14 +37,20 @@ namespace Admin.Controllers
                 {
                     lstProductImage = obj.getAllProductImageByID();
                 }
+
                 tmpObj = obj.addProductImageDefaultData();
                 ViewBag.lstCountry = new SelectList(tmpObj.ListCountry, "CountryCode", "CountryName");
                 ViewBag.lstProduct = new SelectList(tmpObj.ListProduct, "ProductID", "ProductName");
+                ViewBag.lstSubProduct = new SelectList(tmpObj.ListSubProduct, "SubProductID", "SubProductName");
+
                 if (objControl != null)
                 {
                     tmpObj.FilterProductID = objControl.FilterProductID;
+                    tmpObj.FilterSubProductId = objControl.FilterSubProductId;
                     tmpObj.FilterCountryCode = objControl.FilterCountryCode;
+                    
                 }
+
                 ViewBag.prodImageObj = tmpObj;
                 if (!string.IsNullOrEmpty(Convert.ToString(TempData["msgLabel"])))
                 {
@@ -54,6 +60,7 @@ namespace Admin.Controllers
                 TempData["tmpClassObj"] = null;
                 return View(lstProductImage);
             }
+
             catch (Exception ee)
             {
                 ViewData["Message"] = "Something went wrong,Please try again...";
@@ -62,6 +69,7 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public string DeleteProductImage(string id, string FilterProduct, string FilterCountry)
         {
             try
@@ -85,7 +93,8 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
-        public string EditProductImage(string id, string FilterProduct, string FilterCountry)
+        [Authorize]
+        public string EditProductImage(string id, string FilterProduct, string FilterCountry,string FilterSubProduct)
         {
             try
             {
@@ -94,6 +103,13 @@ namespace Admin.Controllers
                 {
                     filterproductID = Convert.ToInt32(FilterProduct);
                 }
+
+                int filterSubProductId = 0;
+
+                if (!string.IsNullOrEmpty(FilterSubProduct))
+                {
+                    filterSubProductId = Convert.ToInt32(FilterSubProduct);
+                }
                 string filtercontryCode = Convert.ToString(FilterCountry);
                 clsProductImage objtmp = new clsProductImage();
                 List<clsProductImage> lst = new List<clsProductImage>();
@@ -101,12 +117,14 @@ namespace Admin.Controllers
                 objtmp = obj.addProductImageDefaultData();
                 ViewBag.lstCountry = new SelectList(objtmp.ListCountry, "CountryCode", "CountryName");
                 ViewBag.lstProduct = new SelectList(objtmp.ListProduct, "ProductID", "ProductName");
+                ViewBag.lstSubProduct = new SelectList(objtmp.ListSubProduct, "SubProductID", "SubProductName");
                 if (lst.Count > 0)
                 {
                     objtmp = lst[0];
                 }
                 objtmp.FilterProductID = filterproductID;
                 objtmp.FilterCountryCode = filtercontryCode;
+                objtmp.FilterSubProductId = filterSubProductId;
                 return RenderRazorViewToString("EditProductImage", objtmp);
             }
             catch (Exception ee)
@@ -115,8 +133,8 @@ namespace Admin.Controllers
             }
         }
 
-
         [HttpPost]
+        [Authorize]
         public string ViewProductImage(string id, string FilterProduct, string FilterCountry)
         {
             try
@@ -144,17 +162,22 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult getAllProdImageByCountryIDProductID(clsProductImage objtmp)
         {
             try
             {
-                List<clsProductImage> lstProductImage = obj.getAllProductImageByCountryCodeProductID(objtmp.FilterProductID, objtmp.FilterCountryCode);
+                List<clsProductImage> lstProductImage = obj.getAllProductImageByCountryCodeProductID(objtmp.FilterProductID, objtmp.FilterSubProductId,objtmp.FilterCountryCode);
+                
                 clsProductImage tmpObj = new clsProductImage();
                 tmpObj.FilterProductID = objtmp.FilterProductID;
+                tmpObj.FilterSubProductId = objtmp.FilterSubProductId;
                 tmpObj.FilterCountryCode = objtmp.FilterCountryCode;
+              
                 ViewBag.prodImageObj = tmpObj;
                 TempData["tmpClassObj"] = tmpObj;
                 TempData["msgLabel"] = null;
+
                 return Redirect("ListProductImage");
             }
             catch (Exception ee)
@@ -164,6 +187,7 @@ namespace Admin.Controllers
             }
         }
         [HttpPost]
+        [Authorize]
         public ActionResult ProductImageDelete(clsProductImage objtmp)
         {
             try
@@ -191,8 +215,8 @@ namespace Admin.Controllers
             }
         }
 
-
         [HttpPost]
+        [Authorize]
         public ActionResult ProductImageEdit(clsProductImage objtmp, IEnumerable<HttpPostedFileBase> edituploadFile)
         {
             try
@@ -203,14 +227,16 @@ namespace Admin.Controllers
                     if (file != null)
                     {
                         var fileName = Path.GetFileName(file.FileName);
-                        var path = Path.Combine(Server.MapPath("~/Images"), fileName);
+                        var path = Path.Combine("C:\\PurityScannerService\\PurityScannerService\\Images", fileName);// Path.Combine(Server.MapPath("~/Images"), fileName);
                         file.SaveAs(path);
                         path = "http://tnex.wiredviews.com";
                         path = path + Url.Content(Path.Combine("~/Images", fileName));
                         objtmp.ProductImageUrl = path;
                         result = obj.editProductImage(objtmp);
-
-
+                    }
+                    else
+                    {
+                        result = obj.editProductImage(objtmp);
                     }
                 }
                 if (result > 0)
@@ -219,11 +245,14 @@ namespace Admin.Controllers
                     {
                         TempData["msgLabel"] = "Record already present,You can not update with this values.";
                     }
+                    else if (result == 3)
+                    {
+                        TempData["msgLabel"] = "Image key already present in selected country,You can add unique image key in country.";
+                    }
                     else
                     {
                         TempData["msgLabel"] = "Record updated successfully.";
                     }
-
                 }
                 else
                 {
@@ -232,6 +261,7 @@ namespace Admin.Controllers
                 clsProductImage tmpObj = new clsProductImage();
                 tmpObj.FilterProductID = objtmp.FilterProductID;
                 tmpObj.FilterCountryCode = objtmp.FilterCountryCode;
+                tmpObj.FilterSubProductId = objtmp.FilterSubProductId;
                 ViewBag.prodImageObj = tmpObj;
                 TempData["tmpClassObj"] = tmpObj;
                 return Redirect("ListProductImage");
@@ -244,6 +274,7 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult ProductImageAdd(clsProductImage objtmp, IEnumerable<HttpPostedFileBase> uploadFile)
         {
             try
@@ -254,7 +285,7 @@ namespace Admin.Controllers
                     if (file != null)
                     {
                         var fileName = Path.GetFileName(file.FileName);
-                        var path = Path.Combine(Server.MapPath("~/Images"), fileName);
+                        var path = Path.Combine("C:\\PurityScannerService\\PurityScannerService\\Images", fileName);
                         file.SaveAs(path);
                         path = "http://tnex.wiredviews.com";
                         path = path + Url.Content(Path.Combine("~/Images", fileName));
@@ -269,18 +300,23 @@ namespace Admin.Controllers
                     {
                         TempData["msgLabel"] = "Record already present,You can not added with this values.";
                     }
+                    else if (result == 3)
+                    {
+                        TempData["msgLabel"] = "Image key already present in selected country,You can add unique image key in country.";
+                    }
                     else
                     {
                         TempData["msgLabel"] = "Record added successfully.";
                     }
-
                 }
                 else
                 {
                     TempData["msgLabel"] = "Something went wrong,Please try again...";
                 }
+
                 clsProductImage tmpObj = new clsProductImage();
                 tmpObj.FilterProductID = objtmp.FilterProductID;
+                tmpObj.FilterSubProductId = objtmp.FilterSubProductId;
                 tmpObj.FilterCountryCode = objtmp.FilterCountryCode;
                 ViewBag.prodImageObj = tmpObj;
                 TempData["tmpClassObj"] = tmpObj;
@@ -292,7 +328,7 @@ namespace Admin.Controllers
                 return Redirect("ListProductImage");
             }
         }
-
+         [Authorize]
         public string RenderRazorViewToString(string viewName, object model)
         {
             ViewData.Model = model;
@@ -307,6 +343,5 @@ namespace Admin.Controllers
                 return sw.GetStringBuilder().ToString();
             }
         }
-
     }
 }

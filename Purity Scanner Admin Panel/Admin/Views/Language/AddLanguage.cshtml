@@ -57,6 +57,14 @@
 
 <script type="text/jscript">
  
+    $('#LanguageName').keypress(function (event) {
+        var regex = new RegExp("^[a-zA-Z ]+$");
+        var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+        if (!regex.test(key)) {
+            event.preventDefault();
+            return false;
+        }
+    });
 
     $('#LanguageName').focusout(function () {
         addvalidData();
@@ -68,8 +76,6 @@
     function addvalidData() {
 
         var langID = $('#LanguageName').val().trim();;
-     
- 
         if (langID) {
             $('#LanguageName').css('border-color', '');
         }

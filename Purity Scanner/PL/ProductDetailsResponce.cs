@@ -12,6 +12,7 @@ namespace PL
      string responseCode;
      string responseMessage;
      bool multipleproduct;
+
      List<Product> lstProducts;
  
 

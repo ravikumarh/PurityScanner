@@ -16,9 +16,21 @@ namespace BAL
             return obj.getAppMetadata(SecurityKey);
         }
 
-        public bool checkSubProductsById(int ProductId)
+        //public bool checkSubProductsById(int ProductId,int languageID)
+        //{
+        //    if (obj.getSubProductDetialsByProductID(ProductId, languageID).Rows.Count > 1)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
+
+        public bool checkSubProductsByImageKey(string ImageKey,int languageID)
         {
-            if (obj.getSubProductDetialsByProductID(ProductId).Rows.Count > 1)
+            if (obj.getSubProductDetialsByImageKey(ImageKey, languageID).Rows.Count > 1)
             {
                 return true;
             }
@@ -28,22 +40,10 @@ namespace BAL
             }
         }
 
-        public bool checkSubProductsByImageKey(string ImageKey)
-        {
-            if (obj.getSubProductDetialsByImageKey(ImageKey).Rows.Count > 1)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public ProductDetailsResponce getAllProductsByIDs(ProductsByIDsRequest productRequestData)
-        {
-            return obj.getAllProductsByIDs(productRequestData);
-        }
+        //public ProductDetailsResponce getAllProductsByIDs(ProductsByIDsRequest productRequestData)
+        //{
+        //    return obj.getAllProductsByIDs(productRequestData);
+        //}
 
         public ProductSubProductResponse getProductSubProductDetailsByID(ProductsByIDsRequest productRequestData)
         {
@@ -56,10 +56,10 @@ namespace BAL
         }
 
 
-        public ProductDetailsResponce getProductDetailsByImageKey(ProductDetailsResquest productDetailsRequestData)
-        {
-            return obj.getProductDetailsByImageKey(productDetailsRequestData);
-        }
+        //public ProductDetailsResponce getProductDetailsByImageKey(ProductDetailsResquest productDetailsRequestData)
+        //{
+        //    return obj.getProductDetailsByImageKey(productDetailsRequestData);
+        //}
 
         public ProductSubProductResponse getProductSubProductDetailsByImageKey(ProductDetailsResquest productDetailsRequestData)
         {

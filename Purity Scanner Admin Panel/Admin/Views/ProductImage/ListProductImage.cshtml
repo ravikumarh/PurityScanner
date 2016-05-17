@@ -25,6 +25,7 @@
             @foreach (var tmpitem in Model)
             {
                 @Html.HiddenFor(model => tmpitem.FilterProductID)
+                @Html.HiddenFor(model => tmpitem.FilterSubProductId)
                 @Html.HiddenFor(model => tmpitem.FilterCountryCode)
                 break;
             }
@@ -34,6 +35,9 @@
                 <thead class="alert alert-info">
                 <th class="col-md-1">
                     @Html.DisplayNameFor(model => model.ProductName)
+                </th>
+                <th class="col-md-1">
+                    @Html.DisplayNameFor(model => model.SubProductName)
                 </th>
                 <th class="col-md-2">
                     @Html.DisplayNameFor(model => model.CountryName)
@@ -46,7 +50,8 @@
                 </th>
                 <th class="col-md-3"><a data-toggle="modal" href="#addNewProductImage" class="btn btn-primary btn-small">Add New</a></th>
                 </thead>
-                <tbody>
+               
+                 <tbody>
                     @foreach (var item in Model)
                     {
                         <tr>
@@ -58,6 +63,10 @@
                                 </td>*@
                             <td>
                                 @Html.DisplayFor(modelItem => item.ProductName)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SubProductName)
                             </td>
                             @*<td>
                                     @Html.DisplayFor(modelItem => item.CountryCode)
@@ -94,7 +103,6 @@
                             </td>
                         </tr>
                     }
-
                 </tbody>
             </table>
 
@@ -119,11 +127,9 @@
         <div class="modal-content">
             <div class="modal-header bg-primary">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Message</h4>
+                <h4 class="modal-title" style="color:white;">Message</h4>
             </div>
             <div id="messageContent" class="modal-body">
-
-
 
                 @Html.Partial("Message")
 
@@ -138,19 +144,16 @@
         <div class="modal-content">
             <div class="modal-header bg-primary">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Add New</h4>
+                <h4 class="modal-title" style="color:white;">Add New</h4>
             </div>
             <div id="addProductImageContent" class="modal-body">
 
                 @Html.Partial("AddProductImage", obj)
 
             </div>
-
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
-
 
 
 <div id="editProductImageModal" class="modal fade ">
@@ -158,28 +161,29 @@
         <div class="modal-content">
             <div class="modal-header bg-primary">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Edit</h4>
+                <h4 class="modal-title" style="color:white;">Edit</h4>
             </div>
             <div id="editProductImageContent" class="modal-body">
+
                 @Html.Partial("EditProductImage", obj)
+
             </div>
 
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-
-
-
 <div id="viewProductImageModal" class="modal fade ">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-primary">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Details</h4>
+                <h4 class="modal-title" style="color:white;">Details</h4>
             </div>
             <div id="viewProductImageContent" class="modal-body">
+
                 @Html.Partial("ViewProductImage", obj)
+
             </div>
 
         </div><!-- /.modal-content -->
@@ -192,7 +196,7 @@
         <div class="modal-content">
             <div class="modal-header bg-primary">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Delete</h4>
+                <h4 class="modal-title" style="color:white;">Delete</h4>
             </div>
             <div id="deleteProductImageContent" class="modal-body">
                 @Html.Partial("DeleteProductImage", obj)
@@ -208,19 +212,15 @@
 
 <script type="text/jscript">
 
-
-
-
     $('.btn-danger').click(function () {
-        // alert('Hiii');
+        alert('Delete');
         var url = $(this).attr('name');
         var prodID = $('#FilterProductID').val();
         var contryCode = $('#FilterCountryCode').val();
         //  alert(url);
         var valdata = url.replace("/ProductImage/DeleteProductImage/", '');
-        //  alert(valdata);
         $.post('/ProductImage/DeleteProductImage/', { id: valdata, FilterProduct: prodID, FilterCountry: contryCode }, function (data) {
-            $('#deleteProductImage').html(data);
+            $('#deleteProductImageContent').html(data);
             $('#confirmProductImage').modal('show');
         });
 
@@ -228,14 +228,15 @@
 
 
     $('.btn-info').click(function () {
-        //alert("hiiii");
+       
         var url = $(this).attr('name');
         var prodID = $('#FilterProductID').val();
         var contryCode = $('#FilterCountryCode').val();
+        var subProductID=$('#FilterSubProductId').val();
         //alert(url);
         var valdata = url.replace("/ProductImage/EditProductImage/", '');
         //alert(valdata);
-        $.post('/ProductImage/EditProductImage/', { id: valdata, FilterProduct: prodID, FilterCountry: contryCode }, function (data) {
+        $.post('/ProductImage/EditProductImage/', { id: valdata, FilterProduct: prodID, FilterCountry: contryCode, FilterSubProduct: subProductID }, function (data) {
             $('#editProductImageContent').html(data);
             $('#editProductImageModal').modal('show');
         });

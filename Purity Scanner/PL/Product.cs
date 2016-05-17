@@ -11,6 +11,7 @@ namespace PL
         int productId;
         string productName;
         string productImageUrl;
+        string productType; 
         List<AttributeValue> attributeValues;
        // List<AttributeManifesto> attributeManifestos;
 
@@ -39,6 +40,11 @@ namespace PL
         //    get { return attributeManifestos; }
         //    set { attributeManifestos = value; }
         //}
+        public string Title
+        {
+            get {return  productType; }
+            set { productType = value; }
+        }
 
         public List<AttributeValue> AttributeValueData
         {

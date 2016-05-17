@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="IIS Web Application Name" description="" value="PurityScanner" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Service\\Purity\ Scanner\\PurityScannerService\\obj\\Release\\Package\\PackageTmp$" />
-    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Service\\Purity\ Scanner\\PurityScannerService\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Ravikumar\\Purity\ Scanner\\Service\\Purity\ Scanner\\PurityScannerService\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Ravikumar\\Purity\ Scanner\\Service\\Purity\ Scanner\\PurityScannerService\\obj\\Release\\Package\\PackageTmp$" />
   </parameter>
   <parameter name="PurityServicesConnection-Web.config Connection String" description="" value="Data Source=LAPTOP-R8ELS2J4;Initial Catalog=PurityScanner;uid=sa;Password=tnex;" tags="">
-    <parameterEntry kind="XmlFile" scope="C:\\Service\\Purity\ Scanner\\PurityScannerService\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='PurityServicesConnection']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Ravikumar\\Purity\ Scanner\\Service\\Purity\ Scanner\\PurityScannerService\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='PurityServicesConnection']/@connectionString" />
   </parameter>
 </parameters>

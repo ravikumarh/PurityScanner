@@ -2,7 +2,9 @@
 
 <div class="form-horizontal">
     @Html.HiddenFor(model => model.FilterProductID)
+    @Html.HiddenFor(model => model.SubProductId)
     @Html.HiddenFor(model => model.FilterCountryCode)
+
     <div class="form-group">
         <div class="col-md-4">
             @Html.LabelFor(model => model.ProductName)
@@ -10,6 +12,15 @@
 
         <div class="col-md-8">
             @Html.DisplayFor(model => model.ProductName)
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.SubProductName)
+        </div>
+
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.SubProductName)
         </div>
     </div>
     <div class="form-group">

@@ -91,7 +91,7 @@
                 <ul class="dropdown-menu">
                     <li><a href="~/Home/index">Profile</a></li>
                     <li class="divider"></li>
-                    <li><a href="http://localhost:2379/">Logout</a></li>
+                    <li>@Html.ActionLink("Logout", "LogOff", "Home")@*<a href="http://localhost:2379/">Logout</a>*@</li>
                 </ul>
             </div>
             <!-- user dropdown ends -->
@@ -175,8 +175,8 @@
                         
                             @*<li class="nav-header hidden-md">Sample Section</li>*@
                             <li>
-                                <a class="ajax-link" href="~/ProductAttributeMappingByCountry/ListProdAttriCountryMapping">
-                                    <i class="glyphicon glyphicon-align-justify"></i><span> Product Attribute By Country</span>
+                                <a class="ajax-link" href="~/AttributeMappingByCountry/ListProdAttriCountryMapping">
+                                    <i class="glyphicon glyphicon-align-justify"></i><span>Attribute By Country</span>
                                 </a>
                             </li>                           
                             <li>

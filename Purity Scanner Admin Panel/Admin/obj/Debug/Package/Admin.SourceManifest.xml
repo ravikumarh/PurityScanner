@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
-  <IisApp path="C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\obj\Debug\Package\PackageTmp" managedRuntimeVersion="v4.0" />
-  <setAcl path="C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\obj\Debug\Package\PackageTmp" setAclResourceType="Directory" />
-  <setAcl path="C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\obj\Debug\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+  <IisApp path="E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\obj\Debug\Package\PackageTmp" managedRuntimeVersion="v4.0" />
+  <setAcl path="E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\obj\Debug\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\obj\Debug\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
 </sitemanifest>

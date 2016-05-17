@@ -12,6 +12,7 @@ namespace Admin.Controllers
     {
         clsProductAttributeValue obj = new clsProductAttributeValue();
         clsProductAttributeValue objControl;
+         [Authorize]
         public ActionResult ListProductAttributeValues()
         {
             try
@@ -63,11 +64,13 @@ namespace Admin.Controllers
                 return View(new List<clsProductAttributeValue>());
             }
         }
+         [Authorize]
         public ActionResult AddProductAttributeValue(int id)
         {
             return View();
         }
         [HttpPost]
+        [Authorize]
         public string EditProductAttributeValue(string id, string FilterProduct, string FilterSubProduct, string FilterAttribute, string FilterLanguage)
         {
 
@@ -119,6 +122,7 @@ namespace Admin.Controllers
             }
         }
         [HttpPost]
+        [Authorize]
         public string ViewProductAttributeValue(string id, string FilterProduct, string FilterSubProduct, string FilterAttribute, string FilterLanguage)
         {
 
@@ -172,6 +176,7 @@ namespace Admin.Controllers
 
         }
         [HttpPost]
+        [Authorize]
         public string DeleteProductAttributeValue(string id, string FilterProduct, string FilterSubProduct, string FilterAttribute, string FilterLanguage)
         {
 
@@ -215,6 +220,7 @@ namespace Admin.Controllers
 
         }
         [HttpPost]
+        [Authorize]
         public ActionResult ProductAttributeValueDelete(clsProductAttributeValue objtmp)
         {
             try
@@ -244,6 +250,7 @@ namespace Admin.Controllers
             }
         }
         [HttpPost]
+        [Authorize]
         public ActionResult ProductAttributeValueEdit(clsProductAttributeValue objtmp)
         {
             try
@@ -281,8 +288,10 @@ namespace Admin.Controllers
             }
         }
         [HttpPost]
+        [Authorize]
         public ActionResult ProductAttributeValueAdd(clsProductAttributeValue objtmp)
         {
+           // System.IO.StreamWriter file;// = new System.IO.StreamWriter("C:\\PurityScannerService\\test.txt", true);
             try
             {
                 int result = obj.AddProductAttributeValue(objtmp);
@@ -300,6 +309,9 @@ namespace Admin.Controllers
                 }
                 else
                 {
+                   // file = new System.IO.StreamWriter("C:\\PurityScannerService\\test.txt", true);
+                   // file.WriteLine("Return Zero");
+                  //  file.Close();
                     TempData["msgLabel"] = "Something went wrong,Please try again...";
                 }
                 clsProductAttributeValue tmpObj = new clsProductAttributeValue();
@@ -313,11 +325,15 @@ namespace Admin.Controllers
             }
             catch (Exception ee)
             {
+               // file = new System.IO.StreamWriter("C:\\PurityScannerService\\test.txt", true);
+               // file.WriteLine("Error");
+              //  file.Close();
                 TempData["msgLabel"] = "Something went wrong,Please try again...";
                 return Redirect("ListProductAttributeValues");
             }
         }
         [HttpPost]
+        [Authorize]
         public ActionResult getAllProdValuesByFilterIDs(clsProductAttributeValue objtmp)
         {
             try
@@ -349,6 +365,7 @@ namespace Admin.Controllers
             }
 
         }
+         [Authorize]
         public string RenderRazorViewToString(string viewName, object model)
         {
             ViewData.Model = model;

@@ -22,3 +22,11 @@ C:\Service\Purity Scanner\DAL\bin\Release\PL.pdb
 C:\Service\Purity Scanner\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
 C:\Service\Purity Scanner\DAL\obj\Release\DAL.dll
 C:\Service\Purity Scanner\DAL\obj\Release\DAL.pdb
+C:\Ravikumar\Purity Scanner\Service\Purity Scanner\DAL\bin\Release\DAL.dll.config
+C:\Ravikumar\Purity Scanner\Service\Purity Scanner\DAL\bin\Release\DAL.dll
+C:\Ravikumar\Purity Scanner\Service\Purity Scanner\DAL\bin\Release\DAL.pdb
+C:\Ravikumar\Purity Scanner\Service\Purity Scanner\DAL\bin\Release\PL.dll
+C:\Ravikumar\Purity Scanner\Service\Purity Scanner\DAL\bin\Release\PL.pdb
+C:\Ravikumar\Purity Scanner\Service\Purity Scanner\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+C:\Ravikumar\Purity Scanner\Service\Purity Scanner\DAL\obj\Release\DAL.dll
+C:\Ravikumar\Purity Scanner\Service\Purity Scanner\DAL\obj\Release\DAL.pdb

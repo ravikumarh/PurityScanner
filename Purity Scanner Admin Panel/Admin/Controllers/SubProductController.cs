@@ -11,6 +11,7 @@ namespace Admin.Controllers
     public class SubProductController : Controller
     {
         clsSubProduct objOperations = new clsSubProduct();
+         [Authorize]
         public ActionResult ListSubProduct()
         {
             try
@@ -36,6 +37,7 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult EditSubProduct(string id)
         {
             try
@@ -68,6 +70,7 @@ namespace Admin.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public string ViewSubProduct(string id)
         {
             try
@@ -99,6 +102,7 @@ namespace Admin.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public string DeleteSubProduct(string id)
         {
             try
@@ -130,6 +134,7 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult SubProductDelete(clsSubProduct Objtmp)
         {
             try
@@ -153,6 +158,7 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult SubProductEdit(clsSubProduct Objtmp)
         {
             try
@@ -185,6 +191,7 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult SubProductAdd(clsSubProduct Objtmp)
         {
             try
@@ -214,7 +221,7 @@ namespace Admin.Controllers
                 return Redirect("ListSubProduct");
             }
         }
-
+         [Authorize]
         public string RenderRazorViewToString(string viewName, object model)
         {
             ViewData.Model = model;

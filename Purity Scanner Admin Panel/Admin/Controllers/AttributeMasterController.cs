@@ -13,6 +13,7 @@ namespace Admin.Controllers
         //
         clsAttributeMaster objOperation = new clsAttributeMaster();
         // GET: /AttributeMaster/
+         [Authorize]
         public ActionResult ListAttribute()
         {
             try
@@ -34,7 +35,7 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
-
+        [Authorize]
         public ActionResult AttributeDelete(clsAttributeMaster obj)
         {
             try
@@ -58,6 +59,7 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public string DeleteAttribute(string id)
         {
             clsAttributeMaster obj = new clsAttributeMaster();
@@ -66,6 +68,7 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult AttributeAdd(clsAttributeMaster obj, IEnumerable<HttpPostedFileBase> uploadFile)
         {
             try
@@ -76,7 +79,7 @@ namespace Admin.Controllers
                     {
                         // code for saving the image file to a physical location.
                         var fileName = Path.GetFileName(file.FileName);
-                        var path = Path.Combine(Server.MapPath("~/Images"), fileName);
+                        var path = Path.Combine("C:\\PurityScannerService\\PurityScannerService\\Images", fileName);
                         file.SaveAs(path);
 
                         // prepare a relative path to be stored in the database and used to display later on.
@@ -114,6 +117,7 @@ namespace Admin.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public ActionResult updateAttribute(clsAttributeMaster obj, IEnumerable<HttpPostedFileBase> edituploadFile)
         {
             try
@@ -124,7 +128,7 @@ namespace Admin.Controllers
                     {
                         // code for saving the image file to a physical location.
                         var fileName = Path.GetFileName(file.FileName);
-                        var path = Path.Combine(Server.MapPath("~/Images"), fileName);
+                        var path = Path.Combine("C:\\PurityScannerService\\PurityScannerService\\Images", fileName);//Path.Combine(Server.MapPath("~/Images"), fileName);
                         file.SaveAs(path);
 
                         // prepare a relative path to be stored in the database and used to display later on.
@@ -162,6 +166,7 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public string EditAttribute(string id)
         {
             try
@@ -183,6 +188,7 @@ namespace Admin.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public string viewAttribute(string id)
         {
             try
@@ -202,6 +208,7 @@ namespace Admin.Controllers
             }
         }
 
+         [Authorize]
         public string RenderRazorViewToString(string viewName, object model)
         {
             ViewData.Model = model;

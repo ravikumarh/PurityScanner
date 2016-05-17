@@ -22,9 +22,14 @@
                     @*@Html.ValidationMessageFor(model => model.ProductName)*@
                 </div>
             </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SubProductName, new { @class = "control-label col-md-1" })
+                <div class="col-md-3">
+                    @Html.DropDownListFor(model => model.FilterSubProductId, new SelectList(Model.ListSubProduct, "SubProductID", "SubProductName"), "Select SubProduct", new { @class = "form-control" , onchange = "this.form.action='getAllProdImageByCountryIDProductID';this.form.submit();" })
+                    @*@Html.ValidationMessageFor(model => model.SubProductName)*@
+                </div>
+            </div>
         </div>
-
-
     </div>
-
 }

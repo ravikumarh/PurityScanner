@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="IIS Web Application Name" description="" value="PurityScannerAdmin" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Rajesh\\PurityScanner\ Admin\\18-12-2015\ 4PM\\Admin\\obj\\Debug\\Package\\PackageTmp$" />
-    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Rajesh\\PurityScanner\ Admin\\18-12-2015\ 4PM\\Admin\\obj\\Debug\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^E:\\TNEX\ Data\\Purity\ Scanner\\Akshay\\18-12-2015\ 4PM\\18-12-2015\ 4PM\\Admin\\obj\\Debug\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^E:\\TNEX\ Data\\Purity\ Scanner\\Akshay\\18-12-2015\ 4PM\\18-12-2015\ 4PM\\Admin\\obj\\Debug\\Package\\PackageTmp$" />
   </parameter>
-  <parameter name="connectionstring-Web.config Connection String" description="" value="Data Source=LAPTOP-R8ELS2J4;Initial Catalog=PurityScanner;uid=sa;Password=tnex;" tags="">
-    <parameterEntry kind="XmlFile" scope="C:\\Rajesh\\PurityScanner\ Admin\\18-12-2015\ 4PM\\Admin\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='connectionstring']/@connectionString" />
+  <parameter name="connectionstring-Web.config Connection String" description="" value="Data Source=localhost;Initial Catalog=PurityScanner;User ID=sa;Password=tnex;" tags="">
+    <parameterEntry kind="XmlFile" scope="E:\\TNEX\ Data\\Purity\ Scanner\\Akshay\\18-12-2015\ 4PM\\18-12-2015\ 4PM\\Admin\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='connectionstring']/@connectionString" />
   </parameter>
   <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=(LocalDb)\v11.0;AttachDbFilename=|DataDirectory|\aspnet-Admin-20151216020114.mdf;Initial Catalog=aspnet-Admin-20151216020114;Integrated Security=True" tags="">
-    <parameterEntry kind="XmlFile" scope="C:\\Rajesh\\PurityScanner\ Admin\\18-12-2015\ 4PM\\Admin\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="E:\\TNEX\ Data\\Purity\ Scanner\\Akshay\\18-12-2015\ 4PM\\18-12-2015\ 4PM\\Admin\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
   </parameter>
 </parameters>

@@ -18,7 +18,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.AttributeName, new { @class = "control-label col-md-4" })
             <div class="col-md-8">
-                @Html.TextBoxFor(model => model.AttributeName, new { @class = "form-control", id = "editAttributeName", @onfocusout = " editvalidData()" })
+                @Html.TextBoxFor(model => model.AttributeName, new { @class = "form-control", id = "editAttributeName", @onfocusout = " editvalidData()", @onkeypress = "checkAttribute()" })
                 @Html.ValidationMessageFor(model => model.AttributeName)
             </div>
         </div>
@@ -73,6 +73,14 @@
 
 <script type="text/jscript">
 
+ function checkAttribute() {
+        var regex = new RegExp("^[a-zA-Z ]+$");
+        var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+        if (!regex.test(key)) {
+            event.preventDefault();
+            return false;
+        }
+    };
 
     function editvalidData() {
 

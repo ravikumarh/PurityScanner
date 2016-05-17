@@ -111,6 +111,7 @@ C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Admin.dll.config
 C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Admin.dll
 C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Admin.pdb
 C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Antlr3.Runtime.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\DAL.dll
 C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\EntityFramework.dll
 C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\EntityFramework.SqlServer.dll
 C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.AspNet.Identity.Core.dll
@@ -136,6 +137,7 @@ C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\System.Web.WebPages.Deplo
 C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\System.Web.WebPages.dll
 C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\System.Web.WebPages.Razor.dll
 C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\WebGrease.dll
+C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\DAL.pdb
 C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\System.Web.Helpers.xml
 C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\System.Web.Mvc.xml
 C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\System.Web.Optimization.xml
@@ -162,5 +164,117 @@ C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.M
 C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\obj\Debug\Admin.csprojResolveAssemblyReference.cache
 C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\obj\Debug\Admin.dll
 C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\obj\Debug\Admin.pdb
-C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\DAL.dll
-C:\Rajesh\PurityScanner Admin\18-12-2015 4PM\Admin\bin\DAL.pdb
+D:\akshaye\18-12-2015 4PM\Admin\bin\Admin.dll.config
+D:\akshaye\18-12-2015 4PM\Admin\bin\Admin.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\Admin.pdb
+D:\akshaye\18-12-2015 4PM\Admin\bin\Antlr3.Runtime.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\DAL.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\EntityFramework.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\EntityFramework.SqlServer.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.AspNet.Identity.Core.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.Owin.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Cookies.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Facebook.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Google.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.OAuth.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Twitter.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.Web.Infrastructure.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\Newtonsoft.Json.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\Owin.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\System.Web.Helpers.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\System.Web.Mvc.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\System.Web.Optimization.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\System.Web.Razor.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\System.Web.WebPages.Deployment.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\System.Web.WebPages.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\System.Web.WebPages.Razor.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\WebGrease.dll
+D:\akshaye\18-12-2015 4PM\Admin\bin\DAL.pdb
+D:\akshaye\18-12-2015 4PM\Admin\bin\System.Web.Helpers.xml
+D:\akshaye\18-12-2015 4PM\Admin\bin\System.Web.Mvc.xml
+D:\akshaye\18-12-2015 4PM\Admin\bin\System.Web.Optimization.xml
+D:\akshaye\18-12-2015 4PM\Admin\bin\System.Web.Razor.xml
+D:\akshaye\18-12-2015 4PM\Admin\bin\System.Web.WebPages.xml
+D:\akshaye\18-12-2015 4PM\Admin\bin\System.Web.WebPages.Deployment.xml
+D:\akshaye\18-12-2015 4PM\Admin\bin\System.Web.WebPages.Razor.xml
+D:\akshaye\18-12-2015 4PM\Admin\bin\Newtonsoft.Json.xml
+D:\akshaye\18-12-2015 4PM\Admin\bin\Antlr3.Runtime.pdb
+D:\akshaye\18-12-2015 4PM\Admin\bin\EntityFramework.xml
+D:\akshaye\18-12-2015 4PM\Admin\bin\EntityFramework.SqlServer.xml
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.AspNet.Identity.Core.xml
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.Owin.xml
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.xml
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Facebook.xml
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Cookies.xml
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.OAuth.xml
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Google.xml
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Twitter.xml
+D:\akshaye\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\akshaye\18-12-2015 4PM\Admin\obj\Debug\Admin.csprojResolveAssemblyReference.cache
+D:\akshaye\18-12-2015 4PM\Admin\obj\Debug\Admin.dll
+D:\akshaye\18-12-2015 4PM\Admin\obj\Debug\Admin.pdb
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Admin.dll.config
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Admin.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Admin.pdb
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Antlr3.Runtime.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\DAL.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\EntityFramework.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\EntityFramework.SqlServer.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.AspNet.Identity.Core.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.Owin.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Cookies.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Facebook.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Google.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.OAuth.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Twitter.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.Web.Infrastructure.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Newtonsoft.Json.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Owin.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\System.Web.Helpers.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\System.Web.Mvc.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\System.Web.Optimization.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\System.Web.Razor.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\System.Web.WebPages.Deployment.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\System.Web.WebPages.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\System.Web.WebPages.Razor.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\WebGrease.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\DAL.pdb
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\System.Web.Helpers.xml
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\System.Web.Mvc.xml
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\System.Web.Optimization.xml
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\System.Web.Razor.xml
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\System.Web.WebPages.xml
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\System.Web.WebPages.Deployment.xml
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\System.Web.WebPages.Razor.xml
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Newtonsoft.Json.xml
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Antlr3.Runtime.pdb
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\EntityFramework.xml
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\EntityFramework.SqlServer.xml
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.AspNet.Identity.Core.xml
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.Owin.xml
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.xml
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Facebook.xml
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Cookies.xml
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.OAuth.xml
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Google.xml
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.Twitter.xml
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\obj\Debug\Admin.csprojResolveAssemblyReference.cache
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\obj\Debug\Admin.dll
+E:\TNEX Data\Purity Scanner\Akshay\18-12-2015 4PM\18-12-2015 4PM\Admin\obj\Debug\Admin.pdb

@@ -12,6 +12,7 @@ namespace Admin.Controllers
     {
 
         clsCompanyMissionInfo objOperations = new clsCompanyMissionInfo();
+         [Authorize]
         public ActionResult ListCompanyMissionInfo()
         {
             try
@@ -37,6 +38,7 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public string EditCompanyMissionInfo(string id)
         {
             try
@@ -65,6 +67,7 @@ namespace Admin.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public string ViewCompanyMissionInfo(string id)
         {
             try
@@ -93,6 +96,7 @@ namespace Admin.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public string DeleteCompanyMissionInfo(string id)
         {
             try
@@ -120,6 +124,7 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult DeleteCompanyMission(clsCompanyMissionInfo Objtmp)
         {
             try
@@ -143,6 +148,7 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult EditCompanyMission(clsCompanyMissionInfo Objtmp)
         {
             try
@@ -174,6 +180,7 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult AddCompanyMission(clsCompanyMissionInfo Objtmp)
         {
             try
@@ -204,6 +211,7 @@ namespace Admin.Controllers
             }
         }
 
+         [Authorize]
         public string RenderRazorViewToString(string viewName, object model)
         {
             ViewData.Model = model;

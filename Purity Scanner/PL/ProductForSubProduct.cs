@@ -11,6 +11,7 @@ namespace PL
         int productId;
         string productName;
         string productImageUrl;
+        string productType;
         List<SubProduct> subproducts;
         List<AttributeValue> attributeValueData;
 
@@ -35,6 +36,11 @@ namespace PL
         {
             get { return subproducts; }
             set { subproducts = value; }
+        }
+        public string Title
+        {
+            get { return productType; }
+            set { productType = value; }
         }
         public List<AttributeValue> AttributeValueData
         {

@@ -43,3 +43,17 @@ C:\Service\Purity Scanner\PurityScannerService\bin\DAL.pdb
 C:\Service\Purity Scanner\PurityScannerService\obj\Release\PurityScannerService.csprojResolveAssemblyReference.cache
 C:\Service\Purity Scanner\PurityScannerService\obj\Release\PurityScannerService.dll
 C:\Service\Purity Scanner\PurityScannerService\obj\Release\PurityScannerService.pdb
+C:\Ravikumar\Purity Scanner\Service\Purity Scanner\PurityScannerService\bin\PurityScannerService.dll.config
+C:\Ravikumar\Purity Scanner\Service\Purity Scanner\PurityScannerService\bin\PurityScannerService.dll
+C:\Ravikumar\Purity Scanner\Service\Purity Scanner\PurityScannerService\bin\PurityScannerService.pdb
+C:\Ravikumar\Purity Scanner\Service\Purity Scanner\PurityScannerService\bin\BAL.dll
+C:\Ravikumar\Purity Scanner\Service\Purity Scanner\PurityScannerService\bin\Newtonsoft.Json.dll
+C:\Ravikumar\Purity Scanner\Service\Purity Scanner\PurityScannerService\bin\PL.dll
+C:\Ravikumar\Purity Scanner\Service\Purity Scanner\PurityScannerService\bin\DAL.dll
+C:\Ravikumar\Purity Scanner\Service\Purity Scanner\PurityScannerService\bin\BAL.pdb
+C:\Ravikumar\Purity Scanner\Service\Purity Scanner\PurityScannerService\bin\PL.pdb
+C:\Ravikumar\Purity Scanner\Service\Purity Scanner\PurityScannerService\bin\Newtonsoft.Json.xml
+C:\Ravikumar\Purity Scanner\Service\Purity Scanner\PurityScannerService\bin\DAL.pdb
+C:\Ravikumar\Purity Scanner\Service\Purity Scanner\PurityScannerService\obj\Release\PurityScannerService.csprojResolveAssemblyReference.cache
+C:\Ravikumar\Purity Scanner\Service\Purity Scanner\PurityScannerService\obj\Release\PurityScannerService.dll
+C:\Ravikumar\Purity Scanner\Service\Purity Scanner\PurityScannerService\obj\Release\PurityScannerService.pdb

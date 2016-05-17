@@ -18,7 +18,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ProductName, new { @class = "control-label col-md-4" })
             <div class="col-md-8">
-                @Html.TextBoxFor(model => model.ProductName, new { @class = "form-control",id="editProductName" })
+                @Html.TextBoxFor(model => model.ProductName, new { @class = "form-control", id = "editProductName", @onkeypress = "checkProduct()" })
                 @Html.ValidationMessageFor(model => model.ProductName)
             </div>
         </div>
@@ -49,6 +49,16 @@
 }
 
 <script type="text/javascript">
+
+  function checkProduct() {
+        var regex = new RegExp("^[a-zA-Z ]+$");
+        var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+        if (!regex.test(key)) {
+            event.preventDefault();
+            return false;
+        }
+    };
+
     $('#editProductName').focusout(function () {
         editvalidData();
     })

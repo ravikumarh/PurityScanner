@@ -11,6 +11,7 @@ namespace Admin.Controllers
     public class ProductMasterController : Controller
     {
         clsProductMaster objOperation = new clsProductMaster();
+         [Authorize]
         public ActionResult ListProduct()
         {
             try
@@ -31,9 +32,8 @@ namespace Admin.Controllers
             }
         }
 
-
-
         [HttpPost]
+        [Authorize]
         public ActionResult AddProduct(clsProductMaster obj)
         {
             try
@@ -65,9 +65,8 @@ namespace Admin.Controllers
 
         }
 
-
         [HttpPost]
-
+        [Authorize]
         public ActionResult ProductDelete(clsProductMaster obj)
         {
             try
@@ -91,6 +90,7 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult updateProduct(clsProductMaster obj)
         {
             try
@@ -122,6 +122,7 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public string DeleteProduct(string id)
         {
             try
@@ -136,9 +137,8 @@ namespace Admin.Controllers
             }
         }
 
-
-
         [HttpPost]
+        [Authorize]
         public string EditProduct(string id)
         {
             try
@@ -158,8 +158,8 @@ namespace Admin.Controllers
             }
         }
 
-
         [HttpPost]
+        [Authorize]
         public string viewProduct(string id)
         {
             try
@@ -178,7 +178,7 @@ namespace Admin.Controllers
                 return RenderRazorViewToString("DeleteProduct", new clsProductMaster());
             }
         }
-
+         [Authorize]
         public string RenderRazorViewToString(string viewName, object model)
         {
             ViewData.Model = model;

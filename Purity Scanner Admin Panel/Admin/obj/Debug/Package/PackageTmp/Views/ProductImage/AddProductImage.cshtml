@@ -6,10 +6,11 @@
 @using (Html.BeginForm("ProductImageAdd", "ProductImage", FormMethod.Post, new { enctype = "multipart/form-data" })) 
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         @Html.ValidationSummary(true)
         @Html.HiddenFor(Model => Model.FilterProductID)
+        @Html.HiddenFor(Model => Model.FilterSubProductId)
         @Html.HiddenFor(Model => Model.FilterCountryCode)
 
         <div class="form-group">
@@ -20,10 +21,17 @@
             </div>
         </div>
 
+        <div class="form-group">
+        @Html.LabelFor(model => model.SubProductName, new { @class = "control-label col-md-4" })
+        <div class="col-md-8">
+            @Html.DropDownListFor(model => model.SubProductId, new SelectList(ViewBag.lstSubProduct, "Value", "Text"), "Select SubProduct", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.SubProductName)
+        </div>
+        </div>
+
          <div class="form-group">
             @Html.LabelFor(model => model.CountryName, new { @class = "control-label col-md-4" })
             <div class="col-md-8">
-
                 @Html.DropDownListFor(model => model.CountryCode, new SelectList(ViewBag.lstCountry, "Value", "Text"), "Select Country", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.CountryName)
             </div>
@@ -54,7 +62,6 @@
         </div>
 
       
-
         <div class="form-group">
             <div class="col-md-offset-8 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" onclick="return addvalidData();" />
@@ -91,6 +98,9 @@
     $('#ProductID').change(function () {
         addvalidData();
     })
+    $('#SubProductId').change(function () {
+        addvalidData();
+    })
 
     $('#MoodstockImageKey').focusout(function () {
         addvalidData();
@@ -100,132 +110,269 @@
     })
 
     function addvalidData() {
-
         var prodID = $('#ProductID').val();
+        var subprodId = $('#SubProductId').val();
         var contryCode = $('#CountryCode').val();
         var moodImageKey = $('#MoodstockImageKey').val().trim();;
         var fileData = $('#file').val();
        
-   
-        if (prodID && contryCode && moodImageKey && fileData) {
-            $('#CountryCode').css('border-color', '');
+        if (prodID && subprodId && contryCode && moodImageKey && fileData) {
             $('#ProductID').css('border-color', '');
+            $('#SubProductId').css('border-color', '');
+            $('#CountryCode').css('border-color', '');
             $('#MoodstockImageKey').css('border-color', '');
             $('#file').css('border-color', '');
             return true;
         }
-        else if (prodID && !contryCode && !moodImageKey && !fileData) {
-            $('#MoodstockImageKey').css('border-color', 'red');
-            $('#CountryCode').css('border-color', 'red');
+        else if (prodID && !subprodId && !contryCode && !moodImageKey && !fileData) {
             $('#ProductID').css('border-color', '');
-            $('#file').css('border-color', 'red');
-            return false;
-        }
-        else if (!prodID && contryCode && !moodImageKey && !fileData) {
-            $('#MoodstockImageKey').css('border-color', 'red');
-            $('#ProductID').css('border-color', 'red');
-            $('#CountryCode').css('border-color', '');
-            $('#file').css('border-color', 'red');
-            return false;
-        }
-        else if (prodID && !contryCode && !moodImageKey && !fileData) {
-            $('#MoodstockImageKey').css('border-color', 'red');
-            $('#ProductID').css('border-color', '');
+            $('#SubProductId').css('border-color', 'red');
             $('#CountryCode').css('border-color', 'red');
+            $('#MoodstockImageKey').css('border-color', 'red');
             $('#file').css('border-color', 'red');
             return false;
         }
-        else if (!prodID && contryCode && !moodImageKey && fileData) {
-            $('#MoodstockImageKey').css('border-color', 'red');
+        else if (!prodID && subprodId && !contryCode && !moodImageKey && !fileData) {
             $('#ProductID').css('border-color', 'red');
+            $('#SubProductId').css('border-color', '');
+            $('#CountryCode').css('border-color', 'red');
+            $('#MoodstockImageKey').css('border-color', 'red');
+            $('#file').css('border-color', 'red');
+            return false;
+        }
+        else if (!prodID && !subprodId && contryCode && !moodImageKey && !fileData) {
+            $('#ProductID').css('border-color', 'red');
+            $('#SubProductId').css('border-color', 'red');
             $('#CountryCode').css('border-color', '');
+            $('#MoodstockImageKey').css('border-color', 'red');
+            $('#file').css('border-color', 'red');
+            return false;
+        }
+        else if (!prodID && !subprodId && !contryCode && moodImageKey && !fileData) {
+            $('#ProductID').css('border-color', 'red');
+            $('#SubProductId').css('border-color', 'red');
+            $('#CountryCode').css('border-color', 'red');
+            $('#MoodstockImageKey').css('border-color', '');
+            $('#file').css('border-color', 'red');
+            return false;
+        }
+        else if (!prodID && !subprodId && !contryCode && !moodImageKey && fileData) {
+            $('#ProductID').css('border-color', 'red');
+            $('#SubProductId').css('border-color', 'red');
+            $('#CountryCode').css('border-color', 'red');
+            $('#MoodstockImageKey').css('border-color', 'red');
             $('#file').css('border-color', '');
             return false;
         }
-        else if (!prodID && !contryCode && moodImageKey && !fileData) {
-            $('#MoodstockImageKey').css('border-color', '');
-            $('#ProductID').css('border-color', 'red');
-            $('#CountryCode').css('border-color', 'red');
-            $('#file').css('border-color', 'red');
-            return false;
-        }
-        else if (!prodID && !contryCode && !moodImageKey && fileData) {
-            $('#MoodstockImageKey').css('border-color', 'red');
-            $('#ProductID').css('border-color', 'red');
-            $('#CountryCode').css('border-color', 'red');
-            $('#file').css('border-color', '');
-            return false;
-        }
-        else if (!prodID && !contryCode && moodImageKey && fileData) {
-            $('#MoodstockImageKey').css('border-color', '');
-            $('#ProductID').css('border-color', 'red');
-            $('#CountryCode').css('border-color', 'red');
-            $('#file').css('border-color', '');
-            return false;
-        }
-        else if (!prodID && contryCode && moodImageKey && !fileData) {
-            $('#MoodstockImageKey').css('border-color', '');
-            $('#ProductID').css('border-color', 'red');
-            $('#CountryCode').css('border-color', '');
-            $('#file').css('border-color', 'red');
-            return false;
-        }
-        else if (!prodID && contryCode && moodImageKey && fileData) {
-            $('#MoodstockImageKey').css('border-color', '');
-            $('#ProductID').css('border-color', 'red');
-            $('#CountryCode').css('border-color', '');
-            $('#file').css('border-color', '');
-            return false;
-        }
-        else if (prodID && !contryCode && moodImageKey && !fileData) {
-            $('#MoodstockImageKey').css('border-color', '');
+        else if (prodID && subprodId && !contryCode && !moodImageKey && !fileData) {
             $('#ProductID').css('border-color', '');
-            $('#CountryCode').css('border-color', 'red');
-            $('#file').css('border-color', 'red');
-            return false;
-        }
-        else if (prodID && !contryCode && moodImageKey && fileData) {
-            $('#MoodstockImageKey').css('border-color', '');
-            $('#ProductID').css('border-color', '');
-            $('#CountryCode').css('border-color', 'red');
-            $('#file').css('border-color', '');
-            return false;
-        }
-        else if (prodID && contryCode && !moodImageKey && !fileData) {
-            $('#MoodstockImageKey').css('border-color', 'red');
-            $('#ProductID').css('border-color', '');
-            $('#CountryCode').css('border-color', '');
-            $('#file').css('border-color', 'red');
-            return false;
-        }
-        else if (prodID && !contryCode && !moodImageKey && fileData) {
-            $('#MoodstockImageKey').css('border-color', 'red');
-            $('#ProductID').css('border-color', '');
-            $('#CountryCode').css('border-color', 'red');
-            $('#file').css('border-color', '');
-            return false;
-        }
-        else if (prodID && contryCode && moodImageKey && !fileData) {
-            $('#MoodstockImageKey').css('border-color', '');
-            $('#ProductID').css('border-color', '');
-            $('#CountryCode').css('border-color', '');
-            $('#file').css('border-color', 'red');
-            return false;
-        }
-        else if (prodID && contryCode && !moodImageKey && fileData) {
-            $('#MoodstockImageKey').css('border-color', 'red');
-            $('#ProductID').css('border-color', '');
-            $('#CountryCode').css('border-color', '');
-            $('#file').css('border-color', '');
-            return false;
-        }
-        else {
-            $('#ProductID').css('border-color', 'red');
+            $('#SubProductId').css('border-color', '');
             $('#CountryCode').css('border-color', 'red');
             $('#MoodstockImageKey').css('border-color', 'red');
             $('#file').css('border-color', 'red');
             return false;
         }
-        return false;
+        else if (prodID && !subprodId && contryCode && !moodImageKey && !fileData) {
+            $('#ProductID').css('border-color', '');
+            $('#SubProductId').css('border-color', 'red');
+            $('#CountryCode').css('border-color', '');
+            $('#MoodstockImageKey').css('border-color', 'red');
+            $('#file').css('border-color', 'red');
+            return false;
+        }
+        else if (prodID && !subprodId && !contryCode && moodImageKey && !fileData) {
+            $('#ProductID').css('border-color', '');
+            $('#SubProductId').css('border-color', 'red');
+            $('#CountryCode').css('border-color', 'red');
+            $('#MoodstockImageKey').css('border-color', '');
+            $('#file').css('border-color', 'red');
+            return false;
+        }
+        else if (prodID && !subprodId && !contryCode && !moodImageKey && fileData) {
+            $('#ProductID').css('border-color', '');
+            $('#SubProductId').css('border-color', 'red');
+            $('#CountryCode').css('border-color', 'red');
+            $('#MoodstockImageKey').css('border-color', 'red');
+            $('#file').css('border-color', '');
+            return false;
+        }
+        else if (!prodID && subprodId && contryCode && !moodImageKey && !fileData) {
+            $('#ProductID').css('border-color', 'red');
+            $('#SubProductId').css('border-color', '');
+            $('#CountryCode').css('border-color', '');
+            $('#MoodstockImageKey').css('border-color', 'red');
+            $('#file').css('border-color', 'red');
+            return false;
+        }
+        else if (!prodID && subprodId && !contryCode && moodImageKey && !fileData) {
+            $('#ProductID').css('border-color', 'red');
+            $('#SubProductId').css('border-color', '');
+            $('#CountryCode').css('border-color', 'red');
+            $('#MoodstockImageKey').css('border-color', '');
+            $('#file').css('border-color', 'red');
+            return false;
+        }
+        else if (!prodID && subprodId && !contryCode && !moodImageKey && fileData) {
+            $('#ProductID').css('border-color', 'red');
+            $('#SubProductId').css('border-color', '');
+            $('#CountryCode').css('border-color', 'red');
+            $('#MoodstockImageKey').css('border-color', 'red');
+            $('#file').css('border-color', '');
+            return false;
+        }
+        else if (!prodID && !subprodId && contryCode && moodImageKey && !fileData) {
+            $('#ProductID').css('border-color', 'red');
+            $('#SubProductId').css('border-color', 'red');
+            $('#CountryCode').css('border-color', '');
+            $('#MoodstockImageKey').css('border-color', '');
+            $('#file').css('border-color', 'red');
+            return false;
+        }
+        else if (!prodID && !subprodId && contryCode && !moodImageKey && fileData) {
+            $('#ProductID').css('border-color', 'red');
+            $('#SubProductId').css('border-color', 'red');
+            $('#CountryCode').css('border-color', '');
+            $('#MoodstockImageKey').css('border-color', 'red');
+            $('#file').css('border-color', '');
+            return false;
+        }
+        else if (!prodID && !subprodId && !contryCode && moodImageKey && fileData) {
+            $('#ProductID').css('border-color', 'red');
+            $('#SubProductId').css('border-color', 'red');
+            $('#CountryCode').css('border-color', 'red');
+            $('#MoodstockImageKey').css('border-color', '');
+            $('#file').css('border-color', '');
+            return false;
+        }
+        else if (!prodID && !subprodId && !contryCode && !moodImageKey && !fileData) {
+            $('#ProductID').css('border-color', 'red');
+            $('#SubProductId').css('border-color', 'red');
+            $('#CountryCode').css('border-color', 'red');
+            $('#MoodstockImageKey').css('border-color', 'red');
+            $('#file').css('border-color', 'red');
+            return false;
+        }
+        else if (prodID && subprodId && contryCode && !moodImageKey && !fileData) {
+            $('#ProductID').css('border-color', '');
+            $('#SubProductId').css('border-color', '');
+            $('#CountryCode').css('border-color', '');
+            $('#MoodstockImageKey').css('border-color', 'red');
+            $('#file').css('border-color', 'red');
+            return false;
+        }
+        else if (prodID && subprodId && !contryCode && moodImageKey && !fileData) {
+            $('#ProductID').css('border-color', '');
+            $('#SubProductId').css('border-color', '');
+            $('#CountryCode').css('border-color', 'red');
+            $('#MoodstockImageKey').css('border-color', '');
+            $('#file').css('border-color', 'red');
+            return false;
+        }
+
+        else if (prodID && subprodId && !contryCode && !moodImageKey && fileData) {
+            $('#ProductID').css('border-color', '');
+            $('#SubProductId').css('border-color', '');
+            $('#CountryCode').css('border-color', 'red');
+            $('#MoodstockImageKey').css('border-color', 'red');
+            $('#file').css('border-color', '');
+            return false;
+        }
+
+        else if (prodID && !subprodId && contryCode && moodImageKey && !fileData) {
+            $('#ProductID').css('border-color', '');
+            $('#SubProductId').css('border-color', 'red');
+            $('#CountryCode').css('border-color', '');
+            $('#MoodstockImageKey').css('border-color', '');
+            $('#file').css('border-color', 'red');
+            return false;
+        }
+        else if (prodID && !subprodId && contryCode && !moodImageKey && fileData) {
+            $('#ProductID').css('border-color', '');
+            $('#SubProductId').css('border-color', 'red');
+            $('#CountryCode').css('border-color', '');
+            $('#MoodstockImageKey').css('border-color', 'red');
+            $('#file').css('border-color', '');
+            return false;
+        }
+        else if (prodID && !subprodId && !contryCode && moodImageKey && fileData) {
+            $('#ProductID').css('border-color', '');
+            $('#SubProductId').css('border-color', 'red');
+            $('#CountryCode').css('border-color', 'red');
+            $('#MoodstockImageKey').css('border-color', '');
+            $('#file').css('border-color', '');
+            return false;
+        }
+        else if (!prodID && !subprodId && contryCode && moodImageKey && fileData) {
+            $('#ProductID').css('border-color', 'red');
+            $('#SubProductId').css('border-color', 'red');
+            $('#CountryCode').css('border-color', '');
+            $('#MoodstockImageKey').css('border-color', '');
+            $('#file').css('border-color', '');
+            return false;
+        }
+        else if (!prodID && subprodId && contryCode && moodImageKey && !fileData) {
+            $('#ProductID').css('border-color', 'red');
+            $('#SubProductId').css('border-color', '');
+            $('#CountryCode').css('border-color', '');
+            $('#MoodstockImageKey').css('border-color', '');
+            $('#file').css('border-color', 'red');
+            return false;
+        }
+        else if (!prodID && subprodId && contryCode && !moodImageKey && fileData) {
+            $('#ProductID').css('border-color', 'red');
+            $('#SubProductId').css('border-color', '');
+            $('#CountryCode').css('border-color', '');
+            $('#MoodstockImageKey').css('border-color', 'red');
+            $('#file').css('border-color', '');
+            return false;
+        }
+        else if (!prodID && subprodId && !contryCode && moodImageKey && fileData) {
+            $('#ProductID').css('border-color', 'red');
+            $('#SubProductId').css('border-color', '');
+            $('#CountryCode').css('border-color', 'red');
+            $('#MoodstockImageKey').css('border-color', '');
+            $('#file').css('border-color', '');
+            return false;
+        }
+        else if (prodID && subprodId && contryCode && moodImageKey && !fileData) {
+            $('#ProductID').css('border-color', '');
+            $('#SubProductId').css('border-color', '');
+            $('#CountryCode').css('border-color', '');
+            $('#MoodstockImageKey').css('border-color', '');
+            $('#file').css('border-color', 'red');
+            return false;
+        }
+        else if (prodID && subprodId && contryCode && !moodImageKey && fileData) {
+            $('#ProductID').css('border-color', '');
+            $('#SubProductId').css('border-color', '');
+            $('#CountryCode').css('border-color', '');
+            $('#MoodstockImageKey').css('border-color', 'red');
+            $('#file').css('border-color', '');
+            return false;
+        }
+        else if (prodID && subprodId && !contryCode && moodImageKey && fileData) {
+            $('#ProductID').css('border-color', '');
+            $('#SubProductId').css('border-color', '');
+            $('#CountryCode').css('border-color', 'red');
+            $('#MoodstockImageKey').css('border-color', '');
+            $('#file').css('border-color', '');
+            return false;
+        }
+        else if (prodID && !subprodId && contryCode && moodImageKey && fileData) {
+            $('#ProductID').css('border-color', '');
+            $('#SubProductId').css('border-color', 'red');
+            $('#CountryCode').css('border-color', '');
+            $('#MoodstockImageKey').css('border-color', '');
+            $('#file').css('border-color', '');
+            return false;
+        }
+        else if (!prodID && subprodId && contryCode && moodImageKey && fileData) {
+            $('#ProductID').css('border-color', 'red');
+            $('#SubProductId').css('border-color', '');
+            $('#CountryCode').css('border-color', '');
+            $('#MoodstockImageKey').css('border-color', '');
+            $('#file').css('border-color', '');
+            return false;
+        }
     }
 </script>

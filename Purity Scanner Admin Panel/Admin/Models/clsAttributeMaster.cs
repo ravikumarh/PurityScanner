@@ -63,6 +63,7 @@ namespace Admin.Models
                     if (dtAttribute.Rows.Count > 0)
                     {
                         str = "update AttributesMaster set isActive=1, attribute_name='" + obj.AttributeName + "',attribute_image_url='" + obj.AttributeImageUrl + "' where attribute_id=" +Convert.ToInt32(dtAttribute.Rows[0]["attribute_id"]) + "";
+                        return DBobject.IUD_Data(str);
                     }
                     else
                     {

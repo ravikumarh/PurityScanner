@@ -12,12 +12,18 @@ namespace PL
         string manifestoInformation;
         string short_description;
         string attribute_image_url;
+        Boolean isCompare;
 
        public string Title
         {
             get { return title; }
             set { title = value; }
         }
+       public Boolean IsCompare
+       {
+           get { return isCompare; }
+           set { isCompare = value; }
+       }
 
        public string ShortDescription
        {
@@ -35,6 +41,8 @@ namespace PL
             get { return manifestoInformation; }
             set { manifestoInformation = value; }
         }
+
+      
     
     }
 }

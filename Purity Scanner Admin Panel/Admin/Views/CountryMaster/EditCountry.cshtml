@@ -13,7 +13,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CountryCode, new { @class = "control-label col-md-4" })
             <div class="col-md-8">
-                @Html.TextBoxFor(model => model.CountryCode, new { @class = "form-control", id = "editCountryCode", @onfocusout = "editvalidData()" })
+                @Html.TextBoxFor(model => model.CountryCode, new { @id = "editCountryCode", @class = "form-control", @onfocusout = "editvalidData()", @onkeypress = "checkCountryCode()" })
                 @Html.ValidationMessageFor(model => model.CountryCode)
             </div>
         </div>
@@ -21,7 +21,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CountryName, new { @class = "control-label col-md-4" })
             <div class="col-md-8">
-                @Html.TextBoxFor(model => model.CountryName, new { @class = "form-control", id = "editCountryName", @onfocusout = "editvalidData()" })
+                @Html.TextBoxFor(model => model.CountryName, new { @id = "editCountryName", @class = "form-control", @onfocusout = "editvalidData()", @onkeypress = "checkCountryName()" })
                 @Html.ValidationMessageFor(model => model.CountryName)
             </div>
         </div>
@@ -61,6 +61,35 @@
 
 
 <script type="text/jscript">
+
+
+
+    function checkCountryCode() {
+        var regex = new RegExp("^[a-zA-Z ]+$");
+        var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+        if (!regex.test(key)) {
+            event.preventDefault();
+            return false;
+        }
+        else {
+            if ($('#editCountryCode').val().length > 1) {
+                event.preventDefault();
+                return false;
+
+            }
+        }
+    };
+
+    function checkCountryName() {
+        var regex = new RegExp("^[a-zA-Z ]+$");
+        var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+        if (!regex.test(key)) {
+            event.preventDefault();
+            return false;
+        }
+    };
+
+
 
     function editvalidData() {
 
@@ -109,4 +138,8 @@
 
         return false;
     }
+
+
+
+
 </script>

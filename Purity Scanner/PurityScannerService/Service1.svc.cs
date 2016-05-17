@@ -68,17 +68,17 @@ namespace PurityScannerService
             if (productRequestData != null)
             {
 
-          
-                if (obj.checkSubProductsById(productRequestData.ProductID))
-                {
+
+                //if (obj.checkSubProductsById(productRequestData.ProductID, productRequestData.LanguageID))
+                //{
                     ProductSubProductResponse response=obj.getProductSubProductDetailsByID(productRequestData);
                     str = JsonConvert.SerializeObject(response);
-                }
-                else
-                {
-                    ProductDetailsResponce objResponce = obj.getAllProductsByIDs(productRequestData);
-                    str = JsonConvert.SerializeObject(objResponce);
-                }
+                //}
+                //else
+                //{
+                //    ProductDetailsResponce objResponce = obj.getAllProductsByIDs(productRequestData);
+                //    str = JsonConvert.SerializeObject(objResponce);
+                //}
                 WebOperationContext.Current.OutgoingResponse.ContentType = "application/json; charset=utf-8";
                 ms = new MemoryStream(Encoding.UTF8.GetBytes(str));
                 return ms;
@@ -110,19 +110,19 @@ namespace PurityScannerService
         public Stream getProductDetailsByImageKey(ProductDetailsResquest productDetailsRequestData)
         {
             System.IO.StreamWriter file = new System.IO.StreamWriter("C:\\PurityScannerService\\test.txt", true);
-            file.WriteLine("getProductDetailsByImageKey: -Language ID : " + productDetailsRequestData.LanguageID + " Country ID :" + productDetailsRequestData.CountryCode + " ");
+            file.WriteLine("getProductDetailsByImageKey:-Language ID : " + productDetailsRequestData.LanguageID + " Country ID :" + productDetailsRequestData.CountryCode + " ");
             file.Close();
             string str;
-            if (obj.checkSubProductsByImageKey(productDetailsRequestData.ImageKey))
-            {
+            //if (obj.checkSubProductsByImageKey(productDetailsRequestData.ImageKey, productDetailsRequestData.LanguageID))
+            //{
                 ProductSubProductResponse response = obj.getProductSubProductDetailsByImageKey(productDetailsRequestData);
                 str = JsonConvert.SerializeObject(response);
-            }
-            else
-            {
-                ProductDetailsResponce objResponce = obj.getProductDetailsByImageKey(productDetailsRequestData);
-                str = JsonConvert.SerializeObject(objResponce);
-            }
+            //}
+            //else
+            //{
+            //    ProductDetailsResponce objResponce = obj.getProductDetailsByImageKey(productDetailsRequestData);
+            //    str = JsonConvert.SerializeObject(objResponce);
+            //}
             WebOperationContext.Current.OutgoingResponse.ContentType = "application/json; charset=utf-8";
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(str));
             return ms;
@@ -166,6 +166,7 @@ namespace PurityScannerService
                         fileName = "NewImage" + i + ".png";
                         i++;
                     }
+                    
                     //File.Delete(@"" + clientUploadFilePath + "\\" + fileName + "");
                     MemoryStream ms = new MemoryStream(byteImage);
                     Image img = Image.FromStream(ms);

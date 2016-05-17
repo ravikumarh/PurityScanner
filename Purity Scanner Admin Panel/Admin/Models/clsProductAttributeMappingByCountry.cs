@@ -144,18 +144,18 @@ namespace Admin.Models
                 objProdAttriMapping.ListAttribute = lstAttribute;
 
 
-                str = "select product_id,product_name from ProductMaster where is_active=1";
-                DataTable dtProduct = DBobject.SelectData(str);
-                if (dtProduct.Rows.Count > 0)
-                {
-                    for (int i = 0; i < dtProduct.Rows.Count; i++)
-                    {
-                        objProduct = new ProductDetails();
-                        objProduct.ProductID = Convert.ToInt32(dtProduct.Rows[i]["product_id"]);
-                        objProduct.ProductName = Convert.ToString(dtProduct.Rows[i]["product_name"]);
-                        lstProduct.Add(objProduct);
-                    }
-                }
+                //str = "select product_id,product_name from ProductMaster where is_active=1";
+                //DataTable dtProduct = DBobject.SelectData(str);
+                //if (dtProduct.Rows.Count > 0)
+                //{
+                //    for (int i = 0; i < dtProduct.Rows.Count; i++)
+                //    {
+                //        objProduct = new ProductDetails();
+                //        objProduct.ProductID = Convert.ToInt32(dtProduct.Rows[i]["product_id"]);
+                //        objProduct.ProductName = Convert.ToString(dtProduct.Rows[i]["product_name"]);
+                //        lstProduct.Add(objProduct);
+                //    }
+                //}
                 objProdAttriMapping.ListProduct = lstProduct;
 
                 return objProdAttriMapping;
@@ -175,11 +175,13 @@ namespace Admin.Models
                 string str = "";
                 if (prodAttriMappingID > 0)
                 {
-                    str = "Select ProductAttributeCountryMapping.product_attribute_country_mapping_id,ProductAttributeCountryMapping.attribute_id, ProductAttributeCountryMapping.country_code,ProductAttributeCountryMapping.product_id,CountryMaster.country_name, AttributesMaster.attribute_name,ProductMaster.product_name from ProductAttributeCountryMapping INNER JOIN CountryMaster ON ProductAttributeCountryMapping.country_code=CountryMaster.country_code INNER JOIN ProductMaster ON ProductMaster.product_id=ProductAttributeCountryMapping.product_id INNER JOIN AttributesMaster ON AttributesMaster.attribute_id=ProductAttributeCountryMapping.attribute_id WHERE ProductAttributeCountryMapping.is_active=1 and ProductMaster.is_active=1 and AttributesMaster.isActive=1 and CountryMaster.is_active=1 and ProductAttributeCountryMapping.product_attribute_country_mapping_id=" + prodAttriMappingID + " Order by CountryMaster.country_name,ProductMaster.product_name,AttributesMaster.attribute_name";
+                    //str = "Select ProductAttributeCountryMapping.product_attribute_country_mapping_id,ProductAttributeCountryMapping.attribute_id, ProductAttributeCountryMapping.country_code,ProductAttributeCountryMapping.product_id,CountryMaster.country_name, AttributesMaster.attribute_name,ProductMaster.product_name from ProductAttributeCountryMapping INNER JOIN CountryMaster ON ProductAttributeCountryMapping.country_code=CountryMaster.country_code INNER JOIN ProductMaster ON ProductMaster.product_id=ProductAttributeCountryMapping.product_id INNER JOIN AttributesMaster ON AttributesMaster.attribute_id=ProductAttributeCountryMapping.attribute_id WHERE ProductAttributeCountryMapping.is_active=1 and ProductMaster.is_active=1 and AttributesMaster.isActive=1 and CountryMaster.is_active=1 and ProductAttributeCountryMapping.product_attribute_country_mapping_id=" + prodAttriMappingID + " Order by CountryMaster.country_name,ProductMaster.product_name,AttributesMaster.attribute_name";
+                    str = "Select ProductAttributeCountryMapping.product_attribute_country_mapping_id,ProductAttributeCountryMapping.attribute_id,ProductAttributeCountryMapping.country_code,CountryMaster.country_name, AttributesMaster.attribute_name from ProductAttributeCountryMapping INNER JOIN CountryMaster ON ProductAttributeCountryMapping.country_code=CountryMaster.country_code INNER JOIN AttributesMaster ON AttributesMaster.attribute_id=ProductAttributeCountryMapping.attribute_id WHERE ProductAttributeCountryMapping.is_active=1  and AttributesMaster.isActive=1  and CountryMaster.is_active=1 and ProductAttributeCountryMapping.product_attribute_country_mapping_id=" + prodAttriMappingID + " Order by CountryMaster.country_name,AttributesMaster.attribute_name";
                 }
                 else
                 {
-                    str = "Select ProductAttributeCountryMapping.product_attribute_country_mapping_id,ProductAttributeCountryMapping.attribute_id, ProductAttributeCountryMapping.country_code,ProductAttributeCountryMapping.product_id,CountryMaster.country_name, AttributesMaster.attribute_name,ProductMaster.product_name from ProductAttributeCountryMapping INNER JOIN CountryMaster ON ProductAttributeCountryMapping.country_code=CountryMaster.country_code INNER JOIN ProductMaster ON ProductMaster.product_id=ProductAttributeCountryMapping.product_id INNER JOIN AttributesMaster ON AttributesMaster.attribute_id=ProductAttributeCountryMapping.attribute_id WHERE ProductAttributeCountryMapping.is_active=1 and ProductMaster.is_active=1 and AttributesMaster.isActive=1 and CountryMaster.is_active=1 Order by CountryMaster.country_name,ProductMaster.product_name,AttributesMaster.attribute_name";
+                   // str = "Select ProductAttributeCountryMapping.product_attribute_country_mapping_id,ProductAttributeCountryMapping.attribute_id, ProductAttributeCountryMapping.country_code,ProductAttributeCountryMapping.product_id,CountryMaster.country_name, AttributesMaster.attribute_name,ProductMaster.product_name from ProductAttributeCountryMapping INNER JOIN CountryMaster ON ProductAttributeCountryMapping.country_code=CountryMaster.country_code INNER JOIN ProductMaster ON ProductMaster.product_id=ProductAttributeCountryMapping.product_id INNER JOIN AttributesMaster ON AttributesMaster.attribute_id=ProductAttributeCountryMapping.attribute_id WHERE ProductAttributeCountryMapping.is_active=1 and ProductMaster.is_active=1 and AttributesMaster.isActive=1 and CountryMaster.is_active=1 Order by CountryMaster.country_name,ProductMaster.product_name,AttributesMaster.attribute_name";
+                    str = "Select ProductAttributeCountryMapping.product_attribute_country_mapping_id,ProductAttributeCountryMapping.attribute_id,ProductAttributeCountryMapping.country_code,CountryMaster.country_name, AttributesMaster.attribute_name from ProductAttributeCountryMapping INNER JOIN CountryMaster ON ProductAttributeCountryMapping.country_code=CountryMaster.country_code INNER JOIN AttributesMaster ON AttributesMaster.attribute_id=ProductAttributeCountryMapping.attribute_id WHERE ProductAttributeCountryMapping.is_active=1  and AttributesMaster.isActive=1  and CountryMaster.is_active=1 Order by CountryMaster.country_name,AttributesMaster.attribute_name";
                 }
                 DataTable dtProdAttriMapping = DBobject.SelectData(str);
                 if (dtProdAttriMapping.Rows.Count > 0)
@@ -194,27 +196,30 @@ namespace Admin.Models
             }
         }
 
-        public List<clsProductAttributeMappingByCountry> getAllProdAttriMappingByCountryIDProductID(int ProductId, string countryCode)
+        public List<clsProductAttributeMappingByCountry> getAllProdAttriMappingByCountryIDProductID(string countryCode)
         {
             List<clsProductAttributeMappingByCountry> lstProdAttriMapping = new List<clsProductAttributeMappingByCountry>();
             try
             {
                 string str = "";
-                if (ProductId > 0 && !string.IsNullOrEmpty(countryCode))
+                //if (ProductId > 0 && !string.IsNullOrEmpty(countryCode))
+                //{
+                //    str = "Select ProductAttributeCountryMapping.product_attribute_country_mapping_id,ProductAttributeCountryMapping.attribute_id, ProductAttributeCountryMapping.country_code,ProductAttributeCountryMapping.product_id,CountryMaster.country_name, AttributesMaster.attribute_name,ProductMaster.product_name from ProductAttributeCountryMapping INNER JOIN CountryMaster ON ProductAttributeCountryMapping.country_code=CountryMaster.country_code INNER JOIN ProductMaster ON ProductMaster.product_id=ProductAttributeCountryMapping.product_id INNER JOIN AttributesMaster ON AttributesMaster.attribute_id=ProductAttributeCountryMapping.attribute_id WHERE ProductAttributeCountryMapping.is_active=1 and ProductMaster.is_active=1 and AttributesMaster.isActive=1 and CountryMaster.is_active=1 and  ProductMaster.product_id=" + ProductId + " and CountryMaster.country_code='" + countryCode.Trim() + "' Order by CountryMaster.country_name,ProductMaster.product_name,AttributesMaster.attribute_name";
+                //}
+                //else if (ProductId > 0 && string.IsNullOrEmpty(countryCode))
+                //{
+                //    str = "Select ProductAttributeCountryMapping.product_attribute_country_mapping_id,ProductAttributeCountryMapping.attribute_id, ProductAttributeCountryMapping.country_code,ProductAttributeCountryMapping.product_id,CountryMaster.country_name, AttributesMaster.attribute_name,ProductMaster.product_name from ProductAttributeCountryMapping INNER JOIN CountryMaster ON ProductAttributeCountryMapping.country_code=CountryMaster.country_code INNER JOIN ProductMaster ON ProductMaster.product_id=ProductAttributeCountryMapping.product_id INNER JOIN AttributesMaster ON AttributesMaster.attribute_id=ProductAttributeCountryMapping.attribute_id WHERE ProductAttributeCountryMapping.is_active=1 and ProductMaster.is_active=1 and AttributesMaster.isActive=1 and CountryMaster.is_active=1 and  ProductMaster.product_id=" + ProductId + "  Order by CountryMaster.country_name,ProductMaster.product_name,AttributesMaster.attribute_name";
+                //}
+                //else 
+                if (!string.IsNullOrEmpty(countryCode))
                 {
-                    str = "Select ProductAttributeCountryMapping.product_attribute_country_mapping_id,ProductAttributeCountryMapping.attribute_id, ProductAttributeCountryMapping.country_code,ProductAttributeCountryMapping.product_id,CountryMaster.country_name, AttributesMaster.attribute_name,ProductMaster.product_name from ProductAttributeCountryMapping INNER JOIN CountryMaster ON ProductAttributeCountryMapping.country_code=CountryMaster.country_code INNER JOIN ProductMaster ON ProductMaster.product_id=ProductAttributeCountryMapping.product_id INNER JOIN AttributesMaster ON AttributesMaster.attribute_id=ProductAttributeCountryMapping.attribute_id WHERE ProductAttributeCountryMapping.is_active=1 and ProductMaster.is_active=1 and AttributesMaster.isActive=1 and CountryMaster.is_active=1 and  ProductMaster.product_id=" + ProductId + " and CountryMaster.country_code='" + countryCode.Trim() + "' Order by CountryMaster.country_name,ProductMaster.product_name,AttributesMaster.attribute_name";
-                }
-                else if (ProductId > 0 && string.IsNullOrEmpty(countryCode))
-                {
-                    str = "Select ProductAttributeCountryMapping.product_attribute_country_mapping_id,ProductAttributeCountryMapping.attribute_id, ProductAttributeCountryMapping.country_code,ProductAttributeCountryMapping.product_id,CountryMaster.country_name, AttributesMaster.attribute_name,ProductMaster.product_name from ProductAttributeCountryMapping INNER JOIN CountryMaster ON ProductAttributeCountryMapping.country_code=CountryMaster.country_code INNER JOIN ProductMaster ON ProductMaster.product_id=ProductAttributeCountryMapping.product_id INNER JOIN AttributesMaster ON AttributesMaster.attribute_id=ProductAttributeCountryMapping.attribute_id WHERE ProductAttributeCountryMapping.is_active=1 and ProductMaster.is_active=1 and AttributesMaster.isActive=1 and CountryMaster.is_active=1 and  ProductMaster.product_id=" + ProductId + "  Order by CountryMaster.country_name,ProductMaster.product_name,AttributesMaster.attribute_name";
-                }
-                else if (ProductId <= 0 && !string.IsNullOrEmpty(countryCode))
-                {
-                    str = "Select ProductAttributeCountryMapping.product_attribute_country_mapping_id,ProductAttributeCountryMapping.attribute_id, ProductAttributeCountryMapping.country_code,ProductAttributeCountryMapping.product_id,CountryMaster.country_name, AttributesMaster.attribute_name,ProductMaster.product_name from ProductAttributeCountryMapping INNER JOIN CountryMaster ON ProductAttributeCountryMapping.country_code=CountryMaster.country_code INNER JOIN ProductMaster ON ProductMaster.product_id=ProductAttributeCountryMapping.product_id INNER JOIN AttributesMaster ON AttributesMaster.attribute_id=ProductAttributeCountryMapping.attribute_id WHERE ProductAttributeCountryMapping.is_active=1 and ProductMaster.is_active=1 and AttributesMaster.isActive=1 and CountryMaster.is_active=1 and CountryMaster.country_code='" + countryCode.Trim() + "' Order by CountryMaster.country_name,ProductMaster.product_name,AttributesMaster.attribute_name";
+                    //str = "Select ProductAttributeCountryMapping.product_attribute_country_mapping_id,ProductAttributeCountryMapping.attribute_id, ProductAttributeCountryMapping.country_code,ProductAttributeCountryMapping.product_id,CountryMaster.country_name, AttributesMaster.attribute_name,ProductMaster.product_name from ProductAttributeCountryMapping INNER JOIN CountryMaster ON ProductAttributeCountryMapping.country_code=CountryMaster.country_code INNER JOIN ProductMaster ON ProductMaster.product_id=ProductAttributeCountryMapping.product_id INNER JOIN AttributesMaster ON AttributesMaster.attribute_id=ProductAttributeCountryMapping.attribute_id WHERE ProductAttributeCountryMapping.is_active=1 and ProductMaster.is_active=1 and AttributesMaster.isActive=1 and CountryMaster.is_active=1 and CountryMaster.country_code='" + countryCode.Trim() + "' Order by CountryMaster.country_name,ProductMaster.product_name,AttributesMaster.attribute_name";
+                    str = "Select  ProductAttributeCountryMapping.product_attribute_country_mapping_id,ProductAttributeCountryMapping.attribute_id, ProductAttributeCountryMapping.country_code,CountryMaster.country_name, AttributesMaster.attribute_name from ProductAttributeCountryMapping INNER JOIN CountryMaster ON ProductAttributeCountryMapping.country_code=CountryMaster.country_code INNER JOIN AttributesMaster ON AttributesMaster.attribute_id=ProductAttributeCountryMapping.attribute_id WHERE ProductAttributeCountryMapping.is_active=1 and  AttributesMaster.isActive=1 and CountryMaster.is_active=1 and CountryMaster.country_code='" + countryCode.Trim() + "' Order by CountryMaster.country_name,AttributesMaster.attribute_name ";
                 }
                 else
                 {
-                    str = "Select ProductAttributeCountryMapping.product_attribute_country_mapping_id,ProductAttributeCountryMapping.attribute_id, ProductAttributeCountryMapping.country_code,ProductAttributeCountryMapping.product_id,CountryMaster.country_name, AttributesMaster.attribute_name,ProductMaster.product_name from ProductAttributeCountryMapping INNER JOIN CountryMaster ON ProductAttributeCountryMapping.country_code=CountryMaster.country_code INNER JOIN ProductMaster ON ProductMaster.product_id=ProductAttributeCountryMapping.product_id INNER JOIN AttributesMaster ON AttributesMaster.attribute_id=ProductAttributeCountryMapping.attribute_id WHERE ProductAttributeCountryMapping.is_active=1 and ProductMaster.is_active=1 and AttributesMaster.isActive=1 and CountryMaster.is_active=1 Order by CountryMaster.country_name,ProductMaster.product_name,AttributesMaster.attribute_name";
+                   // str = "Select ProductAttributeCountryMapping.product_attribute_country_mapping_id,ProductAttributeCountryMapping.attribute_id, ProductAttributeCountryMapping.country_code,ProductAttributeCountryMapping.product_id,CountryMaster.country_name, AttributesMaster.attribute_name,ProductMaster.product_name from ProductAttributeCountryMapping INNER JOIN CountryMaster ON ProductAttributeCountryMapping.country_code=CountryMaster.country_code INNER JOIN ProductMaster ON ProductMaster.product_id=ProductAttributeCountryMapping.product_id INNER JOIN AttributesMaster ON AttributesMaster.attribute_id=ProductAttributeCountryMapping.attribute_id WHERE ProductAttributeCountryMapping.is_active=1 and ProductMaster.is_active=1 and AttributesMaster.isActive=1 and CountryMaster.is_active=1 Order by CountryMaster.country_name,ProductMaster.product_name,AttributesMaster.attribute_name";
+                    str = "Select  ProductAttributeCountryMapping.product_attribute_country_mapping_id,ProductAttributeCountryMapping.attribute_id, ProductAttributeCountryMapping.country_code,CountryMaster.country_name, AttributesMaster.attribute_name from ProductAttributeCountryMapping INNER JOIN CountryMaster ON ProductAttributeCountryMapping.country_code=CountryMaster.country_code INNER JOIN AttributesMaster ON AttributesMaster.attribute_id=ProductAttributeCountryMapping.attribute_id WHERE ProductAttributeCountryMapping.is_active=1 and  AttributesMaster.isActive=1 and CountryMaster.is_active=1 Order by CountryMaster.country_name,AttributesMaster.attribute_name";
                 }
                 DataTable dtProdAttriMapping = DBobject.SelectData(str);
                 if (dtProdAttriMapping.Rows.Count > 0)
@@ -245,8 +250,8 @@ namespace Admin.Models
                         tmpObj.ProductAttributeCountryMappingID = Convert.ToInt32(dt.Rows[i]["product_attribute_country_mapping_id"]);
                         tmpObj.AttributeID = Convert.ToInt32(dt.Rows[i]["attribute_id"]);
                         tmpObj.AttributeName = Convert.ToString(dt.Rows[i]["attribute_name"]);
-                        tmpObj.ProductID = Convert.ToInt32(dt.Rows[i]["product_id"]);
-                        tmpObj.ProductName = Convert.ToString(dt.Rows[i]["product_name"]);
+                        //tmpObj.ProductID = Convert.ToInt32(dt.Rows[i]["product_id"]);
+                        //tmpObj.ProductName = Convert.ToString(dt.Rows[i]["product_name"]);
                         tmpObj.CountryCode = Convert.ToString(dt.Rows[i]["country_code"]);
                         tmpObj.CountryName = Convert.ToString(dt.Rows[i]["country_name"]);
 
@@ -278,7 +283,7 @@ namespace Admin.Models
         {
             try
             {
-                string str = "update ProductAttributeCountryMapping set product_id=" + obj.ProductID + " , attribute_id=" + obj.AttributeID + ",country_code='" + obj.CountryCode + "' where product_attribute_country_mapping_id=" + obj.ProductAttributeCountryMappingID + "";
+                string str = "update ProductAttributeCountryMapping set attribute_id=" + obj.AttributeID + ",country_code='" + obj.CountryCode + "' where product_attribute_country_mapping_id=" + obj.ProductAttributeCountryMappingID + "";
                 return DBobject.IUD_Data(str);
             }
             catch (Exception ee)
@@ -291,21 +296,21 @@ namespace Admin.Models
         {
             try
             {
-                string str = "select * from [dbo].[ProductAttributeCountryMapping] where product_id=" + obj.ProductID + " and attribute_id=" + obj.AttributeID + " and country_code='" + obj.CountryCode + "'";
+                string str = "select * from [dbo].[ProductAttributeCountryMapping] where attribute_id=" + obj.AttributeID + " and country_code='" + obj.CountryCode + "'";
                 DataTable dtProdAttriMapping = DBobject.SelectData(str);
                 if (dtProdAttriMapping.Rows.Count <= 0)
                 {
 
-                    str = "insert into [dbo].[ProductAttributeCountryMapping](product_id,attribute_id,country_code,is_active)values(" + obj.ProductID + "," + obj.AttributeID + ",'" + obj.CountryCode + "',1)";
+                    str = "insert into [dbo].[ProductAttributeCountryMapping](attribute_id,country_code,is_active)values(" + obj.AttributeID + ",'" + obj.CountryCode + "',1)";
                     return DBobject.IUD_Data(str);
                 }
                 else
                 {
-                    str = "select * from [dbo].[ProductAttributeCountryMapping] where product_id=" + obj.ProductID + " and attribute_id=" + obj.AttributeID + " and country_code='" + obj.CountryCode + "' and is_active=0";
+                    str = "select * from [dbo].[ProductAttributeCountryMapping] where  attribute_id=" + obj.AttributeID + " and country_code='" + obj.CountryCode + "' and is_active=0";
                     dtProdAttriMapping = DBobject.SelectData(str);
                     if (dtProdAttriMapping.Rows.Count > 0)
                     {
-                        str = "update ProductAttributeCountryMapping set product_id=" + obj.ProductID + " , attribute_id=" + obj.AttributeID + ",country_code='" + obj.CountryCode + "', is_active=1 where product_attribute_country_mapping_id=" + Convert.ToInt32(dtProdAttriMapping.Rows[0]["product_attribute_country_mapping_id"]) + "";
+                        str = "update ProductAttributeCountryMapping set  attribute_id=" + obj.AttributeID + ",country_code='" + obj.CountryCode + "', is_active=1 where product_attribute_country_mapping_id=" + Convert.ToInt32(dtProdAttriMapping.Rows[0]["product_attribute_country_mapping_id"]) + "";
                         return DBobject.IUD_Data(str);
                     }
                     else

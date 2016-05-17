@@ -20,5 +20,7 @@ namespace Admin.Models
             get { return product_name; }
             set { product_name = value; }
         }
+
+        public string SubProductName { get; set; }
     }
 }

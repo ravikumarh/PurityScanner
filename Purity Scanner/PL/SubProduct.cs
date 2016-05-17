@@ -10,6 +10,7 @@ namespace PL
     {
       int subProductId;
       string title;
+      string subProductImageUrl;
       List<AttributeValue> attributeValueData;
 
       public int SubProductId
@@ -22,6 +23,12 @@ namespace PL
       {
           get { return title; }
           set { title = value; }
+      }
+
+      public string SubProductImageUrl
+      {
+          get { return subProductImageUrl; }
+          set { subProductImageUrl = value; }
       }
 
       public List<AttributeValue> AttributeValueData
